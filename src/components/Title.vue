@@ -32,7 +32,6 @@ export default {
     padding: 29px 30px 13px 30px;
     background-color: var(--colorBox);
     margin-bottom: 20px;
-    box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
     border-radius: var(--radius);
 }
 

@@ -6,10 +6,12 @@
     --background: #1f1d2d;
     --colorBox: #28273f;
     --colorBox2: #222136;
+    --colorModal: #28273fe0;
     --blanco: #9999a4;
     --blanco2: #dcdcdc;
-    --morado: #752e71;
-    --morado2: #883174c2;
+    --blanco3: #696969;
+    /* --morado: #752e71;
+    --morado2: #883174c2; */
     --font:'Roboto', sans-serif;
     --lines: #ff0522bf;
     --lines2: #ff0522;
@@ -58,7 +60,7 @@ h1, h2{
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 1em;
-    color: var(--blanco);
+    color: var(--blanco2);
 }
 
 h3, h4, h5, h6 {
@@ -177,7 +179,6 @@ li{list-style: none;}
     padding: 20px 30px 30px 30px;
     background-color: var(--colorBox);
     margin-bottom: 20px;
-    box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
     border-radius: var(--radius);
 }
 
@@ -192,7 +193,6 @@ li{list-style: none;}
     padding: 20px 30px 5px 30px;
     background-color: var(--colorBox);
     margin-bottom: 20px;
-    box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
     border-radius: var(--radius);
 }
 

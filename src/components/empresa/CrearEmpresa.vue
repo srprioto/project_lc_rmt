@@ -33,6 +33,11 @@
                 </div>
 
                 <div class="input">
+                    <label for="">Giro postal</label>
+                    <input type="text" v-model="dataForm.turn">
+                </div>
+
+                <div class="input">
                     <label for="">Propietario</label>
                     <input type="number" v-model="dataForm.owner">
                 </div>
@@ -45,15 +50,13 @@
                     </select>
                 </div> -->
 
-                <div class="input">
-                    <label for="">Giro postal</label>
-                    <input type="text" v-model="dataForm.turn">
-                </div>
 
             </div>
 
-            <div class="input">
-                <button class="button button1" v-on:click="postData">Ok</button>
+            <div class="box-buttons box-buttons3">
+                <div></div>
+                <button class="button button1" v-on:click="postData">Guardar</button>
+                <div></div>
             </div>
             
         </div>
@@ -125,30 +128,7 @@ export default {
             )
             .then( res => {
 
-                // console.log(res.data)
-                // this.dataForm.key = ""
-                // this.businessNewName=""
-                // this.businessNewKey=""
-                // this.businessNewNamePublic=""
-                // this.businessNewRFC=""
-                // this.businessNewFiscalRegime=""
-                // this.businessNewTurn=""
-                // this.businessNewOwner=""
-                // this.business.push(res.data.rol)
-
-                this.dataForm = {
-                    key: "",
-                    name: "",
-                    namePublic: "",
-                    turn: "",
-                    rfc: "",
-                    fiscalRegime: "",
-                    // status: "",
-                    owner: ""
-                }
-
                 this.loading = false;
-
                 this.getData();
 
             })
@@ -156,13 +136,24 @@ export default {
 
                 this.loading = false;
                 this.error = error;
-
                 this.getData();
                 
-            });
+            })
+            .finally( () => {
+
+                this.dataForm.key = "";
+                this.dataForm.name = "";
+                this.dataForm.namePublic = "";
+                this.dataForm.turn = "";
+                this.dataForm.rfc = "";
+                this.dataForm.fiscalRegime = "";
+                this.dataForm.owner = "";
+                
+            })
+            
 
 
-
+            
 
             // try {
             //     await this.axios({

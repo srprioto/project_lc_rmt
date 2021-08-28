@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="logo">
-            <h2><router-link to="/">Liceley CEDI</router-link></h2>
+            <router-link to="/"><h2>Liceley CEDI</h2></router-link>
         </div>
         <div class="menu-header">
             <ul>
@@ -26,7 +26,7 @@
     display: grid;
     grid-template-columns: 18% 82%;
     height: 70px;
-    border-bottom: 1px solid var(--lines);
+    border-bottom: 1px solid var(--lines2);
 }
 
 .header .logo{

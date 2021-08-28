@@ -13,8 +13,10 @@
                     <p>Seguro que quieres borrar <strong>{{ nombreBorrar }}</strong></p>
                 </div>
                 <div class="modal-footer">
-                    <span class="button button3" v-on:Click="handlerDelete">Ok</span>
-                    <span class="button button3" v-on:click="toggleModal">Cancelar</span>
+                    <div class="box-buttons box-buttons2">
+                        <span class="button button1" v-on:Click="handlerDelete">Ok</span>
+                        <span class="button button3" v-on:click="toggleModal">Cancelar</span>
+                    </div>
                 </div>
 
             </div>
@@ -102,7 +104,7 @@ export default {
 }
 
 .background-modal .modal {
-    background-color: var(--morado2);
+    background-color: var(--colorModal);
     text-align: center;
     box-sizing: border-box;
     padding: 30px 25px 40px 25px;
