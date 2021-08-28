@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+    </head>
+    <body>
+
+        <div id="app">
+            <!-- #content# -->
+        </div>
+
+        <script>
+            function dominio(){
+              return '#dominio#'
+            }
+            let url = location.href.split('?')
+            if(url.length > 1) {
+        
+              url = url[1].split('&')
+              let params = {}
+              for (let param of url){
+                param = param.split('=')
+                if(param.length > 1)
+                  localStorage.setItem( param[0] , param[1] )
+                else
+                  localStorage.setItem( param[0] , '' )
+              }
+            }
+            const params = new URLSearchParams(window.location.search)
+              let list = document.querySelectorAll('a')
+              localStorage.setItem('token' , params.get('token'))
+                    Array.from(list).map( node => {
+                        if(node.getAttribute('add-token') !== null) 
+                            node.setAttribute('href', node.getAttribute('href') + '?token=' + params.get('token') )
+              })
+            function token(){
+              return localStorage.getItem('token')
+            }
+        </script>
+
+    </body>
+</html>

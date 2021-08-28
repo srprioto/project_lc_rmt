@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*{margin:0; padding:0;}
+
+:root{
+    --blanco: #d5d5d5;
+    --blanco2: #ffffff6b;
+    --morado: #752e71;
+    --morado2: #883174c2;
+    --font:'Roboto', sans-serif;
+    --azul: #161d31;
+
+
+
+    --blue: #00cfe8;
+    --indigo: #6610f2;
+    --purple: #7367f0;
+    --pink: #e83e8c;
+    --red: #ea5455;
+    --orange: #ff9f43;
+    --yellow: #ffc107;
+    --green: #28c76f;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #b8c2cc;
+    --gray-dark: #1e1e1e;
+    --primary: #7367f0;
+    --secondary: #82868b;
+    --success: #28c76f;
+    --info: #00cfe8;
+    --warning: #ff9f43;
+    --danger: #ea5455;
+    --light: #f6f6f6;
+    --dark: #4b4b4b;
+    --lines: #ffffff3d;
+
+    --shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+    --shadow2: -8px 8px 14px 0 rgb(12 18 27 / 24%);
+}
+
+body{
+    background-image: linear-gradient(315deg, #ff9d7a 0, #ff8f83 10%, #ff8089 20%, #ff718d 30%, #ff628d 40%, #f25389 50%, #d34683 60%, #b63c7d 70%, #9e3678 80%, #883174 90%, #752e71 100%);
+    font-size: 17px;
+    font-family: var(--font);
+    color: #d5d5d5;
+    font-weight: 400;
+    margin: 0;
+    overflow: inherit;
+    max-height: 100vh;
+}
+
+h1, h2{
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: #fff;
+}
+
+h3, h4, h5, h6 {
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    color: #fff;
+}
+
+/* h1{}
+h2{}
+h3{}
+h4{}
+h5{}
+h6{}
+p{}
+a{}  */
+
+img{
+    visibility: visible!important;
+}
+
+/* links */
+a{color:#fff; text-decoration:none;}
+a:hover{color:#000; text-decoration: underline;}
+
+li{list-style: none;}
+
+/* container */
+.container {
+    max-width: 97%;
+    margin: 0 auto;
+    box-sizing: border-box; 
+}
+
+/* buttons */
+
+.box-buttons {
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-buttons2{
+    grid-template-columns: 1fr 1fr;
+}
+
+.box-buttons3{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.box-buttons4{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.box-buttons5{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.button {
+    box-sizing: border-box;
+    padding: 5px 38px;
+    min-width: 150px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.button1{
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+}
+
+.button2{
+    border: 1px solid var(--dark);
+    background-color: var(--dark);
+}
+
+.button3 {
+    border: 1px solid var(--danger);
+    background-color: var(--danger);
+}
+
+.button4{
+    border: 1px solid var(--blanco);
+    background-color: transparent;
+}
+
+.buttonN {
+    background-color: transparent;
+    border: none;
+    color: var(--blanco);
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+
+/* generales */
+
+.box {
+    box-sizing: border-box;
+    padding: 20px 30px 30px 30px;
+    background-color: #8831749c;
+    margin-bottom: 20px;
+    box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+}
+
+.center{
+    text-align: center;
+}
+
+/* titulos */
+
+.box-title{
+    box-sizing: border-box;
+    padding: 20px 30px 5px 30px;
+    background-color: #8831749c;
+    margin-bottom: 20px;
+    box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+}
+
+.box-grid {
+    display: grid;
+    grid-template-columns: 28% 44% 28%;
+}
+
+.box-grid .title-page {
+    display: flex;
+    align-items: center;
+}
+
+.box-grid .title-page h2 {
+    margin: 0 0 10px 0;
+}
+
+/* scroll */
+
+.scroll {
+    overflow-y: scroll;
+    height: calc(100vh - 93px);
+}
+
+.scroll::-webkit-scrollbar {
+    background-color: transparent;
+    width: 9px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #b145cf;
+    border-radius: 4px;
+    transition-delay: 1s;
+}
+
+.scroll:hover::-webkit-scrollbar-thumb,
+.scroll::-webkit-scrollbar-thumb:hover {
+    /* background-color: #a724ff; */
+    transition-delay: 1s;
+}
+
+/* forms */
+
+.form{
+    padding: 0px 20px;
+}
+
+.form .form-box {
+    display: grid;
+    grid-gap: 15px 50px;
+    margin-bottom: 35px;
+}
+
+.form .form-box1{
+    grid-template-columns: 1fr;
+}
+
+.form .form-box2{
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.form .form-box .input label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form .form-box .input input[type="text"]{
+    width: 100%;
+}
+
+.table-list {
+    padding: 10px 0;
+}
+
+/* form input edit */
+
+.form .show-edit {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    box-sizing: border-box;
+    
+}
+
+.form .show-edit label {
+    margin: 0;
+}
+
+.form .show-edit p {
+    margin: 0 10px;
+}
+
+.form .show-edit .box-showEdit {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+input,
+optgroup,
+select,
+textarea{
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid #ffffff3d;
+    padding: 5px 8px;
+    color: var(--blanco);
+    width: 100%;
+}
+
+input::placeholder{
+    color: var(--blanco2);
+}
+
+select option{
+    color: #000;
+}
+
+/* tables */
+
+table.table {
+    width: 100%;
+}
+
+table.table tr{
+    border-bottom: 1px solid var(--lines);
+}
+
+table.table tr th {
+    background-color: #00000026;
+}
+
+table.table tr th, table.table tr td {
+    box-sizing: border-box;
+    padding: 15px 20px;
+}
+
+table.table tr .table-icons {
+    width: 150px;
+    text-align: center;
+}
+
+table.table tr .table-icons img {
+    width: 16px;
+    margin: 0 5px;
+}
+
+
+/* tabs */
+
+.tabs {
+    text-align: center;
+}
+
+.tabs .items {
+    display: inline-block;
+    margin: 0 10px;
+    transition: .3s;
+    width: 110px;
+}
+
+.tabs .items:hover {
+    cursor: pointer;
+}
+
+.tabs .items img {
+    width: 30px;
+}
+
+.tabs .items h6{
+    margin-top: 5px;
+    transform: scale(0.7);
+    transition: .3s;
+}
+
+/* .tabs .items:hover h6, */
+.tabs .tabs-item-active h6{
+    transform: scale(1);
+    transition: .3s;
+}
+
+
+
