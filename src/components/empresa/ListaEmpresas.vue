@@ -44,7 +44,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre publico</th>
-                        <th>Turno</th>
+                        <th>Giro postal</th>
                         <th>RFC</th>
                         <th>Estado</th>
                         <th>Ultima actualizacion</th>

@@ -46,18 +46,14 @@
                 </div> -->
 
                 <div class="input">
-                    <label for="">Turno</label>
-                    <select name="" id="" v-model="dataForm.turn">
-                        <option value="manana">Mañana</option>
-                        <option value="tarde">Tarde</option>
-                        <option value="noche">Noche</option>
-                    </select>
+                    <label for="">Giro postal</label>
+                    <input type="text" v-model="dataForm.turn">
                 </div>
 
             </div>
 
             <div class="input">
-                <button class="button button3" v-on:click="postData">Ok</button>
+                <button class="button button1" v-on:click="postData">Ok</button>
             </div>
             
         </div>

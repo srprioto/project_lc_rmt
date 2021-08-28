@@ -30,9 +30,10 @@ export default {
 .box-title-comp {
     box-sizing: border-box;
     padding: 29px 30px 13px 30px;
-    background-color: #8831749c;
+    background-color: var(--colorBox);
     margin-bottom: 20px;
     box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+    border-radius: var(--radius);
 }
 
 .box-title-comp .box-grid-title {

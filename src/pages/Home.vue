@@ -21,9 +21,13 @@
 
             <span>texto texto</span>
 
-            <div class="button button1">boton1</div>
-            <div class="button button2">boton2</div>
-            <div class="button button3">boton3</div>
+            <div class="box-buttons box-buttons5">
+                <div/>
+                <div class="button button1">boton1</div>
+                <div class="button button2">boton2</div>
+                <div class="button button3">boton3</div>
+                <div/>
+            </div>
 
 
         </div>

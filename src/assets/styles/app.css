@@ -3,15 +3,24 @@
 *{margin:0; padding:0;}
 
 :root{
-    --blanco: #d5d5d5;
-    --blanco2: #ffffff6b;
+    --background: #1f1d2d;
+    --colorBox: #28273f;
+    --colorBox2: #222136;
+    --blanco: #9999a4;
+    --blanco2: #dcdcdc;
     --morado: #752e71;
     --morado2: #883174c2;
     --font:'Roboto', sans-serif;
+    --lines: #ff0522bf;
+    --lines2: #ff0522;
+    --shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+    --shadow2: -8px 8px 14px 0 rgb(12 18 27 / 24%);
+    --radius: 15px;
+    --success: #28c76f;
+    --warning: #ff9f43;
+
+
     --azul: #161d31;
-
-
-
     --blue: #00cfe8;
     --indigo: #6610f2;
     --purple: #7367f0;
@@ -27,23 +36,18 @@
     --gray-dark: #1e1e1e;
     --primary: #7367f0;
     --secondary: #82868b;
-    --success: #28c76f;
     --info: #00cfe8;
-    --warning: #ff9f43;
     --danger: #ea5455;
     --light: #f6f6f6;
     --dark: #4b4b4b;
-    --lines: #ffffff3d;
 
-    --shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
-    --shadow2: -8px 8px 14px 0 rgb(12 18 27 / 24%);
 }
 
 body{
-    background-image: linear-gradient(315deg, #ff9d7a 0, #ff8f83 10%, #ff8089 20%, #ff718d 30%, #ff628d 40%, #f25389 50%, #d34683 60%, #b63c7d 70%, #9e3678 80%, #883174 90%, #752e71 100%);
+    background-color: var(--background);
     font-size: 17px;
     font-family: var(--font);
-    color: #d5d5d5;
+    color: var(--blanco);
     font-weight: 400;
     margin: 0;
     overflow: inherit;
@@ -54,14 +58,14 @@ h1, h2{
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 1em;
-    color: #fff;
+    color: var(--blanco);
 }
 
 h3, h4, h5, h6 {
     font-weight: 400;
     margin-top: 0;
     margin-bottom: .5rem;
-    color: #fff;
+    color: var(--blanco);
 }
 
 /* h1{}
@@ -78,8 +82,8 @@ img{
 }
 
 /* links */
-a{color:#fff; text-decoration:none;}
-a:hover{color:#000; text-decoration: underline;}
+a{color:var(--blanco); text-decoration:none;}
+a:hover{color:var(--blanco2); text-decoration: underline;}
 
 li{list-style: none;}
 
@@ -119,24 +123,35 @@ li{list-style: none;}
     box-sizing: border-box;
     padding: 5px 38px;
     min-width: 150px;
-    border-radius: 10px;
     margin: 10px;
     cursor: pointer;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 15px;
+    text-align: center;
 }
+
+
 
 .button1{
-    border: 1px solid var(--primary);
-    background-color: var(--primary);
+    border-left: 2px solid var(--success);
+    border-right: 2px solid var(--success);
+    background-color: var(--background);
+    color: var(--blanco2);
 }
 
-.button2{
-    border: 1px solid var(--dark);
-    background-color: var(--dark);
+.button2 {
+    border-left: 2px solid var(--warning);
+    border-right: 2px solid var(--warning);
+    background-color: var(--background);
+    color: var(--blanco2);
 }
 
 .button3 {
-    border: 1px solid var(--danger);
-    background-color: var(--danger);
+    border-left: 2px solid var(--lines2);
+    border-right: 2px solid var(--lines2);
+    background-color: var(--background);
+    color: var(--blanco2);
 }
 
 .button4{
@@ -160,9 +175,10 @@ li{list-style: none;}
 .box {
     box-sizing: border-box;
     padding: 20px 30px 30px 30px;
-    background-color: #8831749c;
+    background-color: var(--colorBox);
     margin-bottom: 20px;
     box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+    border-radius: var(--radius);
 }
 
 .center{
@@ -174,9 +190,10 @@ li{list-style: none;}
 .box-title{
     box-sizing: border-box;
     padding: 20px 30px 5px 30px;
-    background-color: #8831749c;
+    background-color: var(--colorBox);
     margin-bottom: 20px;
     box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
+    border-radius: var(--radius);
 }
 
 .box-grid {
@@ -220,7 +237,7 @@ li{list-style: none;}
 /* forms */
 
 .form{
-    padding: 0px 20px;
+    padding: 20px;
 }
 
 .form .form-box {
@@ -275,22 +292,16 @@ li{list-style: none;}
     align-items: center;
 }
 
-
-
-
-input,
-optgroup,
-select,
-textarea{
+input, optgroup, select, textarea {
     font-family: sans-serif;
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
     background-color: transparent;
     border-radius: 10px;
-    border: 2px solid #ffffff3d;
+    border: 2px solid var(--lines);
     padding: 5px 8px;
-    color: var(--blanco);
+    color: var( --blanco);
     width: 100%;
 }
 

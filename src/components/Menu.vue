@@ -70,7 +70,7 @@ export default {
 .menu {
     box-sizing: border-box;
     padding: 60px 20px 20px 20px;
-    background-color: #8831749c;
+    background-color: var(--colorBox2);
     display: inline-block;
 }
 
@@ -84,7 +84,7 @@ export default {
     padding: 5px 20px 5px 23px;
     position: relative;
     display: flex;
-    color: #fff;
+    color: var(--blanco);
     margin: 0 auto;
     border-left: 2px solid transparent;
     align-items: center;
@@ -95,8 +95,10 @@ export default {
 }
 
 .menu ul li .router-link-active.router-link-exact-active {
-    background-color: #ea545559;
-    border-left: 2px solid #ff9b7c;
+    background-color: var(--background);
+    border-left: 2px solid var(--lines);
+    color: var( --blanco2);
+    border-radius: var(--radius);
 }
 
 </style>

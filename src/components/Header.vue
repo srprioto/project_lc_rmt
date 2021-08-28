@@ -22,10 +22,11 @@
 <style>
 
 .header {
-    background-color: #752e7185;
+    background-color: var(--colorBox2);
     display: grid;
     grid-template-columns: 18% 82%;
     height: 70px;
+    border-bottom: 1px solid var(--lines);
 }
 
 .header .logo{

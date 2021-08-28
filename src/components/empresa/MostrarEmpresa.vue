@@ -61,16 +61,12 @@
                     </div>
 
                     <div class="show-edit">
-                        <label for="">Turno</label>
+                        <label for="">Giro postal</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">
                                 {{ dataForm.turn }}
                             </p>
-                            <select v-if="editData" name="" id="" v-model="dataForm.turn">
-                                <option value="manana">Mañana</option>
-                                <option value="tarde">Tarde</option>
-                                <option value="noche">Noche</option>
-                            </select>
+                            <input v-if="editData" type="text" v-model="dataForm.turn">
                         </div>
                     </div>
 
@@ -112,7 +108,7 @@
                     <div />
                     <div>
                         <button v-if="!editData" class="button button1" v-on:click="handlerEdit">Editar</button>
-                        <button v-if="editData" class="button button1" v-on:click="confirmEdit">Confirmar</button>
+                        <button v-if="editData" class="button button2" v-on:click="confirmEdit">Confirmar</button>
                     </div>
                     <div>
                         <button v-if="!editData" class="button button2" v-on:click="regresar">Regresar</button>
