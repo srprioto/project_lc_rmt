@@ -1,6 +1,7 @@
 <template>
     <Layout>
 
+        <!-- plantilla -->
         <div class="box">
             <h1>titulo titulo titulo titulo</h1>
             <h2>titulo titulo titulo titulo</h2>
@@ -29,9 +30,30 @@
                 <div/>
             </div>
 
-
         </div>
 
+        <!-- formulario -->
+        <div class="box">
+            <div class="form">
+                <div class="form-box form-box1">
+                    
+                    <div class="input">
+
+                        <label for="">Prueba de formulario</label>
+                        <input type="text" v-model="formData.nombre">
+                        <h5 v-if="v$.formData.nombre.$error">Requerido</h5>
+
+                    </div>
+
+                    <div class="box-buttons box-buttons5">
+                        <div/><div/>
+                        <button class="button button1" @click="okFun" >Ok</button>
+                        <div/><div/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
     </Layout>
@@ -39,15 +61,47 @@
 
 <script>
 
-    import Layout from '@/components/Layout';
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+import Layout from '@/components/Layout';
 
-    export default {
-        name: 'Home',
-        components: {
-            Layout
+export default {
+    name: 'Home',
+    components: {
+        Layout
+    },
+    setup () {
+        return { v$: useVuelidate() }
+    },
+    data() {
+        return {
+            formData: { 
+                nombre: ""
+            }
         }
-        
-    }
+    },
+    validations () {
+        return {
+            formData: {
+                nombre: { required }
+            }
+        }
+    },
+    methods: {
+
+        async okFun () {
+
+            if (!await this.v$.$validate()) return
+
+            alert("datos enviar");
+
+        }
+
+    },
+
+    
+}
+
 </script>
 
 <style>

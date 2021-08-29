@@ -11,23 +11,22 @@
             <div class="ordenar">
                 <div v-on:click="changeSortOrder" class="pointer">
 
-                    <span class="btnOrder" v-if="sortOrder === -1">
+                    <span class="button button3 btnOrder" v-if="sortOrder === -1">
                         Más reciente
-                        <font-awesome-icon icon="sort-up" />
+                        <font-awesome-icon icon="angle-up" size="lg"/>
                     </span>
-                    <span class="btnOrder" v-else >
+                    <span class="button button3 btnOrder" v-else >
                         Más antiguo
-                        <font-awesome-icon icon="sort-down" />
+                        <font-awesome-icon icon="angle-down" size="lg"/>
                     </span>
 
                 </div>
             </div>
             
-
             <div class="search">
                 <form class="box-search">
 
-                    <input type="text" v-model="buscar" placeholder="Buscar ...">
+                    <input type="text" v-model="buscar" placeholder="Buscar nombre...">
                     
                     <button class="buttonN pointer">
                         <font-awesome-icon icon="genderless" size="2x"/>
@@ -181,12 +180,13 @@ align-items: center;
     width: 100%;
 }
 
-.btnOrder {
+/* .btnOrder {
     box-sizing: border-box;
-    padding: 0 60px;
+    
     display: flex;
-    justify-content: space-evenly;
-}
+    justify-content: space-around;
+    align-items: center;
+} */
 
 </style>
 

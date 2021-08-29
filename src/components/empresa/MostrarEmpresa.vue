@@ -16,7 +16,10 @@
                         <label for="">Key</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.key }}</p>
-                            <input v-if="editData" type="text" v-model="dataForm.key">
+                            <span v-if="editData" >
+                                <input type="text" v-model="dataForm.key">
+                                <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
@@ -24,7 +27,10 @@
                         <label for="">Nombre</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.name }}</p>
-                            <input v-if="editData" type="text" v-model="dataForm.name">
+                            <span v-if="editData">
+                                <input type="text" v-model="dataForm.name">
+                                <h6 v-if="v$.dataForm.name.$error">Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
@@ -32,7 +38,10 @@
                         <label for="">Nombre publico</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.namePublic }}</p>
-                            <input v-if="editData" type="text" v-model="dataForm.namePublic">
+                            <span v-if="editData">
+                                <input type="text" v-model="dataForm.namePublic">
+                                <h6 v-if="v$.dataForm.namePublic.$error">Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
@@ -40,7 +49,10 @@
                         <label for="">RFC</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.rfc }}</p>
-                            <input v-if="editData" type="text" v-model="dataForm.rfc">
+                            <span v-if="editData">
+                                <input type="text" v-model="dataForm.rfc">
+                                <h6 v-if="v$.dataForm.rfc.$error">Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
@@ -48,7 +60,10 @@
                         <label for="">Regimen fiscal</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.fiscalRegime }}</p>
-                            <input v-if="editData" type="text" v-model="dataForm.fiscalRegime">
+                            <span v-if="editData">
+                                <input type="text" v-model="dataForm.fiscalRegime">
+                                <h6 v-if="v$.dataForm.fiscalRegime.$error">Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
@@ -56,49 +71,49 @@
                         <label for="">Propietario</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.owner }}</p>
-                            <input v-if="editData" type="number" v-model="dataForm.owner">
+                            <span v-if="editData">
+                                <input type="number" v-model="dataForm.owner">
+                                <h6 v-if="v$.dataForm.owner.$error">Valor numerico | Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
                     <div class="show-edit">
                         <label for="">Giro postal</label>
                         <div class="box-showEdit">
-                            <p v-if="!editData">
-                                {{ dataForm.turn }}
-                            </p>
-                            <input v-if="editData" type="text" v-model="dataForm.turn">
+                            <p v-if="!editData">{{ dataForm.turn }}</p>
+                            <span v-if="editData">
+                                <input type="text" v-model="dataForm.turn">
+                                <h6 v-if="v$.dataForm.turn.$error">Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
                     <div class="show-edit">
                         <label for="">Estado</label>
                         <div class="box-showEdit">
-                            <p v-if="!editData">
-                                {{ dataForm.status }}
-                            </p>
-                            <select v-if="editData" name="" id="" v-model="dataForm.status">
-                                <option value="true">Activo</option>
-                                <option value="false">Inactivo</option>
-                            </select>
+                            <p v-if="!editData">{{ dataForm.status }}</p>
+                            <span v-if="editData">
+                                <select name="" id="" v-model="dataForm.status">
+                                    <option value="true">Activo</option>
+                                    <option value="false">Inactivo</option>
+                                </select>
+                                <h6 v-if="v$.dataForm.status.$error">Requerido</h6>
+                            </span>
                         </div>
                     </div>
 
                     <div class="show-edit">
                         <label for="">Fecha de creacion</label>
                         <div class="box-showEdit">
-                            <p>
-                                {{ dataForm.createdAt }}
-                            </p>
-
+                            <p>{{ dataForm.createdAt }}</p>
                         </div>
                     </div>
 
                     <div class="show-edit">
                         <label for="">Ultima actualizacion</label>
                         <div class="box-showEdit">
-                            <p>
-                                {{ dataForm.updatedAt }}
-                            </p>
+                            <p>{{ dataForm.updatedAt }}</p>
                         </div>
                     </div>
 
@@ -112,7 +127,7 @@
                     </div>
                     <div>
                         <button v-if="!editData" class="button button2" v-on:click="regresar">Regresar</button>
-                        <button v-if="editData" class="button button3" v-on:click="handlerEdit">Cancelar</button>
+                        <button v-if="editData" class="button button3" v-on:click="regresar">Cancelar</button>
                     </div>
                     <div />
                 </div>
@@ -127,6 +142,9 @@
 </template>
 
 <script>
+
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, numeric } from '@vuelidate/validators'
 import Layout from '@/components/Layout';
 import Title from '@/components/Title';
 
@@ -136,6 +154,9 @@ export default {
     name: 'MostrarEmpresa',
     components:{
         Title, Layout, Loading
+    },
+    setup () {
+        return { v$: useVuelidate() }
     },
     data() {
         return {
@@ -159,7 +180,39 @@ export default {
 
             editData: false
 
+        }
+    },
+    validations () {
+        return {
+            dataForm: {
+                key: { 
+                    required,
+                    minLength: minLength(3)
+                },
+                name: { 
+                    required 
+                },
+                namePublic: { 
+                    required 
+                },
+                turn: { 
+                    required 
+                },
+                rfc: { 
+                    required 
+                },
+                fiscalRegime: { 
+                    required 
+                },
+                owner: { 
+                    required,
+                    numeric
+                },
+                status: { 
+                    required
+                }
 
+            }
         }
     },
     created() {
@@ -186,8 +239,12 @@ export default {
             }
         },
 
-        confirmEdit(){
+        async confirmEdit(){
 
+            // confirmar validaciones 
+            if (!await this.v$.$validate()) return
+            
+            // actualizar datos
             const headers = {
                 'Content-Type': 'application/json'
             }
@@ -212,8 +269,6 @@ export default {
                 this.error = error;
                 this.loading = false;
             })
-
-
 
         },
 

@@ -14,8 +14,14 @@
                 </div>
                 <div class="modal-footer">
                     <div class="box-buttons box-buttons2">
-                        <span class="button button1" v-on:Click="handlerDelete">Ok</span>
-                        <span class="button button3" v-on:click="toggleModal">Cancelar</span>
+                        <span class="button button1" v-on:Click="handlerDelete">
+                            Ok
+                            <font-awesome-icon icon="check" />
+                        </span>
+                        <span class="button button3" v-on:click="toggleModal">
+                            Cancelar
+                            <font-awesome-icon icon="ban" />
+                        </span>
                     </div>
                 </div>
 

@@ -8,37 +8,58 @@
             <div class="form-box form-box2">
 
                 <div class="input">
-                    <label for="">Key</label>
+                    <label for="">
+                        Key
+                        <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
+                    </label>
                     <input type="text" v-model="dataForm.key">
                 </div>
 
                 <div class="input">
-                    <label for="">Nombre</label>
+                    <label for="">
+                        Nombre
+                        <h6 v-if="v$.dataForm.name.$error">Requerido</h6>    
+                    </label>
                     <input type="text" v-model="dataForm.name">
                 </div>
 
                 <div class="input">
-                    <label for="">Nombre publico</label>
+                    <label for="">
+                        Nombre publico
+                        <h6 v-if="v$.dataForm.namePublic.$error">Requerido</h6>
+                    </label>
                     <input type="text" v-model="dataForm.namePublic">
                 </div>
 
                  <div class="input">
-                    <label for="">RFC</label>
+                    <label for="">
+                        RFC
+                        <h6 v-if="v$.dataForm.rfc.$error">Requerido</h6>
+                    </label>
                     <input type="text" v-model="dataForm.rfc">
                 </div>
 
                 <div class="input">
-                    <label for="">Regimen fiscal</label>
+                    <label for="">
+                        Regimen fiscal
+                        <h6 v-if="v$.dataForm.fiscalRegime.$error">Requerido</h6>
+                    </label>
                     <input type="text" v-model="dataForm.fiscalRegime">
                 </div>
 
                 <div class="input">
-                    <label for="">Giro postal</label>
+                    <label for="">
+                        Giro postal
+                        <h6 v-if="v$.dataForm.turn.$error">Requerido</h6>
+                    </label>
                     <input type="text" v-model="dataForm.turn">
                 </div>
 
                 <div class="input">
-                    <label for="">Propietario</label>
+                    <label for="">
+                        Propietario
+                        <h6 v-if="v$.dataForm.owner.$error">Valor numerico | Requerido</h6>
+                    </label>
                     <input type="number" v-model="dataForm.owner">
                 </div>
 
@@ -54,9 +75,12 @@
             </div>
 
             <div class="box-buttons box-buttons3">
-                <div></div>
-                <button class="button button1" v-on:click="postData">Guardar</button>
-                <div></div>
+                <div />
+                <button class="button button1" v-on:click="postData">
+                    Guardar
+                    <font-awesome-icon icon="check" />
+                </button>
+                <div />
             </div>
             
         </div>
@@ -69,6 +93,8 @@
 
 <script>
 
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, numeric } from '@vuelidate/validators'
 import Loading from '@/components/Loading'
 
 export default {
@@ -77,39 +103,76 @@ export default {
     components:{
         Loading
     },
+    setup () {
+        return { v$: useVuelidate() }
+    },
     data() {
         return {
             loading: false,
             error: null,
+            submited: false,
 
             dataForm: {
-                key: "",
-                name: "",
-                namePublic: "",
+                key: null,
+                name: null,
+                namePublic: null,
                 turn: null,
                 rfc: null,
                 fiscalRegime: null,
-                // status: null,
                 owner: null
+            }
+
+        }
+    },
+    validations () {
+        return {
+            dataForm: {
+                key: { 
+                    required,
+                    minLength: minLength(3)
+                },
+                name: { 
+                    required 
+                },
+                namePublic: { 
+                    required 
+                },
+                turn: { 
+                    required 
+                },
+                rfc: { 
+                    required 
+                },
+                fiscalRegime: { 
+                    required 
+                },
+                owner: { 
+                    required,
+                    numeric
+                }
+
             }
         }
     },
 
     created() {
-        // this.postData()
+        
     },
 
     methods: {
 
-        postData(){
+        async postData(){
+            
+            // validaciones
+            if (!await this.v$.$validate()) return
+
+            // envio de datos
 
             const headers = {
                 'Content-Type': 'application/json'
             }
-
             this.loading = true;
             this.error = null;
-
             this.axios.post( 
                 this.url, 
                 {
@@ -148,45 +211,13 @@ export default {
                 this.dataForm.rfc = "";
                 this.dataForm.fiscalRegime = "";
                 this.dataForm.owner = "";
-                
             })
             
 
-
-            
-
-            // try {
-            //     await this.axios({
-            //         method: 'post',
-            //         url: this.url,
-            //         data: this.dataForm,
-            //     });
-
-
-
-                // const { data } = await res;
-
-                // this.data = data.success
-                // this.loading = false;
-
-
-
-            // } catch (error) {
-
-
-                // this.loading = false;
-                // this.error = error
-
-            //     console.log(error);
-                
-            // }
-            
-            
         }
 
-    }
-
-
+    },
+    
 }
 </script>
 

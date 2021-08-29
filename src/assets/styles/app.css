@@ -9,7 +9,7 @@
     --colorModal: #28273fe0;
     --blanco: #9999a4;
     --blanco2: #dcdcdc;
-    --blanco3: #696969;
+    --blanco3: #ffffff45;
     /* --morado: #752e71;
     --morado2: #883174c2; */
     --font:'Roboto', sans-serif;
@@ -96,13 +96,13 @@ li{list-style: none;}
     box-sizing: border-box; 
 }
 
-/* buttons */
+/* contenedor buttons */
 
 .box-buttons {
     display: grid;
     grid-gap: 20px;
     justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .box-buttons2{
@@ -121,6 +121,8 @@ li{list-style: none;}
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
+/* botones */
+
 .button {
     box-sizing: border-box;
     padding: 5px 38px;
@@ -130,10 +132,15 @@ li{list-style: none;}
     border-top: none;
     border-bottom: none;
     border-radius: 15px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
+.button svg,
+.button img {
+    margin-left: 15px;
+}
 
 .button1{
     border-left: 2px solid var(--success);
@@ -254,14 +261,24 @@ li{list-style: none;}
     grid-template-columns: 1fr 1fr;
 }
 
-
 .form .form-box .input label {
-    display: block;
+    display: flex;
     margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .form .form-box .input input[type="text"]{
     width: 100%;
+}
+
+.form .input {
+    position: relative;
+}
+
+.form h6 {
+    margin: 0;
+    color: var(--warning);
 }
 
 .table-list {
@@ -292,6 +309,10 @@ li{list-style: none;}
     align-items: center;
 }
 
+.form .show-edit .box-showEdit span {
+    width: 100%;
+}
+
 input, optgroup, select, textarea {
     font-family: sans-serif;
     font-size: 100%;
@@ -306,7 +327,7 @@ input, optgroup, select, textarea {
 }
 
 input::placeholder{
-    color: var(--blanco2);
+    color: var(--blanco3);
 }
 
 select option{
