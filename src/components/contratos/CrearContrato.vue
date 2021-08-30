@@ -99,8 +99,7 @@ import Loading from '@/components/Loading'
 
 export default {
     name: "CrearEmpresa",
-    props: ["prueba", "getData", "url", "tab", "nameTab"],
-
+    props: ["prueba", "getData", "url"],
     components:{
         Loading
     },
@@ -212,11 +211,6 @@ export default {
                 this.dataForm.rfc = "";
                 this.dataForm.fiscalRegime = "";
                 this.dataForm.owner = "";
-
-                this.tab(this.nameTab);
-
-                toastSuccess();
-
             })
             
 

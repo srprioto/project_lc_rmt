@@ -1,0 +1,50 @@
+.toast {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 155px;
+    right: 30px;
+    background-color: var(--colorModal);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 25px;
+    box-shadow: var(--shadow2);
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s, top 0.2s, visibility 0.2s;
+}
+  
+.toast--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+  
+.toast--success {
+    border-left: 2px solid var(--success);
+    border-right: 2px solid var(--success);
+
+    border-top: 2px solid var(--success);
+    border-bottom: 2px solid var(--success);
+}
+  
+.toast--warning {
+    border-left: 2px solid var(--warning);
+    border-right: 2px solid var(--warning);
+
+    border-top: 2px solid var(--warning);
+    border-bottom: 2px solid var(--warning);
+}
+
+.toast--danger {
+    border-left: 2px solid var(--lines2);
+    border-right: 2px solid var(--lines2);
+
+    border-top: 2px solid var(--lines2);
+    border-bottom: 2px solid var(--lines2);
+}

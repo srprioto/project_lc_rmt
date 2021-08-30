@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import '@/assets/styles/bootstrap_reboot.css';
 import '@/assets/styles/app.css';
+// import '@/assets/icons/icons/demo.css';
 import router from "@/router";
 import axios from 'axios'
 import VueAxios from 'vue-axios'

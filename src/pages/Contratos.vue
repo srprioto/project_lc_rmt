@@ -1,6 +1,6 @@
 <template>
     <Layout>
-
+        
         <!-- tabs -->
         <div class="box-title">
             <div class="box-grid">
@@ -16,7 +16,7 @@
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab1 }"
                     >
                         <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
-                        <h6>{{ activeTabName }}</h6>
+                        <h6>{{ tabNames.tab1 }}</h6>
                     </div>
 
                     <div 
@@ -25,39 +25,42 @@
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab2 }"
                     >
                         <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
-                        <h6>{{ activeTabName }}</h6>
+                        <h6>{{ tabNames.tab2 }}</h6>
                     </div>
 
                 </div>
+
+
+
             </div>
         </div>
 
         <!-- componentes de tabs -->
         <div class="" v-if="activeTabName === 'Lista contratos'">
-            <ListaContratos />
+            <ListaContratos :data="data" :loading="loading" :url="url" :getData="getData"/>
         </div>
 
         <div class="" v-if="activeTabName === 'Crear contrato'">
-            <NuevoContrato />
+            <CrearContrato :getData="getData" :url="url" />
         </div>
+
+
 
     </Layout>
 </template>
 
 <script>
     import Layout from '@/components/Layout';
-    import Title from '@/components/Title';
-
+    
     import ListaContratos from '@/components/contratos/ListaContratos';
-    import NuevoContrato from '@/components/contratos/NuevoContrato';
+    import CrearContrato from '@/components/contratos/CrearContrato';
 
     export default {
-        name: "Contratos",
+        name: "Empresas",
         components: {
             Layout,
-            Title,
             ListaContratos,
-            NuevoContrato
+            CrearContrato
         },
         data() {
             return {
@@ -66,16 +69,55 @@
                     tab1: 'Lista contratos',
                     tab2: 'Crear contrato'
                 },
+
+                url: dominio() + "business",
+                data: {},
+                loading: true,
+                error: null,
+
+                dataForms: { },
+
             }
+        },
+        created() {
+
+            // console.log(this.url);
+
+            this.getData();
         },
         methods: {
             handleTabClick(value){
                 this.activeTabName = value;
+                this.getData();
             },
-        },
+
+            async getData() {
+                
+                this.loading = true;
+
+                try {
+                    const res = await this.axios({
+                        method: 'get',
+                        url: this.url,
+                    });
+                    const { data } = await res;
+
+                    this.data = data.success
+                    this.loading = false;
+
+                } catch (error) {
+                    this.loading = false;
+                    this.error = error
+                }
+            },
+
+        }
     }
 </script>
 
 <style>
+
+
+
 
 </style>

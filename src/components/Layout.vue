@@ -2,19 +2,25 @@
     <div class="layout">
         <div class="box-layout">
 
+            <!-- header -->
             <Header></Header>
 
             <div class="body">
 
+                <!-- menu -->
                 <Menu></Menu>
 
                 <div class="main scroll">
+
+                    <!-- cuerpo -->
                     <slot></slot>
                 </div>
 
             </div>
 
         </div>
+
+        <!-- footer -->
         <Footer class="footer"></Footer>
     </div>
 </template>
@@ -31,8 +37,9 @@
             Header,
             Footer,
             Menu
-        }
+        },
     }
+
 </script>
 
 <style>

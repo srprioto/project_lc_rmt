@@ -10,7 +10,11 @@
                     <h2>Alerta!</h2>
                 </div>
                 <div class="modal-body">
-                    <p>Seguro que quieres borrar <strong>{{ nombreBorrar }}</strong></p>
+                    <p>
+                        Seguro que quieres borrar 
+                        <strong v-if="nombreBorrar">{{ nombreBorrar }}</strong>
+                        <span v-else>este elemento</span>
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <div class="box-buttons box-buttons2">
