@@ -4,18 +4,29 @@ const history = createWebHistory();
 import Home from '@/pages/Home';
 import Empleados from '@/pages/Empleados';
 
-
+// empresas
 import Empresas from '@/pages/Empresas';
 import MostrarEmpresa from '@/components/empresa/MostrarEmpresa';
 
+// contratos
+import Contratos from '@/pages/Contratos';
+import MostrarContrato from '@/components/contratos/MostrarContrato';
 
+
+
+
+
+
+// sin terminar de configurar
 
 import Roles from '@/pages/Roles';
 import Error from '@/pages/Error';
 import Paquetes from '@/pages/Paquetes';
 import Rutas from '@/pages/Rutas';
-import Contratos from '@/pages/Contratos';
 import Repartidores from '@/pages/Repartidores';
+
+
+
 
 export default createRouter({
     history,
@@ -36,6 +47,23 @@ export default createRouter({
             component: MostrarEmpresa
         },
 
+        {
+            path: "/contratos",
+            name: "contratos",
+            component: Contratos
+        },
+        {
+            path: "/contratos/:value:url/ok",
+            name: "contratos-show",
+            component: MostrarContrato
+        },
+
+
+
+
+
+
+
 
 
         {
@@ -53,11 +81,7 @@ export default createRouter({
             name: "rutas",
             component: Rutas
         },
-        {
-            path: "/contratos",
-            name: "contratos",
-            component: Contratos
-        },
+
         {
             path: "/repartidores",
             name: "repartidores",

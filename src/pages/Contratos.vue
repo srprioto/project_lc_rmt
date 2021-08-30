@@ -29,19 +29,16 @@
                     </div>
 
                 </div>
-
-
-
             </div>
         </div>
 
         <!-- componentes de tabs -->
-        <div class="" v-if="activeTabName === 'Lista contratos'">
+        <div class="" v-if="activeTabName === tabNames.tab1">
             <ListaContratos :data="data" :loading="loading" :url="url" :getData="getData"/>
         </div>
 
-        <div class="" v-if="activeTabName === 'Crear contrato'">
-            <CrearContrato :getData="getData" :url="url" />
+        <div class="" v-if="activeTabName === tabNames.tab2">
+            <CrearContrato :getData="getData" :url="url" :tab="handleTabClick" :nameTab="tabNames.tab1"/>
         </div>
 
 
@@ -70,7 +67,7 @@
                     tab2: 'Crear contrato'
                 },
 
-                url: dominio() + "business",
+                url: dominio() + "contracts",
                 data: {},
                 loading: true,
                 error: null,
@@ -80,10 +77,8 @@
             }
         },
         created() {
-
-            // console.log(this.url);
-
             this.getData();
+            
         },
         methods: {
             handleTabClick(value){

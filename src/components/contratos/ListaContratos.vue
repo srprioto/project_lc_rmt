@@ -26,7 +26,7 @@
             <div class="search">
                 <form class="box-search">
 
-                    <input type="text" v-model="buscar" placeholder="Buscar nombre...">
+                    <input type="text" v-model="buscar" placeholder="Buscar descripción...">
                     
                     <button class="buttonN pointer">
                         <font-awesome-icon icon="genderless" size="2x"/>
@@ -42,8 +42,8 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Auth</th>
+                        <th>Descripción</th>
+                        <th>Autenticación</th>
                         <th>Tipo</th>
                         <th>Costo</th>
                         <th>Ultima actualizacion</th>
@@ -52,20 +52,20 @@
                 </thead>
 
                 <tbody>
+                    <!-- iterar datos en base a al resultado de datosFiltrados -->
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
-                        <td>{{ item.namePublic }}</td>
-                        <td>{{ item.turn }}</td>
-                        <td>{{ item.rfc }}</td>
-                        <td>{{ item.status }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.auth }}</td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.cost }}</td>
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
-                            
-                            <!-- <img src="./assets/image/icons/editar.svg" alt=""> -->
 
+                            <!-- enviamos id del dato que vamos a mostrar o editar como parametro -->
                             <router-link 
                                 :to="{ 
-                                    name: 'empresas-show', 
+                                    name: 'contratos-show', 
                                     params: { 
                                         value: item.id,
                                         url: url 
@@ -75,13 +75,14 @@
                                 <img src="./assets/image/icons/show.svg" alt="">
                             </router-link>
                             
-                            <span v-on:click="toggleModal(item.id, item.name)" class="pointer">
+                            <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
+                            <!-- tambien se puede enviar solo el id -->
+                            <span v-on:click="toggleModal(item.id)" class="pointer">
                                 <img src="./assets/image/icons/eliminar.svg" alt="">
                             </span>
                         </td>
                     </tr>
                 </tbody>
-                
             </table>
         </div>
     </div>
@@ -96,8 +97,6 @@
         :nombreBorrar="nameBorrar"
         :getData="getData"
     />
-
-    
 
 </template>
 
@@ -125,25 +124,29 @@
             this.getData();
         },
         methods: {
-            toggleModal(idBorrar, nameBorrar){
+            
+            // abrir y cerrar modal de borrado
+            toggleModal(idBorrar, nameBorrar = null){
                 this.modal = !this.modal
                 
                 this.idBorrar = this.modal ? idBorrar : ""
                 this.nameBorrar = this.modal ? nameBorrar : ""
             },
+
+            //cambiar orden de listas
             changeSortOrder(){
                 this.sortOrder = this.sortOrder === 1 ? -1 : 1
-            }
+            },
+
         },
         computed:{
             datosFiltrados(){
                 // comprivacion de orden
                 const altOrder = this.sortOrder === 1 ? -1 : 1
-                
+
                 // buscar dato
                 return this.data.filter(a => (
-                    a.name.toLowerCase().includes(this.buscar.toLowerCase()) ||
-                    a.namePublic.toLowerCase().includes(this.buscar.toLowerCase())
+                    a.description.toLowerCase().includes(this.buscar.toLowerCase())
                 ))
                 // ordenar datos en base al id
                 .sort((a, b) => {

@@ -9,70 +9,74 @@
 
                 <div class="input">
                     <label for="">
-                        Key
-                        <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
+                        Descripción
+                        <h6 v-if="v$.dataForm.description.$error">Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.key">
+                    <input type="text" v-model="dataForm.description">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Nombre
-                        <h6 v-if="v$.dataForm.name.$error">Requerido</h6>    
+                        Autenticación
+                        <h6 v-if="v$.dataForm.auth.$error">Requerido</h6>    
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.auth">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Nombre publico
-                        <h6 v-if="v$.dataForm.namePublic.$error">Requerido</h6>
+                        Tipo
+                        <h6 v-if="v$.dataForm.type.$error">Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.namePublic">
+                    <input type="text" v-model="dataForm.type">
                 </div>
 
                  <div class="input">
                     <label for="">
-                        RFC
-                        <h6 v-if="v$.dataForm.rfc.$error">Requerido</h6>
+                        Costo
+                        <h6 v-if="v$.dataForm.cost.$error">Valor numerico | Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.rfc">
+                    <input type="number" v-model="dataForm.cost">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Regimen fiscal
-                        <h6 v-if="v$.dataForm.fiscalRegime.$error">Requerido</h6>
+                        Precio de envio
+                        <h6 v-if="v$.dataForm.priceDispatch.$error">Valor numerico | Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.fiscalRegime">
+                    <input type="number" v-model="dataForm.priceDispatch">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Giro postal
-                        <h6 v-if="v$.dataForm.turn.$error">Requerido</h6>
+                        Precio por unidad
+                        <h6 v-if="v$.dataForm.priceUnity.$error">Valor numerico | Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.turn">
+                    <input type="number" v-model="dataForm.priceUnity">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Propietario
-                        <h6 v-if="v$.dataForm.owner.$error">Valor numerico | Requerido</h6>
+                        Precio por guía
+                        <h6 v-if="v$.dataForm.priceByGuide.$error">Valor numerico | Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.owner">
+                    <input type="number" v-model="dataForm.priceByGuide">
                 </div>
 
-                <!-- <div class="input">
-                    <label for="">Estado</label>
+                <div class="input">
+                    <label for="">
+                        Estado
+                        <h6 v-if="v$.dataForm.status.$error">Requerido</h6>
+                    </label>
                     <select name="" id="" v-model="dataForm.status">
                         <option value="true">Activo</option>
                         <option value="false">Inactivo</option>
                     </select>
-                </div> -->
-
+                </div>
 
             </div>
+
+
 
             <div class="box-buttons box-buttons3">
                 <div />
@@ -99,7 +103,8 @@ import Loading from '@/components/Loading'
 
 export default {
     name: "CrearEmpresa",
-    props: ["prueba", "getData", "url"],
+    props: ["prueba", "getData", "url", "tab", "nameTab"],
+
     components:{
         Loading
     },
@@ -113,13 +118,14 @@ export default {
             submited: false,
 
             dataForm: {
-                key: null,
-                name: null,
-                namePublic: null,
-                turn: null,
-                rfc: null,
-                fiscalRegime: null,
-                owner: null
+                description: null,
+                auth: null,
+                type: null,
+                cost: null,
+                priceDispatch: null,
+                priceUnity: null,
+                priceByGuide: null,
+                status: null
             }
 
         }
@@ -127,29 +133,36 @@ export default {
     validations () {
         return {
             dataForm: {
-                key: { 
-                    required,
-                    minLength: minLength(3)
+                
+                description: { 
+                    required
                 },
-                name: { 
+                auth: { 
                     required 
                 },
-                namePublic: { 
+                type: { 
                     required 
                 },
-                turn: { 
-                    required 
-                },
-                rfc: { 
-                    required 
-                },
-                fiscalRegime: { 
-                    required 
-                },
-                owner: { 
+                cost: { 
                     required,
                     numeric
+                },
+                priceDispatch: { 
+                    required,
+                    numeric
+                },
+                priceUnity: { 
+                    required,
+                    numeric
+                },
+                priceByGuide: { 
+                    required,
+                    numeric
+                },
+                status: { 
+                    required
                 }
+
 
             }
         }
@@ -176,14 +189,16 @@ export default {
             this.axios.post( 
                 this.url, 
                 {
-                    key: this.dataForm.key,
-                    name: this.dataForm.name,
-                    namePublic: this.dataForm.namePublic,
-                    turn: this.dataForm.turn,
-                    rfc: this.dataForm.rfc,
-                    fiscalRegime: this.dataForm.fiscalRegime,
-                    
-                    owner: this.dataForm.owner ? this.dataForm.owner : 1
+
+                    description: this.dataForm.description,
+                    auth: this.dataForm.auth,
+                    type: this.dataForm.type,
+                    cost: this.dataForm.cost,
+                    priceDispatch: this.dataForm.priceDispatch,
+                    priceUnity: this.dataForm.priceUnity,
+                    priceByGuide: this.dataForm.priceByGuide,
+                    status: this.dataForm.status
+                
                 },
                 { 
                     headers: headers 
@@ -204,13 +219,19 @@ export default {
             })
             .finally( () => {
 
-                this.dataForm.key = "";
-                this.dataForm.name = "";
-                this.dataForm.namePublic = "";
-                this.dataForm.turn = "";
-                this.dataForm.rfc = "";
-                this.dataForm.fiscalRegime = "";
-                this.dataForm.owner = "";
+                this.dataForm.description = "";
+                this.dataForm.auth = "";
+                this.dataForm.type = "";
+                this.dataForm.cost = "";
+                this.dataForm.priceDispatch = "";
+                this.dataForm.priceUnity = "";
+                this.dataForm.priceByGuide = "";
+                this.dataForm.status = "";
+
+                this.tab(this.nameTab);
+
+                toastSuccess();
+
             })
             
 
@@ -224,3 +245,29 @@ export default {
 <style>
 
 </style>
+
+
+
+{
+  "success": "contrato creado",
+  "contracts": {
+    "id": 4,
+    "status": true,
+    "description": "nuevo dato 3",
+    "auth": "nuevo dato 3",
+    "type": "nuevo dato 3",
+    "cost": 1,
+    "priceDispatch": 1,
+    "priceUnity": 1,
+    "priceByGuide": 1,
+    "dateCheck": "2021-08-30T09:25:31.915Z",
+    "updatedAt": "2021-08-30T09:25:31.915Z",
+    "createdAt": "2021-08-30T09:25:31.915Z"
+  }
+}
+
+
+
+
+
+

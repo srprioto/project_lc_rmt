@@ -1,6 +1,7 @@
 <template>
     <Layout>
         
+        <!-- intercambio de nombres mostrar y editar -->
         <Title v-if="!editData" :title="!loading ? `Informacion de ${dataForm.name}` : 'Espere...'" />
         <Title v-if="editData" :title="!loading ? `Editar informacion de ${dataForm.name}` : 'Espere...'" />
             
@@ -103,6 +104,13 @@
                         </div>
                     </div>
 
+
+
+
+
+
+                    
+
                     <div class="show-edit">
                         <label for="">Fecha de creacion</label>
                         <div class="box-showEdit">
@@ -119,6 +127,7 @@
 
                 </div>
 
+                <!-- intercambio de botones mostrar, editar, salir -->
                 <div class="box-buttons box-buttons4">
                     <div />
                     <div>
