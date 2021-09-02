@@ -281,6 +281,8 @@ export default {
                 this.loading = false;
                 history.back();
 
+                toastSuccess("Contrato actualizado");
+
             })
             .catch( error => {
                 // console.log( error )

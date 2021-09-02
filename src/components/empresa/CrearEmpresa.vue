@@ -21,7 +21,7 @@
                         type="text" 
                         v-model="dataForm.owner"
                     >
-                    <p class="center" v-else>{{ idOwner }}</p>
+                    <h2 class="center codigoOwn" v-else>{{ idOwner }}</h2>
                 </div>
             </div>
 
@@ -235,7 +235,7 @@ export default {
 
                 this.tab(this.nameTab);              
 
-                toastSuccess();
+                toastSuccess("Empresa registrada");
 
             })
             
@@ -248,5 +248,9 @@ export default {
 </script>
 
 <style>
+
+.codigoOwn{
+    margin: 0;
+}
 
 </style>

@@ -13,7 +13,8 @@ import Contratos from '@/pages/Contratos';
 import MostrarContrato from '@/components/contratos/MostrarContrato';
 
 
-
+// tikets
+import Tikets from '@/pages/Tikets'
 
 
 
@@ -35,10 +36,10 @@ export default createRouter({
             path: "/",
             name: "home",
             component: Home
-        },
+        },  // ---  ---
 
 
-        {   // empresas
+        {   // --- EMPRESAS ---
             path: "/empresas",
             name: "empresas",
             component: Empresas
@@ -55,7 +56,7 @@ export default createRouter({
         },
         
         
-        { // contratos
+        {   // --- CONTRATOS ---
             path: "/contratos",
             name: "contratos",
             component: Contratos
@@ -67,7 +68,16 @@ export default createRouter({
         },
 
 
-
+        {   // --- TIKETS ---
+            path: "/tikets",
+            name: "tikets",
+            component: Tikets
+        },
+        // {
+        //     path: "/paquetes",
+        //     name: "paquetes",
+        //     component: Paquetes
+        // },
 
 
 

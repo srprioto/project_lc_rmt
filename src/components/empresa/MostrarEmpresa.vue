@@ -14,13 +14,13 @@
                 <div class="form-box form-box1">
 
                     <div class="show-edit">
-                        <label for="">Key</label>
+                        <label for="">Propietario</label>
                         <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.key }}</p>
-                            <span v-if="editData" >
-                                <input type="text" v-model="dataForm.key">
-                                <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
-                            </span>
+                            <p>{{ dataForm.owner }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="number" v-model="dataForm.owner">
+                                <h6 v-if="v$.dataForm.owner.$error">Valor numerico | Requerido</h6>
+                            </span> -->
                         </div>
                     </div>
 
@@ -47,6 +47,17 @@
                     </div>
 
                     <div class="show-edit">
+                        <label for="">Key</label>
+                        <div class="box-showEdit">
+                            <p v-if="!editData">{{ dataForm.key }}</p>
+                            <span v-if="editData" >
+                                <input type="text" v-model="dataForm.key">
+                                <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
                         <label for="">RFC</label>
                         <div class="box-showEdit">
                             <p v-if="!editData">{{ dataForm.rfc }}</p>
@@ -68,16 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="show-edit">
-                        <label for="">Propietario</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.owner }}</p>
-                            <span v-if="editData">
-                                <input type="number" v-model="dataForm.owner">
-                                <h6 v-if="v$.dataForm.owner.$error">Valor numerico | Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
+
 
                     <div class="show-edit">
                         <label for="">Giro postal</label>
@@ -173,7 +175,7 @@ export default {
                 turn: null,
                 rfc: null,
                 fiscalRegime: null,
-                owner: null,
+                // owner: null,
                 status: null
             },
 
@@ -206,10 +208,10 @@ export default {
                 fiscalRegime: { 
                     required 
                 },
-                owner: { 
-                    required,
-                    numeric
-                },
+                // owner: { 
+                //     required,
+                //     numeric
+                // },
                 status: { 
                     required
                 }
@@ -265,11 +267,16 @@ export default {
                 this.loading = false;
                 history.back();
 
+                toastSuccess("Empresa actualizada");
+
             })
             .catch( error => {
                 // console.log( error )
                 this.error = error;
                 this.loading = false;
+            })
+            .finally(() => { 
+                
             })
 
         },

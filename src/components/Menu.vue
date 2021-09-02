@@ -53,6 +53,13 @@
                 </router-link>
             </li>
 
+            <li>
+                <router-link :to="{ name: 'tikets' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Tikets
+                </router-link>
+            </li>
+
         </ul>
     </div>
 </template>

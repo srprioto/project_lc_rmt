@@ -28,16 +28,16 @@ const Toast = {
 };
 
 
-function toastSuccess(){
-    Toast.show("Correcto", "success")
+function toastSuccess(msn){
+    Toast.show(msn, "success")
 }
 
 function toastWarning(){
-    Toast.show("Precaución", "warning")
+    Toast.show(msn, "warning")
 }
 
 function toastDanger(){
-    Toast.show("Peligro", "danger")
+    Toast.show(msn, "danger")
 }
 
 document.addEventListener("DOMContentLoaded", () => Toast.init());

@@ -224,7 +224,7 @@ export default {
 
                 this.tab(this.nameTab);
 
-                toastSuccess();
+                toastSuccess("Contrato registrado");
 
             })
             
