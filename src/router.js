@@ -36,7 +36,9 @@ export default createRouter({
             name: "home",
             component: Home
         },
-        {
+
+
+        {   // empresas
             path: "/empresas",
             name: "empresas",
             component: Empresas
@@ -46,8 +48,14 @@ export default createRouter({
             name: "empresas-show",
             component: MostrarEmpresa
         },
-
         {
+            path: "/empresas/:owner/crear",
+            name: "crear-empresa",
+            component: Empresas
+        },
+        
+        
+        { // contratos
             path: "/contratos",
             name: "contratos",
             component: Contratos

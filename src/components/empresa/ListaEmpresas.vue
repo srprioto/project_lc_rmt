@@ -64,6 +64,7 @@
 
                             <!-- enviamos id del dato que vamos a mostrar o editar como parametro -->
                             <router-link 
+                                class="icon-action"
                                 :to="{ 
                                     name: 'empresas-show', 
                                     params: { 
@@ -72,13 +73,13 @@
                                     } 
                                 }" 
                             >
-                                <img src="./assets/image/icons/show.svg" alt="">
+                                <font-awesome-icon icon="eye" />
                             </router-link>
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
                             <!-- tambien se puede enviar solo el id -->
-                            <span v-on:click="toggleModal(item.id, item.name)" class="pointer">
-                                <img src="./assets/image/icons/eliminar.svg" alt="">
+                            <span v-on:click="toggleModal(item.id, item.name)" class="pointer icon-action">
+                                <font-awesome-icon icon="trash" />
                             </span>
                         </td>
                     </tr>

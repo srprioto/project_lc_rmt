@@ -5,15 +5,27 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 
         <div v-if="!loading" class="form">
-            <div class="form-box form-box2">
 
-                <div class="input">
-                    <label for="">
-                        Key
-                        <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
+            <div class="form-box form-box1">
+                <div>
+                    <label class="box-buttons box-buttons3" for="">
+                        <div />
+                        Codigo del propietario
+                        <h6 v-if="v$.dataForm.owner.$error" class="right">
+                            Necesita un valor numerico | Requerido
+                        </h6>
                     </label>
-                    <input type="text" v-model="dataForm.key">
+                    <input 
+                        class="center" 
+                        v-if="idOwner == null" 
+                        type="text" 
+                        v-model="dataForm.owner"
+                    >
+                    <p class="center" v-else>{{ idOwner }}</p>
                 </div>
+            </div>
+
+            <div class="form-box form-box2">
 
                 <div class="input">
                     <label for="">
@@ -31,10 +43,18 @@
                     <input type="text" v-model="dataForm.namePublic">
                 </div>
 
+                <div class="input">
+                    <label for="">
+                        Key
+                        <h6 v-if="v$.dataForm.key.$error">Min 3 caracteres | Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.key">
+                </div>
+
                  <div class="input">
                     <label for="">
                         RFC
-                        <h6 v-if="v$.dataForm.rfc.$error">Requerido</h6>
+                        <h6 v-if="v$.dataForm.rfc.$error">Min 11 caracteres | Max 13 caracteres | Requerido</h6>
                     </label>
                     <input type="text" v-model="dataForm.rfc">
                 </div>
@@ -55,13 +75,6 @@
                     <input type="text" v-model="dataForm.turn">
                 </div>
 
-                <div class="input">
-                    <label for="">
-                        Propietario
-                        <h6 v-if="v$.dataForm.owner.$error">Valor numerico | Requerido</h6>
-                    </label>
-                    <input type="number" v-model="dataForm.owner">
-                </div>
 
                 <!-- <div class="input">
                     <label for="">Estado</label>
@@ -94,12 +107,12 @@
 <script>
 
 import useVuelidate from '@vuelidate/core'
-import { required, minLength, numeric } from '@vuelidate/validators'
+import { required, minLength, maxLength, numeric } from '@vuelidate/validators'
 import Loading from '@/components/Loading'
 
 export default {
     name: "CrearEmpresa",
-    props: ["prueba", "getData", "url", "tab", "nameTab"],
+    props: ["prueba", "getData", "url", "tab", "nameTab", "idOwner", "clearOwner"],
 
     components:{
         Loading
@@ -122,15 +135,14 @@ export default {
                 fiscalRegime: null,
                 owner: null
             }
-
         }
     },
     validations () {
         return {
             dataForm: {
+                owner: this.idOwner === null ? { required, numeric } : { },
                 key: { 
                     required,
-                    minLength: minLength(3)
                 },
                 name: { 
                     required 
@@ -142,15 +154,14 @@ export default {
                     required 
                 },
                 rfc: { 
-                    required 
+                    required,
+                    minLength: minLength(11),
+                    maxLength: maxLength(13)
                 },
                 fiscalRegime: { 
                     required 
                 },
-                owner: { 
-                    required,
-                    numeric
-                }
+
 
             }
         }
@@ -183,8 +194,8 @@ export default {
                     turn: this.dataForm.turn,
                     rfc: this.dataForm.rfc,
                     fiscalRegime: this.dataForm.fiscalRegime,
-                    
-                    owner: this.dataForm.owner ? this.dataForm.owner : 1
+                    owner: this.idOwner === null ? this.dataForm.owner : this.idOwner
+
                 },
                 { 
                     headers: headers 
@@ -212,8 +223,17 @@ export default {
                 this.dataForm.rfc = "";
                 this.dataForm.fiscalRegime = "";
                 this.dataForm.owner = "";
+                
+                //cambiar a .then
+                this.clearOwner();
 
-                this.tab(this.nameTab);
+                //cambiar a .then
+                this.$router.push({ 
+                    name: 'empresas'
+                })
+
+
+                this.tab(this.nameTab);              
 
                 toastSuccess();
 

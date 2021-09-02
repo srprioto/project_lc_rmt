@@ -193,11 +193,23 @@ li{list-style: none;}
     text-align: center;
 }
 
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.full{
+    width: 100%;
+}
+
 /* titulos */
 
 .box-title{
     box-sizing: border-box;
-    padding: 20px 30px 5px 30px;
+    padding: 18px 30px 4px 30px;
     background-color: var(--colorBox);
     margin-bottom: 20px;
     border-radius: var(--radius);
@@ -358,7 +370,7 @@ table.table tr .table-icons {
     text-align: center;
 }
 
-table.table tr .table-icons img {
+table.table tr .table-icons .icon-action {
     width: 16px;
     margin: 0 5px;
 }
@@ -381,9 +393,9 @@ table.table tr .table-icons img {
     cursor: pointer;
 }
 
-.tabs .items img {
+/* .tabs .items svg {
     width: 30px;
-}
+} */
 
 .tabs .items h6{
     margin-top: 5px;

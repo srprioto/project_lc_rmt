@@ -2,8 +2,8 @@
     <Layout>
         
         <!-- intercambio de nombres mostrar y editar -->
-        <Title v-if="!editData" :title="!loading ? `Informacion de ${dataForm.name}` : 'Espere...'" />
-        <Title v-if="editData" :title="!loading ? `Editar informacion de ${dataForm.name}` : 'Espere...'" />
+        <Title v-if="!editData" :title="!loading ? `Informacion de contrato` : 'Espere...'" />
+        <Title v-if="editData" :title="!loading ? `Editar estado del contrato` : 'Espere...'" />
             
         <div class="box">
 
@@ -12,94 +12,6 @@
 
             <div v-if="!loading" class="form">
                 <div class="form-box form-box1">
-
-                    <div class="show-edit">
-                        <label for="">Descripción</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.description }}</p>
-                            <span v-if="editData" >
-                                <input type="text" v-model="dataForm.description">
-                                <h6 v-if="v$.dataForm.description.$error">Min 3 caracteres | Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Autenticación</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.auth }}</p>
-                            <span v-if="editData">
-                                <input type="text" v-model="dataForm.auth">
-                                <h6 v-if="v$.dataForm.auth.$error">Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Fecha de verificacion</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.dateCheck }}</p>
-                            <span v-if="editData">
-                                <input type="text" v-model="dataForm.dateCheck">
-                                <h6 v-if="v$.dataForm.dateCheck.$error">Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Tipo</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.type }}</p>
-                            <span v-if="editData">
-                                <input type="text" v-model="dataForm.type">
-                                <h6 v-if="v$.dataForm.type.$error">Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Costo</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.cost }}</p>
-                            <span v-if="editData">
-                                <input type="text" v-model="dataForm.cost">
-                                <h6 v-if="v$.dataForm.cost.$error">Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Precio de envio</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.priceDispatch }}</p>
-                            <span v-if="editData">
-                                <input type="number" v-model="dataForm.priceDispatch">
-                                <h6 v-if="v$.dataForm.priceDispatch.$error">Valor numerico | Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Precio por unidad</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.priceUnity }}</p>
-                            <span v-if="editData">
-                                <input type="text" v-model="dataForm.priceUnity">
-                                <h6 v-if="v$.dataForm.priceUnity.$error">Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="show-edit">
-                        <label for="">Precio por guía</label>
-                        <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.priceByGuide }}</p>
-                            <span v-if="editData">
-                                <input type="text" v-model="dataForm.priceByGuide">
-                                <h6 v-if="v$.dataForm.priceByGuide.$error">Requerido</h6>
-                            </span>
-                        </div>
-                    </div>
 
                     <div class="show-edit">
                         <label for="">Estado</label>
@@ -114,6 +26,97 @@
                             </span>
                         </div>
                     </div>
+
+
+                    <div class="show-edit">
+                        <label for="">Descripción</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.description }}</p>
+                            <!-- <span v-if="editData" >
+                                <input type="text" v-model="dataForm.description">
+                                <h6 v-if="v$.dataForm.description.$error">Min 3 caracteres | Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Autenticación</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.auth }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="text" v-model="dataForm.auth">
+                                <h6 v-if="v$.dataForm.auth.$error">Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Fecha de verificacion</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.dateCheck }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="text" v-model="dataForm.dateCheck">
+                                <h6 v-if="v$.dataForm.dateCheck.$error">Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Tipo</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.type }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="text" v-model="dataForm.type">
+                                <h6 v-if="v$.dataForm.type.$error">Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Costo</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.cost }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="text" v-model="dataForm.cost">
+                                <h6 v-if="v$.dataForm.cost.$error">Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Precio de envio</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.priceDispatch }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="number" v-model="dataForm.priceDispatch">
+                                <h6 v-if="v$.dataForm.priceDispatch.$error">Valor numerico | Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Precio por unidad</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.priceUnity }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="text" v-model="dataForm.priceUnity">
+                                <h6 v-if="v$.dataForm.priceUnity.$error">Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div class="show-edit">
+                        <label for="">Precio por guía</label>
+                        <div class="box-showEdit">
+                            <p>{{ dataForm.priceByGuide }}</p>
+                            <!-- <span v-if="editData">
+                                <input type="text" v-model="dataForm.priceByGuide">
+                                <h6 v-if="v$.dataForm.priceByGuide.$error">Requerido</h6>
+                            </span> -->
+                        </div>
+                    </div>
+
+
 
                     <div class="show-edit">
                         <label for="">Fecha de creacion</label>
@@ -178,14 +181,14 @@ export default {
             error: null,
 
             dataForm: {
-                description: "",
-                auth: "",
-                dateCheck: "",
-                type: null,
-                cost: null,
-                priceDispatch: null,
-                priceUnity: null,
-                priceByGuide: null,
+                // description: null,
+                // auth: null,
+                // dateCheck: null,
+                // type: null,
+                // cost: null,
+                // priceDispatch: null,
+                // priceUnity: null,
+                // priceByGuide: null,
                 status: null
             },
 
@@ -199,30 +202,30 @@ export default {
     validations () {
         return {
             dataForm: {
-                description: { 
-                    required
-                },
-                auth: { 
-                    required 
-                },
-                dateCheck: { 
-                    required 
-                },
-                type: { 
-                    required 
-                },
-                cost: { 
-                    required 
-                },
-                priceDispatch: { 
-                    required 
-                },
-                priceUnity: { 
-                    required
-                },
-                priceByGuide: { 
-                    required
-                },
+                // description: { 
+                //     required
+                // },
+                // auth: { 
+                //     required 
+                // },
+                // dateCheck: { 
+                //     required 
+                // },
+                // type: { 
+                //     required 
+                // },
+                // cost: { 
+                //     required 
+                // },
+                // priceDispatch: { 
+                //     required 
+                // },
+                // priceUnity: { 
+                //     required
+                // },
+                // priceByGuide: { 
+                //     required
+                // },
                 status: { 
                     required
                 }

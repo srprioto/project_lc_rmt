@@ -45,7 +45,7 @@
                         <th>Descripción</th>
                         <th>Autenticación</th>
                         <th>Tipo</th>
-                        <th>Costo</th>
+                        <th>Estado</th>
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
                     </tr>
@@ -58,12 +58,13 @@
                         <td>{{ item.description }}</td>
                         <td>{{ item.auth }}</td>
                         <td>{{ item.type }}</td>
-                        <td>{{ item.cost }}</td>
+                        <td>{{ item.status }}</td>
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
 
                             <!-- enviamos id del dato que vamos a mostrar o editar como parametro -->
                             <router-link 
+                                class="icon-action"
                                 :to="{ 
                                     name: 'contratos-show', 
                                     params: { 
@@ -72,13 +73,13 @@
                                     } 
                                 }" 
                             >
-                                <img src="./assets/image/icons/show.svg" alt="">
+                                <font-awesome-icon icon="eye" />
                             </router-link>
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
                             <!-- tambien se puede enviar solo el id -->
-                            <span v-on:click="toggleModal(item.id)" class="pointer">
-                                <img src="./assets/image/icons/eliminar.svg" alt="">
+                            <span v-on:click="toggleModal(item.id)" class="pointer icon-action">
+                                <font-awesome-icon icon="trash" />
                             </span>
                         </td>
                     </tr>

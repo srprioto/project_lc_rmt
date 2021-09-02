@@ -32,22 +32,52 @@
 
         </div>
 
-        <!-- formulario -->
+        <!-- formulario para el link -->
         <div class="box">
             <div class="form">
                 <div class="form-box form-box1">
                     
                     <div class="input">
 
-                        <label for="">Prueba de formulario</label>
-                        <input type="text" v-model="formData.nombre">
-                        <h5 v-if="v$.formData.nombre.$error">Requerido</h5>
+                        <label for="">Crear empresa</label>
+                        <input type="text" v-model="formData.idOwner">
+                        <h5 v-if="v$.formData.idOwner.$error">
+                            Requerido id de propietario de empresa | Valor numerico
+                        </h5>
 
                     </div>
 
                     <div class="box-buttons box-buttons5">
                         <div/><div/>
-                        <button class="button button1" @click="okFun" >Ok</button>
+
+                        <button
+                            v-if="formData.idOwner === ''"
+                            class="button button1"
+                            @click="okFun(formData.idOwner)"
+                        >
+                            Ok
+                        </button>
+
+                        <button
+                            v-else
+                            class="button button1"
+                            @click="okFun(formData.idOwner)"
+                        >
+                            Ok
+                        </button>
+
+                        <!-- <router-link 
+                            v-else
+                            class="button button1"
+                            @click="okFun(formData.idOwner)"
+                            :to="{ 
+                                name: 'crear-empresa', 
+                                params: { owner: formData.idOwner } 
+                            }" 
+                        >
+                            Ok
+                        </router-link> -->
+
                         <div/><div/>
                     </div>
 
@@ -62,7 +92,7 @@
 <script>
 
 import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
+import { required, numeric } from '@vuelidate/validators'
 import Layout from '@/components/Layout';
 
 export default {
@@ -76,24 +106,27 @@ export default {
     data() {
         return {
             formData: { 
-                nombre: ""
+                idOwner: ""
             }
         }
     },
     validations () {
         return {
             formData: {
-                nombre: { required }
+                idOwner: { required, numeric }
             }
         }
     },
     methods: {
 
-        async okFun () {
+        async okFun (valor) {
 
             if (!await this.v$.$validate()) return
 
-            alert("datos enviar");
+            this.$router.push({ 
+                name: 'crear-empresa', 
+                params: { owner: valor } 
+            })
 
         }
 

@@ -15,7 +15,7 @@
                         v-on:click="handleTabClick(tabNames.tab1)" 
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab1 }"
                     >
-                        <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
+                        <font-awesome-icon icon="list" size="2x" />
                         <h6>{{ tabNames.tab1 }}</h6>
                     </div>
 
@@ -24,7 +24,7 @@
                         v-on:click="handleTabClick(tabNames.tab2)" 
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab2 }"
                     >
-                        <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
+                        <font-awesome-icon icon="plus" size="2x" />
                         <h6>{{ tabNames.tab2 }}</h6>
                     </div>
 

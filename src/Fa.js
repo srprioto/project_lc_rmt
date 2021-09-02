@@ -7,7 +7,12 @@ import {
     faAngleDown,
     faCheck,
     faBan,
-    faPen
+    faPen,
+    faEye,
+    faTrash,
+    faPlus,
+    faList
+
 
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -20,7 +25,12 @@ const icons = {
     faAngleDown,
     faCheck,
     faBan,
-    faPen
+    faPen,
+    faEye,
+    faTrash,
+    faPlus,
+    faList
+
 
 }
 
@@ -29,6 +39,7 @@ export default icons;
 
 // funcionando:
 
-{/* <font-awesome-icon icon="fa-solid fa-pen" /> */}
-
-
+{/* <font-awesome-icon icon="eye" /> */}
+{/* <font-awesome-icon icon="trash" /> */}
+{/* <font-awesome-icon icon="fa-plus" /> */}
+{/* <font-awesome-icon icon="list" /> */}

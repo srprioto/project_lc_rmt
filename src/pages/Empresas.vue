@@ -15,7 +15,7 @@
                         v-on:click="handleTabClick(tabNames.tab1)" 
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab1 }"
                     >
-                        <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
+                        <font-awesome-icon icon="list" size="2x" />
                         <h6>{{ tabNames.tab1 }}</h6>
                     </div>
 
@@ -24,7 +24,7 @@
                         v-on:click="handleTabClick(tabNames.tab2)" 
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab2 }"
                     >
-                        <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
+                        <font-awesome-icon icon="plus" size="2x" />
                         <h6>{{ tabNames.tab2 }}</h6>
                     </div>
 
@@ -38,10 +38,15 @@
         </div>
 
         <div class="" v-if="activeTabName === tabNames.tab2">
-            <CrearEmpresa :getData="getData" :url="url" :tab="handleTabClick" :nameTab="tabNames.tab1"/>
+            <CrearEmpresa 
+                :getData="getData" 
+                :url="url" 
+                :tab="handleTabClick" 
+                :nameTab="tabNames.tab1"
+                :idOwner="idOwner"
+                :clearOwner="clearOwner" 
+            />
         </div>
-
-
 
     </Layout>
 </template>
@@ -61,24 +66,30 @@
         },
         data() {
             return {
-                activeTabName: 'Lista empresas',
-                tabNames: {
-                    tab1: 'Lista empresas',
-                    tab2: 'Crear empresa'
-                },
-
-                url: dominio() + "business",
                 data: {},
                 loading: true,
                 error: null,
 
+                tabNames: {
+                    tab1: 'Lista empresas',
+                    tab2: 'Crear empresa'
+                },
+                activeTabName: 
+                    this.$route.params.owner === undefined || 
+                    this.$route.params.owner === null ? 
+                    'Lista empresas' : 
+                    'Crear empresa',
+
+                url: dominio() + "business",
                 dataForms: { },
+
+                idOwner: this.$route.params.owner ? this.$route.params.owner : null
 
             }
         },
         created() {
             this.getData();
-            
+            // console.log(this.idOwner);
         },
         methods: {
             handleTabClick(value){
@@ -105,6 +116,10 @@
                     this.error = error
                 }
             },
+
+            clearOwner(){
+                this.idOwner = null;
+            }
 
         }
     }

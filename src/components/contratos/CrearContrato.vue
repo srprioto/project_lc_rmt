@@ -63,7 +63,7 @@
                     <input type="number" v-model="dataForm.priceByGuide">
                 </div>
 
-                <div class="input">
+                <!-- <div class="input">
                     <label for="">
                         Estado
                         <h6 v-if="v$.dataForm.status.$error">Requerido</h6>
@@ -72,7 +72,7 @@
                         <option value="true">Activo</option>
                         <option value="false">Inactivo</option>
                     </select>
-                </div>
+                </div> -->
 
             </div>
 
@@ -124,8 +124,7 @@ export default {
                 cost: null,
                 priceDispatch: null,
                 priceUnity: null,
-                priceByGuide: null,
-                status: null
+                priceByGuide: null
             }
 
         }
@@ -158,9 +157,6 @@ export default {
                 priceByGuide: { 
                     required,
                     numeric
-                },
-                status: { 
-                    required
                 }
 
 
@@ -196,8 +192,7 @@ export default {
                     cost: this.dataForm.cost,
                     priceDispatch: this.dataForm.priceDispatch,
                     priceUnity: this.dataForm.priceUnity,
-                    priceByGuide: this.dataForm.priceByGuide,
-                    status: this.dataForm.status
+                    priceByGuide: this.dataForm.priceByGuide
                 
                 },
                 { 
@@ -226,7 +221,6 @@ export default {
                 this.dataForm.priceDispatch = "";
                 this.dataForm.priceUnity = "";
                 this.dataForm.priceByGuide = "";
-                this.dataForm.status = "";
 
                 this.tab(this.nameTab);
 
