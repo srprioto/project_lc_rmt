@@ -54,7 +54,7 @@
             </li>
 
             <li>
-                <router-link :to="{ name: 'tikets' }" >
+                <router-link :to="{ name: 'tickets' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Tikets
                 </router-link>

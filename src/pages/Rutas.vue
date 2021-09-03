@@ -1,24 +1,42 @@
 <template>
     <Layout>
 
-        <Title title="Rutas" />
+        <!-- <Tabs :comp="comps" /> -->
 
     </Layout>
 </template>
 
 <script>
     import Layout from '@/components/Layout';
-    import Title from '@/components/Title';
+    import Tabs from '@/components/Tabs';
+
+    import ListaTickets from '@/components/tickets/ListaTickets'
+    import CrearTicket from '@/components/tickets/CrearTicket'
 
     export default {
         name: "Rutas",
         components: {
             Layout,
-            Title
+            Tabs,
+            CrearTicket,
+            ListaTickets
         },
         data() {
             return {
                 
+                comps: [
+                    {
+                        id: 1,
+                        name: "tab1",
+                        comp: ListaTickets
+                    },
+                    {
+                        id: 2,
+                        name: "tab1",
+                        comp: CrearTicket
+                    }
+                ]
+
             }
         },
     }

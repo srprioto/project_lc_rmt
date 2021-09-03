@@ -43,9 +43,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Descripción</th>
-                        <th>Autenticación</th>
-                        <th>Tipo</th>
                         <th>Estado</th>
+                        <!-- <th>Exito</th>
+                        <th>Tipo</th> -->
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
                     </tr>
@@ -56,25 +56,16 @@
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.auth }}</td>
-                        <td>{{ item.type }}</td>
                         <td>{{ item.status }}</td>
+                        <!-- <td>{{ item.success }}</td>
+                        <td>{{ item.type }}</td> -->
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
 
                             <!-- enviamos id del dato que vamos a mostrar o editar como parametro -->
-                            <router-link 
-                                class="icon-action"
-                                :to="{ 
-                                    name: 'contratos-show', 
-                                    params: { 
-                                        value: item.id,
-                                        url: url 
-                                    } 
-                                }" 
-                            >
+                            <span v-on:click="toggleModalDetails(item)" class="pointer icon-action">
                                 <font-awesome-icon icon="eye" />
-                            </router-link>
+                            </span>
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
                             <!-- tambien se puede enviar solo el id -->
@@ -99,18 +90,26 @@
         :getData="getData"
     />
 
+    <ModalDetails 
+        :modalDetails="modalDetails"
+        :toggleModalDetails="toggleModalDetails"
+        :dataItem="dataItem"
+    />
+
+
 </template>
 
 <script>
 
     import Loading from '@/components/Loading'
     import Modal from '@/components/Modal'
+    import ModalDetails from '@/components/ModalDetails'
 
     export default {
-        name:"ListaContratos",
+        name:"ListaTickets",
         props: ["data", "loading", "url", "getData"],
         components: {
-            Loading, Modal
+            Loading, Modal, ModalDetails
         },
         data() {
             return {
@@ -118,7 +117,10 @@
                 idBorrar: undefined,
                 nameBorrar: "",
                 buscar: "",
-                sortOrder: -1
+                sortOrder: -1,
+
+                modalDetails: false,
+                dataItem: { }
             }
         },
         created() {
@@ -138,6 +140,14 @@
             changeSortOrder(){
                 this.sortOrder = this.sortOrder === 1 ? -1 : 1
             },
+
+            // abrir y cerrar modal de detalles
+            toggleModalDetails(item){
+                this.modalDetails = !this.modalDetails
+                this.dataItem = this.modalDetails ? item : {}
+            }
+
+
 
         },
         computed:{

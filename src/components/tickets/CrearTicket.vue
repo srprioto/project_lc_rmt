@@ -102,7 +102,7 @@ import { required, minLength, numeric } from '@vuelidate/validators'
 import Loading from '@/components/Loading'
 
 export default {
-    name: "CrearContrato",
+    name: "CrearEmpresa",
     props: ["prueba", "getData", "url", "tab", "nameTab"],
 
     components:{

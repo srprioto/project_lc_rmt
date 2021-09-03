@@ -167,7 +167,7 @@ import Title from '@/components/Title';
 import Loading from '@/components/Loading'
 
 export default {
-    name: 'MostrarContrato',
+    name: 'MostrarEmpresa',
     components:{
         Title, Layout, Loading
     },

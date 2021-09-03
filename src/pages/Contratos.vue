@@ -41,8 +41,6 @@
             <CrearContrato :getData="getData" :url="url" :tab="handleTabClick" :nameTab="tabNames.tab1"/>
         </div>
 
-
-
     </Layout>
 </template>
 

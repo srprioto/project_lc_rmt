@@ -14,7 +14,7 @@ import MostrarContrato from '@/components/contratos/MostrarContrato';
 
 
 // tikets
-import Tikets from '@/pages/Tikets'
+import Tickets from '@/pages/Tickets'
 
 
 
@@ -69,9 +69,9 @@ export default createRouter({
 
 
         {   // --- TIKETS ---
-            path: "/tikets",
-            name: "tikets",
-            component: Tikets
+            path: "/tickets",
+            name: "tickets",
+            component: Tickets
         },
         // {
         //     path: "/paquetes",
