@@ -11,7 +11,8 @@ import {
     faEye,
     faTrash,
     faPlus,
-    faList
+    faList,
+    faComment
 
 
 } from '@fortawesome/free-solid-svg-icons'
@@ -29,8 +30,8 @@ const icons = {
     faEye,
     faTrash,
     faPlus,
-    faList
-
+    faList,
+    faComment
 
 }
 
@@ -41,5 +42,7 @@ export default icons;
 
 {/* <font-awesome-icon icon="eye" /> */}
 {/* <font-awesome-icon icon="trash" /> */}
-{/* <font-awesome-icon icon="fa-plus" /> */}
+{/* <font-awesome-icon icon="plus" /> */}
 {/* <font-awesome-icon icon="list" /> */}
+
+{/* <font-awesome-icon icon="comment" /> */}

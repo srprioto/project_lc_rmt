@@ -29,14 +29,17 @@
                 titulo: "Lista Tickets",
 
                 url: dominio() + "tickets",
-                dataForms: { },
 
-                idOwner: this.$route.params.owner ? this.$route.params.owner : null
+                dataForms: { },
+                dataUser: { },
+
+                idOwner: this.$route.params.owner ? this.$route.params.owner : null,
 
             }
         },
         created() {
             this.getData();
+            // this.getUser();
         },
         methods: {
             handleTabClick(value){
@@ -63,6 +66,7 @@
                     this.error = error
                 }
             },
+
 
             clearOwner(){
                 this.idOwner = null;

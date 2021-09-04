@@ -18,20 +18,14 @@
                     <img src="./assets/image/icons/persona.svg" alt="" wnameth="30" height="30">
                     <h6>{{ activeTabName }}</h6>
                 </div>
-
             </div>
-        
-
         </div>
     </div>
 
-
     <div v-for="comp in comps" :key="comp.id">
-
         <div class="" v-if="activeTabName === comp.name">
             <component :is="comp.comp"></component>
         </div>
-
     </div>
 
 </template>

@@ -43,7 +43,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Descripción</th>
-                        <th>Estado</th>
+                        <!-- <th>Usuario</th> -->
                         <!-- <th>Exito</th>
                         <th>Tipo</th> -->
                         <th>Ultima actualizacion</th>
@@ -56,7 +56,7 @@
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.status }}</td>
+                        <!-- <td>{{ item.userId }}</td> -->
                         <!-- <td>{{ item.success }}</td>
                         <td>{{ item.type }}</td> -->
                         <td>{{ item.updatedAt }}</td>
@@ -90,10 +90,13 @@
         :getData="getData"
     />
 
-    <ModalDetails 
+    <ModalTickets 
         :modalDetails="modalDetails"
         :toggleModalDetails="toggleModalDetails"
         :dataItem="dataItem"
+        :url="url"
+        :dataUser="dataUser"
+        :loadingUser="loadingUser"
     />
 
 
@@ -103,16 +106,20 @@
 
     import Loading from '@/components/Loading'
     import Modal from '@/components/Modal'
-    import ModalDetails from '@/components/ModalDetails'
+    import ModalTickets from '@/components/ModalTickets'
 
     export default {
         name:"ListaTickets",
         props: ["data", "loading", "url", "getData"],
         components: {
-            Loading, Modal, ModalDetails
+            Loading, Modal, ModalTickets
         },
         data() {
             return {
+
+                loadingUser: false,
+                error: null,
+
                 modal: false,
                 idBorrar: undefined,
                 nameBorrar: "",
@@ -120,11 +127,15 @@
                 sortOrder: -1,
 
                 modalDetails: false,
-                dataItem: { }
+                dataItem: { },
+
+                dataUser: { }
+
             }
         },
         created() {
             this.getData();
+            // this.getUser();
         },
         methods: {
             
@@ -142,12 +153,32 @@
             },
 
             // abrir y cerrar modal de detalles
-            toggleModalDetails(item){
+            async toggleModalDetails(item){
                 this.modalDetails = !this.modalDetails
                 this.dataItem = this.modalDetails ? item : {}
+
+                this.loadingUser = true;
+
+                try {
+                    const res = await this.axios({
+                        method: 'get',
+                        url: dominio() + "users/" + this.dataItem.userId + "/get?by=id"
+                    });
+                    const { data } = await res;
+
+                    this.dataUser = this.modalDetails ? data.success : {}
+
+                    this.loadingUser = false;
+
+                } catch (error) {
+                    this.loadingUser = false;
+                    this.error = error
+                }
+
+
+
+
             }
-
-
 
         },
         computed:{
@@ -208,4 +239,5 @@ align-items: center;
 } */
 
 </style>
+
 
