@@ -26,7 +26,7 @@
             <div class="search">
                 <form class="box-search">
 
-                    <input type="text" v-model="buscar" placeholder="Buscar descripción...">
+                    <input type="text" v-model="buscar" placeholder="Buscar ticket...">
                     
                     <button class="buttonN pointer">
                         <font-awesome-icon icon="genderless" size="2x"/>
