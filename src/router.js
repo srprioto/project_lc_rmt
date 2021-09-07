@@ -2,7 +2,9 @@ import { createWebHistory, createRouter } from 'vue-router';
 const history = createWebHistory();
 
 import Home from '@/pages/Home';
-import Empleados from '@/pages/Empleados';
+
+// login
+import Login from '@/pages/Login';
 
 // empresas
 import Empresas from '@/pages/Empresas';
@@ -12,15 +14,22 @@ import MostrarEmpresa from '@/components/empresa/MostrarEmpresa';
 import Contratos from '@/pages/Contratos';
 import MostrarContrato from '@/components/contratos/MostrarContrato';
 
-
 // tikets
 import Tickets from '@/pages/Tickets'
+
+// Roles
+import Roles from '@/pages/Roles';
+import MostrarRol from '@/components/roles/MostrarRol';
+
+// empleados
+import Empleados from '@/pages/Empleados';
+import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
 
 
 
 // sin terminar de configurar
 
-import Roles from '@/pages/Roles';
+
 import Error from '@/pages/Error';
 import Paquetes from '@/pages/Paquetes';
 import Rutas from '@/pages/Rutas';
@@ -32,8 +41,15 @@ import Repartidores from '@/pages/Repartidores';
 export default createRouter({
     history,
     routes: [
-        {
+
+        {   // --- LOGIN ---
             path: "/",
+            name: "login",
+            component: Login
+        },  
+
+        {   // --- HOME ---
+            path: "/home",
             name: "home",
             component: Home
         },  // ---  ---
@@ -73,22 +89,36 @@ export default createRouter({
             name: "tickets",
             component: Tickets
         },
-        // {
-        //     path: "/paquetes",
-        //     name: "paquetes",
-        //     component: Paquetes
-        // },
 
 
-
-
-
-
+        {   // --- ROLES ---
+            path: "/roles",
+            name: "roles",
+            component: Roles
+        },
         {
+            path: "/roles/:value:url/ok",
+            name: "roles-show",
+            component: MostrarRol
+        },
+
+
+
+        {   // --- EMPLEADOS ---
             path: "/empleados",
             name: "empleados",
             component: Empleados
         },
+        {
+            path: "/empleados/:value:url/ok",
+            name: "empleados-show",
+            component: MostrarEmpleado
+        },
+
+
+        
+
+
         {
             path: "/paquetes",
             name: "paquetes",

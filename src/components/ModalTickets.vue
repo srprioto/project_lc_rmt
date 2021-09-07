@@ -221,6 +221,7 @@ export default {
     padding: 30px 25px 40px 25px;
     box-shadow: var(--shadow2);
     border-radius: 10px;
+    max-width: 70%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -254,6 +255,10 @@ export default {
     margin-bottom: 25px;
 }
 
+.background-modal .modalDetails .box-modal .datos-user-ticket{
+    cursor: pointer;
+}
+
 .background-modal .modalDetails .box-modal .datos-user-ticket .info-usuario {
     position: absolute;
     /* transition: .2s; */
@@ -264,6 +269,7 @@ export default {
     transform: scaleY(0);
     position: absolute;
     margin: auto;
+    cursor: auto;
 }
 
 .background-modal .modalDetails .box-modal .datos-user-ticket .info-usuario h3 {

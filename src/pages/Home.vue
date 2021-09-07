@@ -85,6 +85,51 @@
             </div>
         </div>
 
+        <div class="box">
+
+            <div class="grid grid-4 form-box">
+
+                <article class="check">
+                    <input type="checkbox"/>
+                    <div class="desc-check">
+                        <span>
+                            Elemento check
+                        </span>
+                    </div>
+                </article>
+
+                <article class="check">
+                    <input type="checkbox"/>
+                    <div class="desc-check">
+                        <span>
+                            Elemento check
+                        </span>
+                    </div>
+                </article>
+
+                <article class="check">
+                    <input type="checkbox"/>
+                    <div class="desc-check">
+                        <span>
+                            Elemento check
+                        </span>
+                    </div>
+                </article>
+
+                <article class="check">
+                    <input type="checkbox"/>
+                    <div class="desc-check">
+                        <span>
+                            Elemento check
+                        </span>
+                    </div>
+                </article>
+
+            </div>
+
+
+        </div>
+
 
     </Layout>
 </template>

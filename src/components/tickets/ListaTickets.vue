@@ -5,7 +5,10 @@
         <div class="box-info">
             <div class="info-list">
                 <h3>Lorem ipsum</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                <p>
+                    Crear un ticket, 
+                    <a href="https://liceley.herokuapp.com/view/menu" target="_blank" rel="noopener noreferrer">click aqui</a>
+                </p>
             </div>
 
             <div class="ordenar">

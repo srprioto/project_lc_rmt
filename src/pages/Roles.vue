@@ -1,6 +1,7 @@
 <template>
     <Layout>
-
+        
+        <!-- tabs -->
         <div class="box-title">
             <div class="box-grid">
                 
@@ -9,14 +10,13 @@
                 </div>
 
                 <div class="tabs">
-
                     <div 
                         class="items" 
                         v-on:click="handleTabClick(tabNames.tab1)" 
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab1 }"
                     >
-                        <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
-                        <h6>{{ activeTabName }}</h6>
+                        <font-awesome-icon icon="list" size="2x" />
+                        <h6>{{ tabNames.tab1 }}</h6>
                     </div>
 
                     <div 
@@ -24,55 +24,87 @@
                         v-on:click="handleTabClick(tabNames.tab2)" 
                         :class="{ 'tabs-item-active': activeTabName === tabNames.tab2 }"
                     >
-                        <img src="./assets/image/icons/persona.svg" alt="" width="30" height="30">
-                        <h6>{{ activeTabName }}</h6>
+                        <font-awesome-icon icon="plus" size="2x" />
+                        <h6>{{ tabNames.tab2 }}</h6>
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <!-- <Lista /> -->
-
-        <div class="" v-if="activeTabName === 'Lista Roles'">
-            <ListaRoles />
+        <!-- componentes de tabs -->
+        <div class="" v-if="activeTabName === tabNames.tab1">
+            <ListaRoles :data="data" :loading="loading" :url="url" :getData="getData"/>
         </div>
 
-        <div class="" v-if="activeTabName === 'Nuevo Rol'">
-            <NuevoRol />
+        <div class="" v-if="activeTabName === tabNames.tab2">
+            <CrearRol :getData="getData" :url="url" :tab="handleTabClick" :nameTab="tabNames.tab1"/>
         </div>
-        
+
     </Layout>
 </template>
 
 <script>
-
     import Layout from '@/components/Layout';
-    import NuevoRol from '@/components/roles/NuevoRol';
+    
     import ListaRoles from '@/components/roles/ListaRoles';
+    import CrearRol from '@/components/roles/CrearRol';
 
     export default {
         name: "Roles",
         components: {
             Layout,
-            NuevoRol,
-            ListaRoles
+            ListaRoles,
+            CrearRol
         },
         data() {
             return {
-                activeTabName: 'Lista Roles',
+                activeTabName: 'Lista roles',
                 tabNames: {
-                    tab1: 'Lista Roles',
-                    tab2: 'Nuevo Rol'
-                }
+                    tab1: 'Lista roles',
+                    tab2: 'Crear rol'
+                },
+
+                url: dominio() + "roles",
+                data: {},
+                loading: true,
+                error: null,
+
+                dataForms: { },
+
             }
+        },
+        created() {
+            this.getData();
+            
         },
         methods: {
             handleTabClick(value){
                 this.activeTabName = value;
-            }
+                this.getData();
+            },
+
+            async getData() {
+                
+                this.loading = true;
+
+                try {
+                    const res = await this.axios({
+                        method: 'get',
+                        url: this.url,
+                    });
+                    const { data } = await res;
+
+                    this.data = data.success
+                    this.loading = false;
+
+                } catch (error) {
+                    this.loading = false;
+                    this.error = error
+                }
+            },
+
         }
-        
     }
 </script>
 

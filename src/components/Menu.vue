@@ -7,44 +7,20 @@
                     Dashboard
                 </router-link>
             </li>
-            <li>
-                <router-link :to="{ name: 'empleados' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Empleados
-                </router-link>
-            </li>
 
-            <li>
-                <router-link :to="{ name: 'paquetes' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Paquetes
-                </router-link>
-            </li>
-            <li>
-                <router-link :to="{ name: 'rutas' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Rutas
-                </router-link>
-            </li>
             <li>
                 <router-link :to="{ name: 'contratos' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Contratos
                 </router-link>
             </li>
+
             <li>
                 <router-link :to="{ name: 'empresas' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Empresas
                 </router-link>
             </li>
-            <li>
-                <router-link :to="{ name: 'repartidores' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Repartidores
-                </router-link>
-            </li>
-
 
             <li>
                 <router-link :to="{ name: 'roles' }" >
@@ -52,6 +28,40 @@
                     Roles
                 </router-link>
             </li>
+
+            <li>
+                <router-link :to="{ name: 'empleados' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Empleados
+                </router-link>
+            </li>
+
+
+
+
+
+            <!-- <li>
+                <router-link :to="{ name: 'paquetes' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Paquetes
+                </router-link>
+            </li>
+
+            <li>
+                <router-link :to="{ name: 'rutas' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Rutas
+                </router-link>
+            </li>
+
+            <li>
+                <router-link :to="{ name: 'repartidores' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Repartidores
+                </router-link>
+            </li> -->
+
+
 
             <li>
                 <router-link :to="{ name: 'tickets' }" >

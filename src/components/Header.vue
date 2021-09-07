@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="logo">
-            <router-link to="/"><h2>Liceley CEDI</h2></router-link>
+            <router-link to="/home"><h2>Liceley CEDI</h2></router-link>
         </div>
         <div class="menu-header">
             <ul>
