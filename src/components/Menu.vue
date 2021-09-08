@@ -42,12 +42,19 @@
                     Vehiculos
                 </router-link>
             </li>
+            
+            <li>
+                <router-link :to="{ name: 'repartidores' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Repartidores
+                </router-link>
+            </li> 
 
 
 
-
-
-            <!-- <li>
+            <!-- 
+            
+            <li>
                 <router-link :to="{ name: 'paquetes' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Paquetes
@@ -61,12 +68,9 @@
                 </router-link>
             </li>
 
-            <li>
-                <router-link :to="{ name: 'repartidores' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Repartidores
-                </router-link>
-            </li> -->
+
+            
+            -->
 
 
 

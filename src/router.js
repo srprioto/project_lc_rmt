@@ -87,11 +87,13 @@ export default createRouter({
         },
 
 
+
         {   // --- TIKETS ---
             path: "/tickets",
             name: "tickets",
             component: Tickets
         },
+
 
 
         {   // --- ROLES ---
@@ -128,6 +130,15 @@ export default createRouter({
 
 
 
+        {   // --- VEHICULOS ---
+            path: "/repartidores",
+            name: "repartidores",
+            component: Repartidores
+        },
+
+
+        
+
         {
             path: "/paquetes",
             name: "paquetes",
@@ -139,11 +150,7 @@ export default createRouter({
             component: Rutas
         },
 
-        {
-            path: "/repartidores",
-            name: "repartidores",
-            component: Repartidores
-        },
+        
         {
             path: "/roles",
             name: "roles",
