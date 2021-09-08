@@ -5,77 +5,123 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 
         <div v-if="!loading" class="form">
+
+            <p class="desc-form">Relacion</p>
+            <div class="form-box form-box4">
+
+                <div class="input">
+                    <label for="">
+                        Usuario
+                        <h6 v-if="v$.dataForm.positionId.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.positionId">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Contrato
+                        <h6 v-if="v$.dataForm.contractsId.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.contractsId">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Posición
+                        <h6 v-if="v$.dataForm.sectorId.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.sectorId">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Sector
+                        <h6 v-if="v$.dataForm.userId.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.userId">
+                </div>
+
+            </div>
+
+            <p class="desc-form">Datos del empleado</p>
             <div class="form-box form-box2">
 
                 <div class="input">
                     <label for="">
+                        Nombre
+                        <h6 v-if="v$.dataForm.name.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
                         Descripción
-                        <h6 v-if="v$.dataForm.description.$error">Requerido</h6>
+                        <h6 v-if="v$.dataForm.description.$error">Requerido</h6>    
                     </label>
                     <input type="text" v-model="dataForm.description">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Autenticación
-                        <h6 v-if="v$.dataForm.auth.$error">Requerido</h6>    
+                        Curp
+                        <h6 v-if="v$.dataForm.curp.$error">Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.auth">
-                </div>
-
-                <div class="input">
-                    <label for="">
-                        Tipo
-                        <h6 v-if="v$.dataForm.type.$error">Requerido</h6>
-                    </label>
-                    <input type="text" v-model="dataForm.type">
+                    <input type="text" v-model="dataForm.curp">
                 </div>
 
                  <div class="input">
                     <label for="">
-                        Costo
-                        <h6 v-if="v$.dataForm.cost.$error">Valor numerico | Requerido</h6>
+                        Nro. seguro social
+                        <h6 v-if="v$.dataForm.socialSecurity.$error">Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.cost">
+                    <input type="text" v-model="dataForm.socialSecurity">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Precio de envio
-                        <h6 v-if="v$.dataForm.priceDispatch.$error">Valor numerico | Requerido</h6>
+                        Régimen de trabajo
+                        <h6 v-if="v$.dataForm.workRegime.$error">Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.priceDispatch">
+                    <input type="text" v-model="dataForm.workRegime">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Precio por unidad
-                        <h6 v-if="v$.dataForm.priceUnity.$error">Valor numerico | Requerido</h6>
+                        Régimen de contratación
+                        <h6 v-if="v$.dataForm.hiringRegime.$error">Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.priceUnity">
+                    <input type="text" v-model="dataForm.hiringRegime">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Precio por guía
-                        <h6 v-if="v$.dataForm.priceByGuide.$error">Valor numerico | Requerido</h6>
+                        Comisión
+                        <h6 v-if="v$.dataForm.commission.$error">Valor numerico | Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.priceByGuide">
+                    <input type="number" v-model="dataForm.commission">
                 </div>
 
-                <!-- <div class="input">
+                <div class="input">
                     <label for="">
-                        Estado
-                        <h6 v-if="v$.dataForm.status.$error">Requerido</h6>
+                        Salario
+                        <h6 v-if="v$.dataForm.salary.$error">Valor numerico | Requerido</h6>
                     </label>
-                    <select name="" id="" v-model="dataForm.status">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
+                    <input type="number" v-model="dataForm.salary">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Externo
+                        <h6 v-if="v$.dataForm.extern.$error">Requerido</h6>
+                    </label>
+                    <select name="" id="" v-model="dataForm.extern">
+                        <option value="true">Si</option>
+                        <option value="false">No</option>
                     </select>
-                </div> -->
+                </div>
 
             </div>
-
 
 
             <div class="box-buttons box-buttons3">
@@ -86,6 +132,7 @@
                 </button>
                 <div />
             </div>
+            
             
         </div>
     </div>
@@ -118,13 +165,19 @@ export default {
             submited: false,
 
             dataForm: {
+                name: null,
                 description: null,
-                auth: null,
-                type: null,
-                cost: null,
-                priceDispatch: null,
-                priceUnity: null,
-                priceByGuide: null
+                curp: null,
+                socialSecurity: null,
+                workRegime: null,
+                hiringRegime: null,
+                commission: null,
+                salary: null,
+                extern: null,
+                contractsId: null,
+                positionId: null,
+                sectorId: null,
+                userId: null
             }
 
         }
@@ -133,30 +186,44 @@ export default {
         return {
             dataForm: {
                 
-                description: { 
+                name: { 
                     required
                 },
-                auth: { 
+                description: { 
                     required 
                 },
-                type: { 
+                curp: { 
                     required 
                 },
-                cost: { 
-                    required,
-                    numeric
+                socialSecurity: { 
+                    required
                 },
-                priceDispatch: { 
-                    required,
-                    numeric
+                workRegime: { 
+                    required
                 },
-                priceUnity: { 
-                    required,
-                    numeric
+                hiringRegime: { 
+                    required
                 },
-                priceByGuide: { 
-                    required,
-                    numeric
+                commission: { 
+                    required
+                },
+                salary: { 
+                    required
+                },
+                extern: { 
+                    required
+                },
+                contractsId: { 
+                    required
+                },
+                positionId: { 
+                    required
+                },
+                sectorId: { 
+                    required
+                },
+                userId: { 
+                    required
                 }
 
 
@@ -186,14 +253,19 @@ export default {
                 this.url, 
                 {
 
+                    name: this.dataForm.name,
                     description: this.dataForm.description,
-                    auth: this.dataForm.auth,
-                    type: this.dataForm.type,
-                    cost: this.dataForm.cost,
-                    priceDispatch: this.dataForm.priceDispatch,
-                    priceUnity: this.dataForm.priceUnity,
-                    priceByGuide: this.dataForm.priceByGuide
-                
+                    curp: this.dataForm.curp,
+                    socialSecurity: this.dataForm.socialSecurity,
+                    workRegime: this.dataForm.workRegime,
+                    hiringRegime: this.dataForm.hiringRegime,
+                    commission: this.dataForm.commission,
+                    salary: this.dataForm.salary,
+                    extern: this.dataForm.extern,
+                    contractsId: this.dataForm.contractsId,
+                    positionId: this.dataForm.positionId,
+                    sectorId: this.dataForm.sectorId,
+                    userId: this.dataForm.userId
                 },
                 { 
                     headers: headers 
@@ -214,13 +286,19 @@ export default {
             })
             .finally( () => {
 
+                this.dataForm.name = "";
                 this.dataForm.description = "";
-                this.dataForm.auth = "";
-                this.dataForm.type = "";
-                this.dataForm.cost = "";
-                this.dataForm.priceDispatch = "";
-                this.dataForm.priceUnity = "";
-                this.dataForm.priceByGuide = "";
+                this.dataForm.curp = "";
+                this.dataForm.socialSecurity = "";
+                this.dataForm.workRegime = "";
+                this.dataForm.hiringRegime = "";
+                this.dataForm.commission = "";
+                this.dataForm.salary = "";
+                this.dataForm.extern = "";
+                this.dataForm.contractsId = "";
+                this.dataForm.positionId = "";
+                this.dataForm.sectorId = "";
+                this.dataForm.userId = "";
 
                 this.tab(this.nameTab);
 
@@ -241,24 +319,6 @@ export default {
 </style>
 
 
-
-{
-  "success": "contrato creado",
-  "contracts": {
-    "id": 4,
-    "status": true,
-    "description": "nuevo dato 3",
-    "auth": "nuevo dato 3",
-    "type": "nuevo dato 3",
-    "cost": 1,
-    "priceDispatch": 1,
-    "priceUnity": 1,
-    "priceByGuide": 1,
-    "dateCheck": "2021-08-30T09:25:31.915Z",
-    "updatedAt": "2021-08-30T09:25:31.915Z",
-    "createdAt": "2021-08-30T09:25:31.915Z"
-  }
-}
 
 
 

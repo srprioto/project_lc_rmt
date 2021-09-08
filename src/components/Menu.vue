@@ -36,6 +36,13 @@
                 </router-link>
             </li>
 
+            <li>
+                <router-link :to="{ name: 'vehiculos' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Vehiculos
+                </router-link>
+            </li>
+
 
 
 

@@ -25,6 +25,9 @@ import MostrarRol from '@/components/roles/MostrarRol';
 import Empleados from '@/pages/Empleados';
 import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
 
+// vehiculos
+import Vehiculos from '@/pages/Vehiculos';
+// import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
 
 
 // sin terminar de configurar
@@ -117,6 +120,12 @@ export default createRouter({
 
 
         
+        {   // --- VEHICULOS ---
+            path: "/vehiculos",
+            name: "vehiculos",
+            component: Vehiculos
+        },
+
 
 
         {

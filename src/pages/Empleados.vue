@@ -65,7 +65,7 @@
                     tab2: 'Crear empleado'
                 },
 
-                url: dominio() + "contracts",
+                url: dominio() + "employee",
                 data: {},
                 loading: true,
                 error: null,

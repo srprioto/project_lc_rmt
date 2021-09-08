@@ -1,6 +1,19 @@
 <template>
     <Layout>
 
+        <div class="box">
+            <h3>Links:</h3><br>
+
+            <p>Rutas api: <a class="link" href="https://liceley.herokuapp.com/routes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw" target="_blank">Click aqui</a></p>
+
+            <p>Perfil usuario: <a class="link" href="https://liceley.herokuapp.com/view/menu" target="_blank">Click aqui</a></p>
+
+            <p>Roles: <a class="link" href="https://liceley.herokuapp.com/view/users?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw" target="_blank">Click aqui</a></p>
+
+            <p>Tickets: <a class="link" href="https://liceley.herokuapp.com/view/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw" target="_blank">Click aqui</a></p>
+
+        </div>
+
         <!-- plantilla -->
         <div class="box">
             <h1>titulo titulo titulo titulo</h1>

@@ -42,10 +42,10 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Nombre</th>
                         <th>Descripción</th>
-                        <th>Autenticación</th>
-                        <th>Tipo</th>
-                        <th>Estado</th>
+                        <th>Curp</th>
+                        <th>Nro S.S.</th>
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
                     </tr>
@@ -55,10 +55,10 @@
                     <!-- iterar datos en base a al resultado de datosFiltrados -->
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.auth }}</td>
-                        <td>{{ item.type }}</td>
-                        <td>{{ item.status }}</td>
+                        <td>{{ item.curp }}</td>
+                        <td>{{ item.socialSecurity }}</td>
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
 
@@ -78,7 +78,7 @@
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
                             <!-- tambien se puede enviar solo el id -->
-                            <span v-on:click="toggleModal(item.id)" class="pointer icon-action">
+                            <span v-on:click="toggleModal(item.id, item.name)" class="pointer icon-action">
                                 <font-awesome-icon icon="trash" />
                             </span>
                         </td>
@@ -199,20 +199,3 @@ align-items: center;
 
 </style>
 
-
-
-
-{
-    "name": "name1",
-    "description": "description1",
-    "curp": "curp1",
-    "socialSecurity": "socialSecurity1",
-    "workRegime": "workRegime1",
-    "hiringRegime": "hiringRegime1",
-    "contractsId": 1,
-    "commission": 100,
-    "salary": 200,
-    "extern": 300,
-    "positionId": 1,
-    "userId": 1
-}

@@ -261,12 +261,13 @@ export default {
 
 .background-modal .modalDetails .box-modal .datos-user-ticket .info-usuario {
     position: absolute;
-    /* transition: .2s; */
+    transition: .2s;
     width: auto;
     height: auto;
     z-index: 4;
     border: 1px solid var(--warning);
-    transform: scaleY(0);
+    transform: scale(0);
+    opacity: 0;
     position: absolute;
     margin: auto;
     cursor: auto;
@@ -284,8 +285,9 @@ export default {
 }
 
 .background-modal .modalDetails .box-modal .datos-user-ticket:hover .info-usuario{
-    /* transition: .2s; */
-    transform: scaleY(1);
+    transition: .2s;
+    transform: scale(1);
+    opacity: 1;
 }
 
 
