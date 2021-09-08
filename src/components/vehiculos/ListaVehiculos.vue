@@ -146,7 +146,7 @@
                 // buscar dato
                 return this.data.filter(a => (
                     a.ownerRef.toLowerCase().includes(this.buscar.toLowerCase()) ||
-                    a.Tipo.toLowerCase().includes(this.buscar.toLowerCase())
+                    a.type.toLowerCase().includes(this.buscar.toLowerCase())
                 ))
                 // ordenar datos en base al id
                 .sort((a, b) => {
