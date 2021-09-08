@@ -26,7 +26,7 @@
             <div class="search">
                 <form class="box-search">
 
-                    <input type="text" v-model="buscar" placeholder="Buscar nombre...">
+                    <input type="text" v-model="buscar" placeholder="Buscar tipo o propietario...">
                     
                     <button class="buttonN pointer">
                         <font-awesome-icon icon="genderless" size="2x"/>
@@ -42,10 +42,9 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Curp</th>
-                        <th>Nro S.S.</th>
+                        <th>Tipo</th>
+                        <th>Propietario</th>
+                        <th>Final del seguro</th>
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
                     </tr>
@@ -55,10 +54,9 @@
                     <!-- iterar datos en base a al resultado de datosFiltrados -->
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.description }}</td>
-                        <td>{{ item.curp }}</td>
-                        <td>{{ item.socialSecurity }}</td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.ownerRef }}</td>
+                        <td>{{ item.endSecure }}</td>
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
 
@@ -66,7 +64,7 @@
                             <router-link 
                                 class="icon-action"
                                 :to="{ 
-                                    name: 'empleados-show', 
+                                    name: 'contratos-show', 
                                     params: { 
                                         value: item.id,
                                         url: url 
@@ -78,7 +76,7 @@
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
                             <!-- tambien se puede enviar solo el id -->
-                            <span v-on:click="toggleModal(item.id, item.name)" class="pointer icon-action">
+                            <span v-on:click="toggleModal(item.id)" class="pointer icon-action">
                                 <font-awesome-icon icon="trash" />
                             </span>
                         </td>
@@ -147,7 +145,8 @@
 
                 // buscar dato
                 return this.data.filter(a => (
-                    a.name.toLowerCase().includes(this.buscar.toLowerCase())
+                    a.ownerRef.toLowerCase().includes(this.buscar.toLowerCase()) ||
+                    a.Tipo.toLowerCase().includes(this.buscar.toLowerCase())
                 ))
                 // ordenar datos en base al id
                 .sort((a, b) => {

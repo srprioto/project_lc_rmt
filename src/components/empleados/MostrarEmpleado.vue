@@ -380,3 +380,35 @@ export default {
 </style>
 
 
+Nombre
+Descripción
+Curp
+Nro. seguro social
+Régimen de trabajo
+Régimen de contratación
+Comisión
+Salario
+Externo - si no
+
+Contrato
+Usuario
+
+Posición
+Sector
+
+
+
+"name": "name2",
+"description": "description2",
+"curp": "curp2",
+"socialSecurity": "socialSecurity2",
+"workRegime": "workRegime2",
+"hiringRegime": "hiringRegime2",
+"commission": 1,
+"salary": 1,
+"extern": true,
+
+"contractsId": 1,
+"positionId": 1,
+"sectorId": 1,
+"userId": 1
