@@ -9,26 +9,26 @@
 
                 <div class="input">
                     <label for="">
-                        Estado
-                        <h6 v-if="v$.dataForm.state.$error">Requerido</h6>
+                        Propietario
+                        <h6 v-if="v$.dataForm.ownerRef.$error">Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.state">
+                    <input type="text" v-model="dataForm.ownerRef">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Id del modelo
+                        Nro. de placa
+                        <h6 v-if="v$.dataForm.enrollment.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.enrollment">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Modelo del vehiculo
                         <h6 v-if="v$.dataForm.modelId.$error">Requerido</h6>
                     </label>
                     <input type="number" v-model="dataForm.modelId">
-                </div>
-
-                <div class="input">
-                    <label for="">
-                        Imagen
-                        <h6 v-if="v$.dataForm.imgId.$error">Requerido</h6>    
-                    </label>
-                    <input type="number" v-model="dataForm.imgId">
                 </div>
 
                 <div class="input">
@@ -41,13 +41,21 @@
 
                 <div class="input">
                     <label for="">
-                        Inscripción
-                        <h6 v-if="v$.dataForm.enrollment.$error">Requerido</h6>
+                        Volumen de carga
+                        <h6 v-if="v$.dataForm.boxCubic.$error">Requerido</h6>
                     </label>
-                    <input type="number" v-model="dataForm.enrollment">
+                    <input type="text" v-model="dataForm.boxCubic">
                 </div>
 
-                 <div class="input">
+                <div class="input">
+                    <label for="">
+                        Medidas de espacio
+                        <h6 v-if="v$.dataForm.boxDimention.$error">Requerido</h6>
+                    </label>
+                    <input type="text" v-model="dataForm.boxDimention">
+                </div>
+
+                <div class="input">
                     <label for="">
                         Tipo
                         <h6 v-if="v$.dataForm.type.$error">Requerido</h6>
@@ -57,18 +65,18 @@
 
                 <div class="input">
                     <label for="">
-                        Caja
-                        <h6 v-if="v$.dataForm.boxCubic.$error">Requerido</h6>
+                        Estado
+                        <h6 v-if="v$.dataForm.state.$error">Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.boxCubic">
+                    <input type="number" v-model="dataForm.state">
                 </div>
 
                 <div class="input">
                     <label for="">
-                        Dimencion de la caja
-                        <h6 v-if="v$.dataForm.boxDimention.$error">Requerido</h6>
+                        Imagen
+                        <h6 v-if="v$.dataForm.imgId.$error">Requerido</h6>    
                     </label>
-                    <input type="text" v-model="dataForm.boxDimention">
+                    <input type="number" v-model="dataForm.imgId">
                 </div>
 
                 <div class="input">
@@ -79,13 +87,7 @@
                     <input type="text" v-model="dataForm.endSecure">
                 </div>
 
-                <div class="input">
-                    <label for="">
-                        Propietario
-                        <h6 v-if="v$.dataForm.ownerRef.$error">Requerido</h6>
-                    </label>
-                    <input type="text" v-model="dataForm.ownerRef">
-                </div>
+
 
                 <!-- <div class="input">
                     <label for="">
@@ -279,24 +281,27 @@ export default {
 </style>
 
 
-state
-model Table
+
+Propietario
+Nro. de placa
+Modelo del vehiculo
+Modelo de tabla
+Volumen de carga
+Medidas de espacio
+Tipo
+Estado
+Imagen
+Fin del seguro
+
+
+
+ownerRef
 enrollment
+modelId
+modelTable
+boxCubic
+boxDimention
 type
-box Cubic
-box Dimention
-end Secure
-propietario
-
-model Id
-
-
-estado
-tabla modelo
-inscripción
-escribe
-caja cúbica
-dimensión de la caja
-final seguro
-propietario
-ID de modelo
+state
+imgId
+endSecure

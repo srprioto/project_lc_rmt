@@ -43,7 +43,17 @@
 
             </div>
 
-            <p class="desc-form">Datos del empleado</p>
+            <p class="desc-form">Contrato de empleado</p>
+            <CrearContrato 
+                :getData="getData" 
+                :tab="tab" 
+                :nameTab="nameTab"
+                :imp="true"
+                :metodoUp="postData"
+                :relacion="false"
+            />
+
+            <!-- <p class="desc-form">Datos del empleado</p>
             <div class="form-box form-box2">
 
                 <div class="input">
@@ -121,9 +131,11 @@
                     </select>
                 </div>
 
-            </div>
+            </div> -->
 
 
+
+            <!-- 
             <div class="box-buttons box-buttons3">
                 <div />
                 <button class="button button1" v-on:click="postData">
@@ -131,7 +143,8 @@
                     <font-awesome-icon icon="check" />
                 </button>
                 <div />
-            </div>
+            </div> 
+            -->
             
             
         </div>
@@ -146,14 +159,16 @@
 
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, numeric } from '@vuelidate/validators'
+import CrearContrato from '@/components/contratos/CrearContrato';
 import Loading from '@/components/Loading'
 
 export default {
-    name: "CrearContrato",
+    name: "CrearEmpleado",
     props: ["prueba", "getData", "url", "tab", "nameTab"],
 
     components:{
-        Loading
+        Loading,
+        CrearContrato
     },
     setup () {
         return { v$: useVuelidate() }
@@ -165,21 +180,20 @@ export default {
             submited: false,
 
             dataForm: {
-                name: null,
-                description: null,
-                curp: null,
-                socialSecurity: null,
-                workRegime: null,
-                hiringRegime: null,
-                commission: null,
-                salary: null,
-                extern: null,
+                name: "gggg",
+                description: "gggg",
+                curp: "gggg",
+                socialSecurity: "gggg",
+                workRegime: "gggg",
+                hiringRegime: "gggg",
+                commission: 1,
+                salary: 1,
+                extern: true,
                 contractsId: null,
                 positionId: null,
                 sectorId: null,
                 userId: null
             }
-
         }
     },
     validations () {
@@ -225,8 +239,6 @@ export default {
                 userId: { 
                     required
                 }
-
-
             }
         }
     },
@@ -250,7 +262,7 @@ export default {
             this.loading = true;
             this.error = null;
             this.axios.post( 
-                this.url, 
+                this.url,
                 {
 
                     name: this.dataForm.name,

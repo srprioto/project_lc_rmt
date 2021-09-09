@@ -310,6 +310,10 @@ li{list-style: none;}
     padding: 20px;
 }
 
+.form2{
+    padding: 0!important;
+}
+
 .desc-form {
     color: var(--warning);
     font-size: 1em;

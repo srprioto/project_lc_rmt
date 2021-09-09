@@ -30,19 +30,19 @@
             </li>
 
             <li>
+                <router-link :to="{ name: 'vehiculos' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Vehiculos
+                </router-link>
+            </li>
+
+            <li>
                 <router-link :to="{ name: 'empleados' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Empleados
                 </router-link>
             </li>
 
-            <li>
-                <router-link :to="{ name: 'vehiculos' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Vehiculos
-                </router-link>
-            </li>
-            
             <li>
                 <router-link :to="{ name: 'repartidores' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
@@ -52,25 +52,15 @@
 
 
 
-            <!-- 
             
-            <li>
+            <!-- <li>
                 <router-link :to="{ name: 'paquetes' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Paquetes
                 </router-link>
-            </li>
-
-            <li>
-                <router-link :to="{ name: 'rutas' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Rutas
-                </router-link>
-            </li>
-
-
+            </li> -->
             
-            -->
+          
 
 
 

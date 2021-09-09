@@ -27,7 +27,7 @@ import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
 
 // vehiculos
 import Vehiculos from '@/pages/Vehiculos';
-// import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
+import MostrarVehiculo from '@/components/vehiculos/MostrarVehiculo';
 
 
 // sin terminar de configurar
@@ -127,10 +127,15 @@ export default createRouter({
             name: "vehiculos",
             component: Vehiculos
         },
+        {
+            path: "/vehiculos/:value:url/ok",
+            name: "vehiculos-show",
+            component: MostrarVehiculo
+        },
 
 
 
-        {   // --- VEHICULOS ---
+        {   // --- REPARTIDORES ---
             path: "/repartidores",
             name: "repartidores",
             component: Repartidores

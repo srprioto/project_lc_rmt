@@ -38,7 +38,11 @@
         </div>
 
         <div class="" v-if="activeTabName === tabNames.tab2">
-            <CrearContrato :getData="getData" :url="url" :tab="handleTabClick" :nameTab="tabNames.tab1"/>
+            <CrearContrato 
+                :getData="getData" 
+                :tab="handleTabClick" 
+                :nameTab="tabNames.tab1"
+            />
         </div>
 
     </Layout>

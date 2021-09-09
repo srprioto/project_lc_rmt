@@ -75,6 +75,7 @@
                             <span v-on:click="toggleModal(item.id)" class="pointer icon-action">
                                 <font-awesome-icon icon="trash" />
                             </span>
+                            
                         </td>
                     </tr>
                 </tbody>
@@ -109,7 +110,7 @@
 
     import Loading from '@/components/Loading'
     import Modal from '@/components/Modal'
-    import ModalTickets from '@/components/ModalTickets'
+    import ModalTickets from '@/components/tickets/ModalTickets'
 
     export default {
         name:"ListaTickets",
@@ -177,10 +178,6 @@
                     this.loadingUser = false;
                     this.error = error
                 }
-
-
-
-
             }
 
         },

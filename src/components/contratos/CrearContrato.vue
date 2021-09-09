@@ -1,10 +1,12 @@
 <template>
-    <div class="box">
+    <div :class="!imp ? 'box' : ''">
 
-        <h3>Lorem ipsum</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <div v-if="!imp">
+            <h3>Lorem ipsum</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
 
-        <div v-if="!loading" class="form">
+        <div v-if="!loading" class="form" :class="imp ? 'form2' : ''">
             <div class="form-box form-box2">
 
                 <div class="input">
@@ -103,7 +105,15 @@ import Loading from '@/components/Loading'
 
 export default {
     name: "CrearContrato",
-    props: ["prueba", "getData", "url", "tab", "nameTab"],
+    props: [
+        "prueba", 
+        "getData", 
+        "tab", 
+        "nameTab", 
+        "imp",
+        "metodoUp",
+        "relacion"
+    ],
 
     components:{
         Loading
@@ -183,7 +193,7 @@ export default {
             this.loading = true;
             this.error = null;
             this.axios.post( 
-                this.url, 
+                dominio() + "contracts", 
                 {
 
                     description: this.dataForm.description,
@@ -201,6 +211,8 @@ export default {
             )
             .then( res => {
 
+                // console.log(res.data.vehicle.type);
+                this.metodoUp();
                 this.loading = false;
                 this.getData();
 

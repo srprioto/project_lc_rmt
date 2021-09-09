@@ -26,7 +26,7 @@
                 loading: true,
                 error: null,
 
-                titulo: "Lista Tickets",
+                titulo: "Tickets",
 
                 url: dominio() + "tickets",
 

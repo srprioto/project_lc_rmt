@@ -42,9 +42,12 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Tipo</th>
+                        
+                        <th>Nro. de placa</th>
                         <th>Propietario</th>
-                        <th>Final del seguro</th>
+                        <th>Tipo</th>
+                        <th>Fin del seguro</th>
+
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
                     </tr>
@@ -54,9 +57,12 @@
                     <!-- iterar datos en base a al resultado de datosFiltrados -->
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
-                        <td>{{ item.type }}</td>
+
+                        <td>{{ item.enrollment }}</td>
                         <td>{{ item.ownerRef }}</td>
+                        <td>{{ item.type }}</td>
                         <td>{{ item.endSecure }}</td>
+
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
 
@@ -64,7 +70,7 @@
                             <router-link 
                                 class="icon-action"
                                 :to="{ 
-                                    name: 'contratos-show', 
+                                    name: 'vehiculos-show', 
                                     params: { 
                                         value: item.id,
                                         url: url 
