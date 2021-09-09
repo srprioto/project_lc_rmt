@@ -180,12 +180,12 @@ export default {
             submited: false,
 
             dataForm: {
-                name: "gggg",
-                description: "gggg",
-                curp: "gggg",
-                socialSecurity: "gggg",
-                workRegime: "gggg",
-                hiringRegime: "gggg",
+                name: "7777",
+                description: "7777",
+                curp: "7777",
+                socialSecurity: "7777",
+                workRegime: "7777",
+                hiringRegime: "7777",
                 commission: 1,
                 salary: 1,
                 extern: true,
@@ -249,7 +249,7 @@ export default {
 
     methods: {
 
-        async postData(){
+        async postData(idContrato){
             
             // validaciones
             if (!await this.v$.$validate()) return
@@ -264,7 +264,6 @@ export default {
             this.axios.post( 
                 this.url,
                 {
-
                     name: this.dataForm.name,
                     description: this.dataForm.description,
                     curp: this.dataForm.curp,
@@ -274,7 +273,7 @@ export default {
                     commission: this.dataForm.commission,
                     salary: this.dataForm.salary,
                     extern: this.dataForm.extern,
-                    contractsId: this.dataForm.contractsId,
+                    contractsId: idContrato,
                     positionId: this.dataForm.positionId,
                     sectorId: this.dataForm.sectorId,
                     userId: this.dataForm.userId
@@ -311,10 +310,6 @@ export default {
                 this.dataForm.positionId = "";
                 this.dataForm.sectorId = "";
                 this.dataForm.userId = "";
-
-                this.tab(this.nameTab);
-
-                toastSuccess("Contrato registrado");
 
             })
             

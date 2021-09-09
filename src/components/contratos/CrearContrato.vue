@@ -168,8 +168,6 @@ export default {
                     required,
                     numeric
                 }
-
-
             }
         }
     },
@@ -211,10 +209,18 @@ export default {
             )
             .then( res => {
 
-                // console.log(res.data.vehicle.type);
-                this.metodoUp();
+                // console.log(res.data.contracts.id);
+                
+                if (this.metodoUp) {
+                    this.metodoUp(res.data.contracts.id);
+                }
+
                 this.loading = false;
                 this.getData();
+
+                this.tab(this.nameTab);
+
+                toastSuccess("Contrato registrado");
 
             })
             .catch( error => {
@@ -234,15 +240,8 @@ export default {
                 this.dataForm.priceUnity = "";
                 this.dataForm.priceByGuide = "";
 
-                this.tab(this.nameTab);
-
-                toastSuccess("Contrato registrado");
-
             })
-            
-
-        }
-
+        },
     },
     
 }
