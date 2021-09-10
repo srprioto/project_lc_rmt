@@ -157,12 +157,18 @@
             },
 
             // abrir y cerrar modal de detalles
-            async toggleModalDetails(item){
+            toggleModalDetails(item){
                 this.modalDetails = !this.modalDetails
                 this.dataItem = this.modalDetails ? item : {}
 
                 this.loadingUser = true;
 
+                this.userData();
+
+            },
+
+            async userData(){
+                // buscar datos del usuario por id
                 try {
                     const res = await this.axios({
                         method: 'get',

@@ -1,21 +1,61 @@
 <template>
-    <div class="box">
+    <div class="box" v-if="!loading">
 
         <h3>Lorem ipsum</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 
-        <div v-if="!loading" class="form">
+        <div class="form">
 
             <p class="desc-form">Relacion</p>
-            <div class="form-box form-box4">
+            <div class="form-box form-box2">
 
-                <div class="input">
-                    <label for="">
-                        Usuario
-                        <h6 v-if="v$.dataForm.positionId.$error">Requerido</h6>
-                    </label>
-                    <input type="text" v-model="dataForm.positionId">
+                <div>
+                    
+                    <div class="input">
+
+                        <label for="">
+                            Usuario
+                            <h6 v-if="v$.dataForm.userId.$error">Requerido</h6>
+                        </label>
+                        <select name="" id="" v-model="dataForm.userId">
+                            <option v-for="user in dataUser" :key="user.id" :value="user.id">{{ user.email }}</option>
+                        </select>
+
+                    </div><br>
+
+                    <div class="input">
+                        <label for="">
+                            Posición
+                            <h6 v-if="v$.dataForm.positionId.$error">Requerido</h6>
+                        </label>
+                        <select name="" id="" v-model="dataForm.positionId">
+                            <option :value="2">Empleado</option>
+                            <option :value="1">Repartidor</option>                            
+                        </select>
+                    </div>
+
                 </div>
+
+                <div>
+
+                    <ModalUsers :idUser="1" />
+
+                </div>
+
+            </div>
+
+            <p class="desc-form">Contrato de empleado</p>
+            <CrearContrato 
+                :getData="getData" 
+                :tab="tab" 
+                :nameTab="nameTab"
+                :importar="true"
+                :metodoUp="postData"
+                :enviar="true"
+            />
+
+            <!-- <p class="desc-form">Datos del empleado</p>
+            <div class="form-box form-box2">
 
                 <div class="input">
                     <label for="">
@@ -27,34 +67,13 @@
 
                 <div class="input">
                     <label for="">
-                        Posición
-                        <h6 v-if="v$.dataForm.sectorId.$error">Requerido</h6>
-                    </label>
-                    <input type="text" v-model="dataForm.sectorId">
-                </div>
-
-                <div class="input">
-                    <label for="">
                         Sector
                         <h6 v-if="v$.dataForm.userId.$error">Requerido</h6>
                     </label>
                     <input type="text" v-model="dataForm.userId">
                 </div>
 
-            </div>
 
-            <p class="desc-form">Contrato de empleado</p>
-            <CrearContrato 
-                :getData="getData" 
-                :tab="tab" 
-                :nameTab="nameTab"
-                :imp="true"
-                :metodoUp="postData"
-                :relacion="false"
-            />
-
-            <!-- <p class="desc-form">Datos del empleado</p>
-            <div class="form-box form-box2">
 
                 <div class="input">
                     <label for="">
@@ -161,14 +180,16 @@ import useVuelidate from '@vuelidate/core'
 import { required, minLength, numeric } from '@vuelidate/validators'
 import CrearContrato from '@/components/contratos/CrearContrato';
 import Loading from '@/components/Loading'
+import ModalUsers from '@/components/usuarios/ModalUsers'
 
 export default {
     name: "CrearEmpleado",
-    props: ["prueba", "getData", "url", "tab", "nameTab"],
+    props: ["getData", "url", "tab", "nameTab", "dataUser"],
 
     components:{
         Loading,
-        CrearContrato
+        CrearContrato,
+        ModalUsers
     },
     setup () {
         return { v$: useVuelidate() }
@@ -180,18 +201,19 @@ export default {
             submited: false,
 
             dataForm: {
-                name: "7777",
-                description: "7777",
-                curp: "7777",
-                socialSecurity: "7777",
-                workRegime: "7777",
-                hiringRegime: "7777",
+                name: "mmmm",
+                description: "mmmm",
+                curp: "mmmm",
+                socialSecurity: "mmmm",
+                workRegime: "mmmm",
+                hiringRegime: "mmmm",
                 commission: 1,
                 salary: 1,
                 extern: true,
-                contractsId: null,
+
+                // contractsId: 2,
+                sectorId: 1,
                 positionId: null,
-                sectorId: null,
                 userId: null
             }
         }
@@ -200,45 +222,46 @@ export default {
         return {
             dataForm: {
                 
-                name: { 
-                    required
-                },
-                description: { 
-                    required 
-                },
-                curp: { 
-                    required 
-                },
-                socialSecurity: { 
-                    required
-                },
-                workRegime: { 
-                    required
-                },
-                hiringRegime: { 
-                    required
-                },
-                commission: { 
-                    required
-                },
-                salary: { 
-                    required
-                },
-                extern: { 
-                    required
-                },
-                contractsId: { 
-                    required
-                },
+                // name: { 
+                //     required
+                // },
+                // description: { 
+                //     required 
+                // },
+                // curp: { 
+                //     required 
+                // },
+                // socialSecurity: { 
+                //     required
+                // },
+                // workRegime: { 
+                //     required
+                // },
+                // hiringRegime: { 
+                //     required
+                // },
+                // commission: { 
+                //     required
+                // },
+                // salary: { 
+                //     required
+                // },
+                // extern: { 
+                //     required
+                // },
+                // sectorId: { 
+                //     required
+                // },
+                // contractsId: { 
+                //     required
+                // },
                 positionId: { 
-                    required
-                },
-                sectorId: { 
                     required
                 },
                 userId: { 
                     required
                 }
+
             }
         }
     },
@@ -264,6 +287,7 @@ export default {
             this.axios.post( 
                 this.url,
                 {
+                    // revisar en tickets
                     name: this.dataForm.name,
                     description: this.dataForm.description,
                     curp: this.dataForm.curp,
@@ -297,19 +321,22 @@ export default {
             })
             .finally( () => {
 
-                this.dataForm.name = "";
-                this.dataForm.description = "";
-                this.dataForm.curp = "";
-                this.dataForm.socialSecurity = "";
-                this.dataForm.workRegime = "";
-                this.dataForm.hiringRegime = "";
-                this.dataForm.commission = "";
-                this.dataForm.salary = "";
-                this.dataForm.extern = "";
+                // this.dataForm.name = "";
+                // this.dataForm.description = "";
+                // this.dataForm.curp = "";
+                // this.dataForm.socialSecurity = "";
+                // this.dataForm.workRegime = "";
+                // this.dataForm.hiringRegime = "";
+                // this.dataForm.commission = "";
+                // this.dataForm.salary = "";
+                // this.dataForm.extern = "";
+                // this.dataForm.positionId = "";
+                // this.dataForm.sectorId = "";
+
                 this.dataForm.contractsId = "";
-                this.dataForm.positionId = "";
-                this.dataForm.sectorId = "";
                 this.dataForm.userId = "";
+
+                toastSuccess("Empleado registrado");
 
             })
             

@@ -7,7 +7,11 @@
             <ul>
                 <li>item1</li>
                 <li>item2</li>
-                <li>item3</li>
+                <li>                
+                    <router-link :to="{ name: 'login' }" >
+                        Salir
+                    </router-link>
+                </li>
             </ul>
         </div>
     </div>

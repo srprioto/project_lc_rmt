@@ -1,7 +1,7 @@
 <template>
 
     <div class="background-modal" v-if="modalDetails">
-        <div class="modalDetails">
+        <div class="modalTickets">
             <div class="box-modal" >
                 <div v-if="!loadingUser && !loadingUpdate">
 
@@ -19,26 +19,28 @@
                                         <strong>{{ dataUser.email }}</strong>
                                     </p>
                                     <font-awesome-icon class="icon-message" icon="comment" />
-                                    <div class="info-usuario box">
-                                        <h3>Informacion del Usuario</h3>
-                                        <table>
-                                            <tr>
-                                                <td><strong>Correo</strong></td>
-                                                <td>{{ dataUser.email }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Roles</strong></td>
-                                                <td>{{ dataUser.roleId }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Perfil</strong></td>
-                                                <td>{{ dataUser.profileId }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Lista Perfil</strong></td>
-                                                <td>{{ dataUser.profileList }}</td>
-                                            </tr>
-                                        </table>
+                                    <div class="info-usuario">
+                                        <div class="box">
+                                            <h3>Informacion del Usuario</h3>
+                                            <table>
+                                                <tr>
+                                                    <td><strong>Correo</strong></td>
+                                                    <td>{{ dataUser.email }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Roles</strong></td>
+                                                    <td>{{ dataUser.roleId }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Perfil</strong></td>
+                                                    <td>{{ dataUser.profileId }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Lista Perfil</strong></td>
+                                                    <td>{{ dataUser.profileList }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -203,6 +205,7 @@ export default {
 </script>
 
 <style>
+
 .background-modal {
     position: absolute;
     top: 0;
@@ -215,7 +218,7 @@ export default {
     align-items: center;
 }
 
-.background-modal .modalDetails {
+.background-modal .modalTickets {
     background-color: var(--colorModal);
     box-sizing: border-box;
     padding: 30px 25px 40px 25px;
@@ -229,37 +232,37 @@ export default {
     position: relative;
 }
 
-.background-modal .modalDetails .box-modal{
+.background-modal .modalTickets .box-modal{
     min-width: 900px;
 }
 
-.background-modal .modalDetails .modal-footer {
+.background-modal .modalTickets .modal-footer {
     box-sizing: border-box;
     padding: 0 0 0 0;
 }
 
-.background-modal .modalDetails .form .form-box {
+.background-modal .modalTickets .form .form-box {
     margin-bottom: 15px;
 }
 
-.background-modal .modalDetails .descripcion {
+.background-modal .modalTickets .descripcion {
     text-align: left;
     margin-bottom: 30px;
 }
 
-.background-modal .modalDetails .icon-message {
+.background-modal .modalTickets .icon-message {
     margin-left: 15px;
 }
 
-.background-modal .modalDetails .box-modal .datos-ticket {
+.background-modal .modalTickets .box-modal .datos-ticket {
     margin-bottom: 25px;
 }
 
-.background-modal .modalDetails .box-modal .datos-user-ticket{
+.background-modal .modalTickets .box-modal .datos-user-ticket{
     cursor: pointer;
 }
 
-.background-modal .modalDetails .box-modal .datos-user-ticket .info-usuario {
+.background-modal .modalTickets .box-modal .datos-user-ticket .info-usuario {
     position: absolute;
     transition: .2s;
     width: auto;
@@ -271,30 +274,37 @@ export default {
     position: absolute;
     margin: auto;
     cursor: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow2);
 }
 
-.background-modal .modalDetails .box-modal .datos-user-ticket .info-usuario h3 {
+.background-modal .modalTickets .box-modal .datos-user-ticket .info-usuario .box{
+    margin: 0;
+}
+
+.background-modal .modalTickets .box-modal .datos-user-ticket .info-usuario h3 {
     text-align: center;
     margin-bottom: 15px;
 }
 
-.background-modal .modalDetails .box-modal .datos-user-ticket .info-usuario table tr td {
+.background-modal .modalTickets .box-modal .datos-user-ticket .info-usuario table tr td {
     text-align: left;
     margin-bottom: 9px;
     padding: 5px 7px;
 }
 
-.background-modal .modalDetails .box-modal .datos-user-ticket:hover .info-usuario{
+.background-modal .modalTickets .box-modal .datos-user-ticket:hover .info-usuario{
     transition: .2s;
     transform: scale(1);
     opacity: 1;
 }
 
 
-.background-modal .modalDetails .box-modal .datos-ticket p{
+.background-modal .modalTickets .box-modal .datos-ticket p{
     margin: 0 0 0 0;
     display: inline-block;
 }
+
 
 
 </style>

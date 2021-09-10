@@ -38,7 +38,13 @@
         </div>
 
         <div class="" v-if="activeTabName === tabNames.tab2">
-            <CrearEmpleado :getData="getData" :url="url" :tab="handleTabClick" :nameTab="tabNames.tab1"/>
+            <CrearEmpleado 
+                :getData="getData" 
+                :url="url" 
+                :tab="handleTabClick" 
+                :nameTab="tabNames.tab1"
+                :dataUser="dataUser"
+            />
         </div>
 
     </Layout>
@@ -66,16 +72,18 @@
                 },
 
                 url: dominio() + "employee",
-                data: {},
+                urlUsers: dominio() + "users",
                 loading: true,
                 error: null,
 
-                dataForms: { },
+                data: {},
+                dataUser: { },
 
             }
         },
         created() {
             this.getData();
+            // this.getUsers();
             
         },
         methods: {
@@ -93,16 +101,47 @@
                         method: 'get',
                         url: this.url,
                     });
-                    const { data } = await res;
+                    const resUser = await this.axios({
+                        method: 'get',
+                        url: this.urlUsers,
+                    });
 
-                    this.data = data.success
+                    this.data = await res.data.success;
+                    this.dataUser = await resUser.data.success;
+
+                    // this.data = data.success
                     this.loading = false;
 
                 } catch (error) {
+
                     this.loading = false;
                     this.error = error
+
                 }
             },
+
+            // async getUsers() {
+                
+            //     this.loading = true;
+
+            //     try {
+            //         const resUser = await this.axios({
+            //             method: 'get',
+            //             url: this.urlUsers,
+            //         });
+            //         this.dataUser = await resUser.data.success;
+
+            //         // console.log(resUser.data.success);
+
+            //         // this.dataUser = data.success
+            //         this.loading = false;
+
+            //     } catch (error) {
+            //         this.loading = false;
+            //         this.error = error
+            //     }
+
+            // },
 
         }
     }

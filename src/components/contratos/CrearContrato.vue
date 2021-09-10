@@ -1,12 +1,12 @@
 <template>
-    <div :class="!imp ? 'box' : ''">
+    <div :class="!importar ? 'box' : ''">
 
-        <div v-if="!imp">
+        <div v-if="!importar">
             <h3>Lorem ipsum</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
 
-        <div v-if="!loading" class="form" :class="imp ? 'form2' : ''">
+        <div v-if="!loading" class="form" :class="importar ? 'form2' : ''">
             <div class="form-box form-box2">
 
                 <div class="input">
@@ -83,7 +83,7 @@
             <div class="box-buttons box-buttons3">
                 <div />
                 <button class="button button1" v-on:click="postData">
-                    Guardar
+                    {{ enviar ? "Enviar" : "Confirmar" }}
                     <font-awesome-icon icon="check" />
                 </button>
                 <div />
@@ -110,9 +110,9 @@ export default {
         "getData", 
         "tab", 
         "nameTab", 
-        "imp",
+        "importar",
         "metodoUp",
-        "relacion"
+        "enviar"
     ],
 
     components:{
@@ -209,7 +209,7 @@ export default {
             )
             .then( res => {
 
-                // console.log(res.data.contracts.id);
+                console.log(res.data.contracts.id);
                 
                 if (this.metodoUp) {
                     this.metodoUp(res.data.contracts.id);
