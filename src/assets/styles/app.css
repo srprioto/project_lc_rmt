@@ -228,12 +228,21 @@ li{list-style: none;}
     width: 100%;
 }
 
-.m0{
-    margin: 0;
+.m0, .mar0{
+    margin: 0!important;
+}
+
+.pad0{
+    padding: 0!important;
+}
+
+.relative{
+    position: relative;
 }
 
 .grid{
     display: grid;
+    grid-gap: 20px;
 } 
 
 .grid-2{
@@ -504,6 +513,21 @@ table.table tr .table-icons {
 table.table tr .table-icons .icon-action {
     width: 16px;
     margin: 0 5px;
+}
+
+
+table.table2 {
+    width: 100%;
+}
+
+table.table2 tr{
+    border-bottom: 1px solid var(--lines);
+    box-sizing: border-box;
+}
+
+table.table2 tr th, table.table2 tr td {
+    box-sizing: border-box;
+    padding: 7px 10px;
 }
 
 

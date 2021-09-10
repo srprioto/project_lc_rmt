@@ -29,7 +29,7 @@
                     <div class="input">
                         <label for="">Posición</label>
                         <div class="box-showEdit">
-                            <p v-if="!editData">{{ dataForm.positionId }}</p>
+                            <p v-if="!editData">{{ handlerPosition(dataForm.positionId) }}</p>
                             <span v-if="editData">
                                 <input type="text" v-model="dataForm.positionId">
                                 <h6 v-if="v$.dataForm.positionId.$error">Requerido</h6>
@@ -368,6 +368,14 @@ export default {
 
         regresar(){
             history.back();
+        },
+
+        handlerPosition(idPos){
+            if (idPos === 1) {
+                return "Repartidor"
+            }else if (idPos === 2){
+                return "Empleado"
+            }
         }
 
     }

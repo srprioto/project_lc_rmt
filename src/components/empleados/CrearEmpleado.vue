@@ -1,25 +1,40 @@
 <template>
-    <div class="box" v-if="!loading">
+    <div class="form pad0" v-if="!loading">
 
-        <h3>Lorem ipsum</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <div class="">
 
-        <div class="form">
+            
+            <div class="grid grid-2 mar0">
 
-            <p class="desc-form">Relacion</p>
-            <div class="form-box form-box2">
-
-                <div>
-                    
-                    <div class="input">
+                <div class="box">
+                    <p class="desc-form">Relacion</p>
+                    <div class="input relative">
 
                         <label for="">
                             Usuario
                             <h6 v-if="v$.dataForm.userId.$error">Requerido</h6>
                         </label>
-                        <select name="" id="" v-model="dataForm.userId">
-                            <option v-for="user in dataUser" :key="user.id" :value="user.id">{{ user.email }}</option>
-                        </select>
+                        
+                        <input type="text" v-model="buscar" @click="handlerSelectUser">
+
+                        <div class="buscarUser" v-if="openSelectUser">
+                            <p
+                                v-for="user in filterUsers" 
+                                :key="user.id"
+                                v-on:click="handlerUser(user.id, user.email)"
+                                >{{ user.email }}
+                            </p>
+                        </div>
+              
+
+                        <!-- <select name="" id="" v-model="dataForm.userId">
+                            <option 
+                                v-for="user in filterUsers" 
+                                :key="user.id" 
+                                :value="user.id"
+                                >{{ user.email }}
+                            </option>
+                        </select> -->
 
                     </div><br>
 
@@ -35,24 +50,24 @@
                     </div>
 
                 </div>
-
-                <div>
-
-                    <ModalUsers :idUser="1" />
-
-                </div>
+                
+                <ModalUsers :idUser="dataForm.userId" />
 
             </div>
 
-            <p class="desc-form">Contrato de empleado</p>
-            <CrearContrato 
-                :getData="getData" 
-                :tab="tab" 
-                :nameTab="nameTab"
-                :importar="true"
-                :metodoUp="postData"
-                :enviar="true"
-            />
+            <div class="box">
+
+                <p class="desc-form">Contrato de empleado</p>
+                <CrearContrato 
+                    :getData="getData" 
+                    :tab="tab" 
+                    :nameTab="nameTab"
+                    :importar="true"
+                    :metodoUp="postData"
+                    :enviar="true"
+                />
+
+            </div>
 
             <!-- <p class="desc-form">Datos del empleado</p>
             <div class="form-box form-box2">
@@ -201,12 +216,12 @@ export default {
             submited: false,
 
             dataForm: {
-                name: "mmmm",
-                description: "mmmm",
-                curp: "mmmm",
-                socialSecurity: "mmmm",
-                workRegime: "mmmm",
-                hiringRegime: "mmmm",
+                name: "3333x",
+                description: "3333x",
+                curp: "3333x",
+                socialSecurity: "3333x",
+                workRegime: "3333x",
+                hiringRegime: "3333x",
                 commission: 1,
                 salary: 1,
                 extern: true,
@@ -215,7 +230,11 @@ export default {
                 sectorId: 1,
                 positionId: null,
                 userId: null
-            }
+            },
+
+            buscar: "",
+            openSelectUser: false,
+            emailUser: null
         }
     },
     validations () {
@@ -267,10 +286,23 @@ export default {
     },
 
     created() {
-        
+
     },
 
     methods: {
+
+
+        handlerUser(id, email){
+            this.dataForm.userId = id;
+            this.buscar = email;
+
+            this.handlerSelectUser();
+        },
+
+
+        handlerSelectUser(){
+            this.openSelectUser = !this.openSelectUser
+        },
 
         async postData(idContrato){
             
@@ -278,7 +310,6 @@ export default {
             if (!await this.v$.$validate()) return
 
             // envio de datos
-
             const headers = {
                 'Content-Type': 'application/json'
             }
@@ -339,16 +370,55 @@ export default {
                 toastSuccess("Empleado registrado");
 
             })
+
+            // añadir aqui el ticket de envio
             
 
         }
 
     },
     
+    computed:{
+        filterUsers(){
+            // comprivacion de orden
+            // const altOrder = this.sortOrder === 1 ? -1 : 1
+
+            // buscar dato
+            return this.dataUser.filter(a => (
+                a.email.toLowerCase().includes(this.buscar.toLowerCase())
+            ))
+            // ordenar datos en base al id
+            // .sort((a, b) => {
+            //     if (parseInt(a.id) > parseInt(b.id)) {
+            //         return this.sortOrder
+            //     }
+            //     return altOrder;
+            // })
+
+        },
+    }
+
 }
 </script>
 
 <style>
+
+.buscarUser {
+    position: absolute;
+    padding: 6px 0 6px 0;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--warning);
+}
+
+.buscarUser p {
+    margin: 0;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--lines);
+}
+
 
 </style>
 

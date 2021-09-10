@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@/assets/styles/bootstrap_reboot.css';
+import '@/assets/styles/reboot.css';
 import '@/assets/styles/app.css';
 // import '@/assets/icons/icons/demo.css';
 import router from "@/router";

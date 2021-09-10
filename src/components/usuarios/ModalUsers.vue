@@ -1,52 +1,85 @@
 <template>
 
-    <div class="modalUser">
+    <div class="box">
 
-        <h3>Informacion del Usuario</h3>
+        <p class="desc-form">Informacion del Usuario</p>
 
-        <table>
+        <table v-if="!loading" class="table2">
             <tr>
                 <td><strong>Correo</strong></td>
-                <!-- <td>{{ dataUser.email }}</td> -->
-                <td>texto texto texto</td>
+                <td>{{ dataUser.email }}</td>
             </tr>
             <tr>
                 <td><strong>Roles</strong></td>
-                <!-- <td>{{ dataUser.roleId }}</td> -->
-                <td>texto texto texto</td>
+                <td>{{ dataUser.roleId }}</td>
             </tr>
             <tr>
                 <td><strong>Perfil</strong></td>
-                <!-- <td>{{ dataUser.profileId }}</td> -->
-                <td>texto texto texto</td>
+                <td>{{ dataUser.profileId }}</td>
             </tr>
             <tr>
                 <td><strong>Lista Perfil</strong></td>
-                <!-- <td>{{ dataUser.profileList }}</td> -->
-                <td>texto texto texto</td>
+                <td>{{ dataUser.profileList }}</td>
             </tr>
         </table>
-   
+
+        <Waiting v-if="loading" :msg="'Seleccione un usuario'" />
+    
     </div>
+
+    
 
 </template>
 
 <script>
+import Waiting from '@/components/Waiting'
+
+
+
 export default {
     name: "ModalUsers",
     props: ["idUser"],
+    components:{
+        Waiting
+    },
     data() {
         return {
-            
+            loading: true,
+            error: null,
+            dataUser: { }
         }
     },
     created() {
-        this.getUser()
+
     },
     methods: {
 
-        getUser(){
+        async userData(){
             
+            this.loading = true;
+
+            try {
+                const res = await this.axios({
+                    method: 'get',
+                    url: dominio() + "users/" + this.idUser + "/get?by=id"
+                });
+                const { data } = await res;
+
+                this.dataUser = data.success
+                this.loading = false;
+
+            } catch (error) {
+                this.loading = false;
+                this.error = error
+            }
+        }
+    },
+
+    watch:{
+        
+        idUser(newV, oldV){
+            // console.log(newV, oldV);
+            this.userData()
         }
 
     }
@@ -55,11 +88,8 @@ export default {
 
 <style>
 
-.modalUser{
-    box-sizing: border-box;
-    padding: 20px 30px 30px 30px;
-    background-color: var(--colorBox);
-    border-radius: var(--radius);
-}
+/* .modalUser{
+
+} */
 
 </style>

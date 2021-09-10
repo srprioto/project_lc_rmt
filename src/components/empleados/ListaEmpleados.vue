@@ -44,8 +44,8 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th>Curp</th>
                         <th>Nro S.S.</th>
+                        <th>Posición</th>
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
                     </tr>
@@ -57,8 +57,8 @@
                         <td>{{ item.id }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.curp }}</td>
                         <td>{{ item.socialSecurity }}</td>
+                        <td>{{ handlerPosition(item.positionId) }}</td>
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
 
@@ -139,8 +139,17 @@
                 this.sortOrder = this.sortOrder === 1 ? -1 : 1
             },
 
+            handlerPosition(idPos){
+                if (idPos === 1) {
+                    return "Repartidor"
+                }else if (idPos === 2){
+                    return "Empleado"
+                }
+            }
+
         },
         computed:{
+
             datosFiltrados(){
                 // comprivacion de orden
                 const altOrder = this.sortOrder === 1 ? -1 : 1
@@ -156,9 +165,12 @@
                     }
                     return altOrder;
                 })
-
             },
+
+
         },
+
+        
     }
 </script>
 
