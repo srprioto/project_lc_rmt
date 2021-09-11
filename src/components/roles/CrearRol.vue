@@ -25,7 +25,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -34,7 +34,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -43,7 +43,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -52,7 +52,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -61,7 +61,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -70,7 +70,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -79,7 +79,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>
@@ -88,7 +88,7 @@
                     <input type="checkbox"/>
                     <div class="desc-check">
                         <span>
-                            Elemento check
+                            Permiso para ...
                         </span>
                     </div>
                 </article>

@@ -58,7 +58,7 @@
                     <!-- iterar datos en base a al resultado de datosFiltrados -->
                     <tr v-for="item in datosFiltrados" :key="item.key">
                         <td>{{ item.id }}</td>
-                        <td>{{ item.description }}</td>
+                        <td class="item-desc">{{ item.description }}</td>
                         <!-- <td>{{ item.userId }}</td> -->
                         <!-- <td>{{ item.success }}</td>
                         <td>{{ item.type }}</td> -->
@@ -236,13 +236,9 @@ align-items: center;
     width: 100%;
 }
 
-/* .btnOrder {
-    box-sizing: border-box;
-    
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-} */
+.item-desc{
+    width: 600px;
+}
 
 </style>
 

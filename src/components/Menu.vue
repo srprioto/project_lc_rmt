@@ -9,13 +9,6 @@
             </li>
 
             <li>
-                <router-link :to="{ name: 'contratos' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Contratos
-                </router-link>
-            </li>
-
-            <li>
                 <router-link :to="{ name: 'empresas' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
                     Empresas
@@ -42,27 +35,13 @@
                     Empleados
                 </router-link>
             </li>
-
+            
             <li>
-                <router-link :to="{ name: 'repartidores' }" >
+                <router-link :to="{ name: 'contratos' }" >
                     <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Repartidores
+                    Contratos
                 </router-link>
-            </li> 
-
-
-
-            
-            <!-- <li>
-                <router-link :to="{ name: 'paquetes' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
-                    Paquetes
-                </router-link>
-            </li> -->
-            
-          
-
-
+            </li>
 
             <li>
                 <router-link :to="{ name: 'tickets' }" >
@@ -70,6 +49,24 @@
                     Tickets
                 </router-link>
             </li>
+
+            <li><div class="linea" /></li>
+
+
+
+            <!-- <li>
+                <router-link :to="{ name: 'repartidores' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Repartidores
+                </router-link>
+            </li>  -->
+            
+            <!-- <li>
+                <router-link :to="{ name: 'paquetes' }" >
+                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    Paquetes
+                </router-link>
+            </li> -->
 
         </ul>
     </div>
@@ -106,6 +103,10 @@ export default {
     margin: 0 auto;
     border-left: 2px solid transparent;
     align-items: center;
+}
+
+.menu ul li .linea {
+    border-bottom: 1px solid var(--lines);
 }
 
 .menu ul li a svg {

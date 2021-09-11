@@ -165,10 +165,9 @@ export default {
     },
     methods: {
 
-        urlss(idTicket){
-            console.log(url + "/" + idTicket);
-        },
-
+        // urlss(idTicket){
+        //     console.log(url + "/" + idTicket);
+        // },
 
         actualizarTicket(idTicket){
             const headers = {

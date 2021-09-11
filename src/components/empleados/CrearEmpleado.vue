@@ -2,7 +2,6 @@
     <div class="form pad0" v-if="!loading">
 
         <div class="">
-
             
             <div class="grid grid-2 mar0">
 
@@ -192,10 +191,11 @@
 <script>
 
 import useVuelidate from '@vuelidate/core'
-import { required, minLength, numeric } from '@vuelidate/validators'
+import { required, minLength, numeric } from '@vuelidate/validators';
 import CrearContrato from '@/components/contratos/CrearContrato';
-import Loading from '@/components/Loading'
-import ModalUsers from '@/components/usuarios/ModalUsers'
+import Loading from '@/components/Loading';
+import ModalUsers from '@/components/usuarios/ModalUsers';
+import crearTicket from '@/components/tickets/crearTicket.js';
 
 export default {
     name: "CrearEmpleado",
@@ -216,12 +216,12 @@ export default {
             submited: false,
 
             dataForm: {
-                name: "3333x",
-                description: "3333x",
-                curp: "3333x",
-                socialSecurity: "3333x",
-                workRegime: "3333x",
-                hiringRegime: "3333x",
+                name: "1111",
+                description: "1111",
+                curp: "1111",
+                socialSecurity: "1111",
+                workRegime: "1111",
+                hiringRegime: "1111",
                 commission: 1,
                 salary: 1,
                 extern: true,
@@ -286,11 +286,10 @@ export default {
     },
 
     created() {
-
+        
     },
 
     methods: {
-
 
         handlerUser(id, email){
             this.dataForm.userId = id;
@@ -298,7 +297,6 @@ export default {
 
             this.handlerSelectUser();
         },
-
 
         handlerSelectUser(){
             this.openSelectUser = !this.openSelectUser
@@ -315,6 +313,7 @@ export default {
             }
             this.loading = true;
             this.error = null;
+            
             this.axios.post( 
                 this.url,
                 {
@@ -341,6 +340,9 @@ export default {
 
                 this.loading = false;
                 this.getData();
+
+                // añadir aqui el ticket de envio
+                crearTicket('ticket añadido');
 
             })
             .catch( error => {
@@ -371,10 +373,8 @@ export default {
 
             })
 
-            // añadir aqui el ticket de envio
-            
+        },
 
-        }
 
     },
     

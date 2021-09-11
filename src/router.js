@@ -32,11 +32,11 @@ import MostrarVehiculo from '@/components/vehiculos/MostrarVehiculo';
 
 // sin terminar de configurar
 
-
 import Error from '@/pages/Error';
-import Paquetes from '@/pages/Paquetes';
-import Rutas from '@/pages/Rutas';
-import Repartidores from '@/pages/Repartidores';
+
+// import Paquetes from '@/pages/Paquetes';
+// import Rutas from '@/pages/Rutas';
+// import Repartidores from '@/pages/Repartidores';
 
 
 
@@ -134,37 +134,39 @@ export default createRouter({
         },
 
 
-
-        {   // --- REPARTIDORES ---
-            path: "/repartidores",
-            name: "repartidores",
-            component: Repartidores
-        },
-
-
-        
-
-        {
-            path: "/paquetes",
-            name: "paquetes",
-            component: Paquetes
-        },
-        {
-            path: "/rutas",
-            name: "rutas",
-            component: Rutas
-        },
-
-        
-        {
-            path: "/roles",
-            name: "roles",
-            component: Roles
-        },
-        {
+        {   // --- ERROR ---
             path: "/:catchAll(.*)", 
             name: "Error",
             component: Error
         },
+
+
+
+        // {   
+        //     path: "/repartidores",
+        //     name: "repartidores",
+        //     component: Repartidores
+        // },
+
+        // {
+        //     path: "/paquetes",
+        //     name: "paquetes",
+        //     component: Paquetes
+        // },
+        // {
+        //     path: "/rutas",
+        //     name: "rutas",
+        //     component: Rutas
+        // },
+
+        
+        // {
+        //     path: "/roles",
+        //     name: "roles",
+        //     component: Roles
+        // },
+
+
+
     ]
 });
