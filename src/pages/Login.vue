@@ -67,8 +67,8 @@ export default {
     data() {
         return {
             formLogin: { 
-                user: "",
-                pass: ""
+                user: "renato",
+                pass: "renato"
             }
         }
     },
