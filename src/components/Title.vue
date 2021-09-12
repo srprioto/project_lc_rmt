@@ -29,10 +29,11 @@ export default {
 
 .box-title-comp {
     box-sizing: border-box;
-    padding: 29px 30px 13px 30px;
+    padding: 21px 30px 22px 30px;
     background-color: var(--colorBox);
     margin-bottom: 20px;
-    border-radius: var(--radius);
+    /* border-radius: var(--radius); */
+    box-shadow: var(--shadow);
 }
 
 .box-title-comp .box-grid-title {
@@ -47,7 +48,7 @@ export default {
 }
 
 .box-title-comp .box-grid-title .title-page h2 {
-    margin: 0 0 10px 0;
+    margin: 0;
 }
 
 </style>

@@ -18,7 +18,7 @@
                                         De: 
                                         <strong>{{ dataUser.email }}</strong>
                                     </p>
-                                    <font-awesome-icon class="icon-message" icon="comment" />
+                                    <font-awesome-icon class="icon-message success" icon="comment" />
                                     <div class="info-usuario">
                                         <div class="box">
                                             <h3>Informacion del Usuario</h3>
@@ -218,12 +218,12 @@ export default {
 }
 
 .background-modal .modalTickets {
-    background-color: var(--colorModal);
+    background-color: var(--blancoT2);
     box-sizing: border-box;
     padding: 30px 25px 40px 25px;
     box-shadow: var(--shadow2);
     border-radius: 10px;
-    max-width: 70%;
+    max-width: 85%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -267,13 +267,12 @@ export default {
     width: auto;
     height: auto;
     z-index: 4;
-    border: 1px solid var(--warning);
+    /* border: 1px solid var(--primary); */
     transform: scale(0);
     opacity: 0;
     position: absolute;
     margin: auto;
     cursor: auto;
-    border-radius: var(--radius);
     box-shadow: var(--shadow2);
 }
 

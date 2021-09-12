@@ -7,18 +7,18 @@
                 <h3>Lorem ipsum</h3>
                 <p>
                     Crear un ticket, 
-                    <a href="https://liceley.herokuapp.com/view/menu" target="_blank" rel="noopener noreferrer">click aqui</a>
+                    <a class="link" href="https://liceley.herokuapp.com/view/menu" target="_blank" rel="noopener noreferrer">click aqui</a>
                 </p>
             </div>
 
             <div class="ordenar">
                 <div v-on:click="changeSortOrder" class="pointer">
 
-                    <span class="button button3 btnOrder" v-if="sortOrder === -1">
+                    <span class="button button1 btnOrder" v-if="sortOrder === -1">
                         Más reciente
                         <font-awesome-icon icon="angle-up" size="lg"/>
                     </span>
-                    <span class="button button3 btnOrder" v-else >
+                    <span class="button button1 btnOrder" v-else >
                         Más antiguo
                         <font-awesome-icon icon="angle-down" size="lg"/>
                     </span>
@@ -67,13 +67,13 @@
 
                             <!-- enviamos id del dato que vamos a mostrar o editar como parametro -->
                             <span v-on:click="toggleModalDetails(item)" class="pointer icon-action">
-                                <font-awesome-icon icon="eye" />
+                                <font-awesome-icon icon="eye" class="secondary"/>
                             </span>
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->
                             <!-- tambien se puede enviar solo el id -->
                             <span v-on:click="toggleModal(item.id)" class="pointer icon-action">
-                                <font-awesome-icon icon="trash" />
+                                <font-awesome-icon icon="trash" class="danger"/>
                             </span>
                             
                         </td>

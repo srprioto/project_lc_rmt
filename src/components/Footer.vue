@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6>footer app</h6>
+        <!-- <h6>footer app</h6> -->
     </div>
 </template>
 

@@ -218,9 +218,8 @@ export default {
                 this.loading = false;
                 this.getData();
 
-                this.tab(this.nameTab);
-
-                toastSuccess("Contrato registrado");
+                // this.tab(this.nameTab);
+                // toastSuccess("Contrato registrado");
 
             })
             .catch( error => {
@@ -250,29 +249,3 @@ export default {
 <style>
 
 </style>
-
-
-
-{
-  "success": "contrato creado",
-  "contracts": {
-    "id": 4,
-    "status": true,
-    "description": "nuevo dato 3",
-    "auth": "nuevo dato 3",
-    "type": "nuevo dato 3",
-    "cost": 1,
-    "priceDispatch": 1,
-    "priceUnity": 1,
-    "priceByGuide": 1,
-    "dateCheck": "2021-08-30T09:25:31.915Z",
-    "updatedAt": "2021-08-30T09:25:31.915Z",
-    "createdAt": "2021-08-30T09:25:31.915Z"
-  }
-}
-
-
-
-
-
-

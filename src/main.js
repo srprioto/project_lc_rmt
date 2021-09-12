@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import '@/assets/styles/reboot.css';
 import '@/assets/styles/app.css';
-// import '@/assets/icons/icons/demo.css';
+
 import router from "@/router";
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-// import useVuelidate from '@vuelidate/core'
+
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

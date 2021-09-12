@@ -12,7 +12,8 @@ import {
     faTrash,
     faPlus,
     faList,
-    faComment
+    faComment,
+    faExpand
 
 
 } from '@fortawesome/free-solid-svg-icons'
@@ -31,7 +32,8 @@ const icons = {
     faTrash,
     faPlus,
     faList,
-    faComment
+    faComment,
+    faExpand
 
 }
 
@@ -44,5 +46,6 @@ export default icons;
 {/* <font-awesome-icon icon="trash" /> */}
 {/* <font-awesome-icon icon="plus" /> */}
 {/* <font-awesome-icon icon="list" /> */}
+{/* <font-awesome-icon icon="fa-expand" /> */}
 
 {/* <font-awesome-icon icon="comment" /> */}

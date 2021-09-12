@@ -24,7 +24,6 @@
                                 >{{ user.email }}
                             </p>
                         </div>
-              
 
                         <!-- <select name="" id="" v-model="dataForm.userId">
                             <option 
@@ -62,7 +61,7 @@
                     :tab="tab" 
                     :nameTab="nameTab"
                     :importar="true"
-                    :metodoUp="postData"
+                    :metodoUp="crearTicket"
                     :enviar="true"
                 />
 
@@ -216,12 +215,12 @@ export default {
             submited: false,
 
             dataForm: {
-                name: "1111",
-                description: "1111",
-                curp: "1111",
-                socialSecurity: "1111",
-                workRegime: "1111",
-                hiringRegime: "1111",
+                name: "4444",
+                description: "4444",
+                curp: "4444",
+                socialSecurity: "4444",
+                workRegime: "4444",
+                hiringRegime: "4444",
                 commission: 1,
                 salary: 1,
                 extern: true,
@@ -302,6 +301,21 @@ export default {
             this.openSelectUser = !this.openSelectUser
         },
 
+        crearTicket(idContrato){
+
+            // this.postData(idContrato);
+            crearTicket(`{
+                idRef: contracts@${idContrato}, 
+                idUser: users@${this.dataForm.userId},
+                idPosicion: posicion@${this.dataForm.positionId}
+            }`, 'R-Cedi-02');
+
+            this.$router.push({ name: 'tickets' });
+
+            toastSuccess("Contrato y ticket registrado");
+
+        },
+
         async postData(idContrato){
             
             // validaciones
@@ -342,7 +356,7 @@ export default {
                 this.getData();
 
                 // añadir aqui el ticket de envio
-                crearTicket('ticket añadido');
+                
 
             })
             .catch( error => {
@@ -369,7 +383,7 @@ export default {
                 this.dataForm.contractsId = "";
                 this.dataForm.userId = "";
 
-                toastSuccess("Empleado registrado");
+                // toastSuccess("Empleado registrado");
 
             })
 
@@ -416,7 +430,7 @@ export default {
     margin: 0;
     padding: 5px 20px;
     cursor: pointer;
-    border-bottom: 1px solid var(--lines);
+    /* border-bottom: 1px solid var(--lines); */
 }
 
 

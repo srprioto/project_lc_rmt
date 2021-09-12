@@ -58,9 +58,9 @@
     align-self: flex-end;
     width: 100%;
     text-align: center;
-    background-color: #00000061;
+    background-color: #3f87f5;
     box-sizing: border-box;
-    padding: 5px 0;
+    /* padding: 5px 0; */
 }
 
 .layout .box-layout .body{

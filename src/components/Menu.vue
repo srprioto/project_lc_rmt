@@ -50,7 +50,7 @@
                 </router-link>
             </li>
 
-            <li><div class="linea" /></li>
+            <!-- <li><div class="linea" /></li> -->
 
 
 
@@ -84,29 +84,29 @@ export default {
 
 .menu {
     box-sizing: border-box;
-    padding: 60px 20px 20px 20px;
-    background-color: var(--colorBox2);
+    padding: 60px 0px 20px 0px;
+    background-color: var(--menu);
     display: inline-block;
 }
 
 .menu ul li {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .menu ul li a {
-    width: 90%;
+    width: 100%;
     box-sizing: border-box;
-    padding: 5px 20px 5px 23px;
+    padding: 8px 20px 8px 40px;
     position: relative;
     display: flex;
     color: var(--blanco);
-    margin: 0 auto;
+    margin: 0;
     border-left: 2px solid transparent;
     align-items: center;
 }
 
 .menu ul li .linea {
-    border-bottom: 1px solid var(--lines);
+    border-bottom: 1px solid var(--blanco);
 }
 
 .menu ul li a svg {
@@ -114,10 +114,9 @@ export default {
 }
 
 .menu ul li .router-link-active.router-link-exact-active {
-    background-color: var(--background);
-    border-left: 2px solid var(--lines);
-    color: var( --blanco2);
-    border-radius: var(--radius);
+    background-color: var(--blancoT);
+    color: var( --blanco);
+    border-right: 3px solid var(--primary);
 }
 
 </style>

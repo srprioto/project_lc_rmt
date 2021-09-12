@@ -11,11 +11,11 @@
             <div class="ordenar">
                 <div v-on:click="changeSortOrder" class="pointer">
 
-                    <span class="button button3 btnOrder" v-if="sortOrder === -1">
+                    <span class="button button1 btnOrder" v-if="sortOrder === -1">
                         Más reciente
                         <font-awesome-icon icon="angle-up" size="lg"/>
                     </span>
-                    <span class="button button3 btnOrder" v-else >
+                    <span class="button button1 btnOrder" v-else >
                         Más antiguo
                         <font-awesome-icon icon="angle-down" size="lg"/>
                     </span>
