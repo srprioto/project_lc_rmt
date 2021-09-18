@@ -175,6 +175,11 @@ export default {
             }
         }
     },
+    created() {
+        
+
+
+    },
     methods: {
 
         async okFun (valor) {
@@ -186,7 +191,9 @@ export default {
                 params: { owner: valor } 
             })
 
-        }
+        },
+
+
 
     },
 

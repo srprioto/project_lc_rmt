@@ -20,7 +20,9 @@
         <script>
 
             function urlLocal(){
-                return 'http://localhost:8080/'
+                const URLdomain = window.location.host;
+
+                return 'http://' + URLdomain + '/'
             }
 
             function dominio(){
