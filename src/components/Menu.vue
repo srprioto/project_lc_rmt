@@ -3,49 +3,63 @@
         <ul>
             <li>
                 <router-link :to="{ name: 'home' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="house-user" />
+                    </div>
                     Dashboard
                 </router-link>
             </li>
 
             <li>
                 <router-link :to="{ name: 'empresas' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="building" />
+                    </div>
                     Empresas
                 </router-link>
             </li>
 
             <li>
                 <router-link :to="{ name: 'roles' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="users" />
+                    </div>
                     Roles
                 </router-link>
             </li>
 
             <li>
                 <router-link :to="{ name: 'vehiculos' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="truck-moving" />
+                    </div>
                     Vehiculos
                 </router-link>
             </li>
 
             <li>
                 <router-link :to="{ name: 'empleados' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="restroom" />
+                    </div>
                     Empleados
                 </router-link>
             </li>
             
             <li>
                 <router-link :to="{ name: 'contratos' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="file-contract" />
+                    </div>
                     Contratos
                 </router-link>
             </li>
 
             <li>
                 <router-link :to="{ name: 'tickets' }" >
-                    <font-awesome-icon icon="chevron-right" size="lg"/>
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="comment" />
+                    </div>
                     Tickets
                 </router-link>
             </li>
@@ -75,48 +89,22 @@
 <script>
 
 export default {
-    name: 'Menu'
+    name: 'Menu',
+
+    created() {
+        // console.log(this.tituloPagina);
+        
+    },
+
+    methods: {
+        
+    }
 }
 
 </script>
 
 <style>
 
-.menu {
-    box-sizing: border-box;
-    padding: 60px 0px 20px 0px;
-    background-color: var(--menu);
-    display: inline-block;
-}
 
-.menu ul li {
-    margin-bottom: 10px;
-}
-
-.menu ul li a {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px 20px 8px 40px;
-    position: relative;
-    display: flex;
-    color: var(--blanco);
-    margin: 0;
-    border-left: 2px solid transparent;
-    align-items: center;
-}
-
-.menu ul li .linea {
-    border-bottom: 1px solid var(--blanco);
-}
-
-.menu ul li a svg {
-    margin-right: 16px;
-}
-
-.menu ul li .router-link-active.router-link-exact-active {
-    background-color: var(--blancoT);
-    color: var( --blanco);
-    border-right: 3px solid var(--primary);
-}
 
 </style>

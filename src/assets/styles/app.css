@@ -7,30 +7,32 @@
 :root{
     --background: #f9fbfd;
     --colorBox: #fff;
-    --colorBox2: #FCB12F;
+    --colorBox2: #222fb9;
+    --colorBox3: #FCB12F;
     --blancoT: #ffffff45;
     --blancoT2: #ffffffe0;
 
-    --menu: #d46010;
+    --menu: #222fb9;
     --colorModal: #28273fe0;
     --texto: #342e49;
     --texto2: #000;
     --texto3: #919191;
 
     --blanco: #fff;
+    --blanco2: rgba(255, 255, 255, 0.8);
 
     --font:'Montserrat', sans-serif;;
     --lines: #9d86ff;
     --lines2: #001fbd;
     --shadow: 5px 4px 9px 0px #d3d3d3e0;
     --shadow2: -8px 8px 14px 0 rgb(12 18 27 / 24%);
-    --radius: 4px;
+    --radius: 20px;
 
-    --primary: #3f87f5;
-    --secondary: #9d86ff;
-    --success: #00e3bc;
-    --warning: #ffc107;
-    --danger: #e2584c;
+    --primary: #222fb9;
+    --secondary: #d9c400;
+    --success: #1b9728;
+    --warning: #ff7a01;
+    --danger: #fe0100;
 
     --primaryT: #3f87f520;
     --secondaryT: #9d86ff20;
@@ -68,7 +70,7 @@ body {
     font-size: 16px;
     font-family: var(--font);
     color: var(--texto);
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
     overflow: inherit;
     max-height: 100vh;
@@ -128,17 +130,23 @@ h6{
     color: var(--danger);
 }
 
-img{
-    visibility: visible!important;
+.bg-warning{
+    background-color: var(--colorBox3)!important;
 }
+
+/* img{
+    visibility: visible!important;
+} */
+
+
 
 /* links */
 a{color:var(--texto); text-decoration:none;}
 a:hover{color:var(--texto2); text-decoration: none;}
 
 .link{
-    color:var(--danger);
-    font-weight: 600;
+    color:var(--primary);
+    /* font-weight: 600; */
 }
 
 li{list-style: none;}
@@ -179,13 +187,13 @@ li{list-style: none;}
 
 .button {
     box-sizing: border-box;
-    padding: 5px 38px;
+    padding: 15px 30px;
     min-width: 150px;
     margin: 10px;
     cursor: pointer;
     border-top: none;
     border-bottom: none;
-    border-radius: 4px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -237,7 +245,7 @@ li{list-style: none;}
     padding: 20px 30px 30px 30px;
     background-color: var(--colorBox);
     margin-bottom: 20px;
-    /* border-radius: var(--radius); */
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
@@ -305,6 +313,29 @@ li{list-style: none;}
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+/* imgs y svgs */
+
+.border-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #d9dcec;
+}
+
+.border-icon2 {
+    padding: 5px;
+    border-radius: 7px;
+    border: 1px solid var(--primary);
+}
+
+.tamano-icon svg{
+    font-size: 25px;
+    color: var(--primary);
+}
+
 /* titulos */
 
 .box-title {
@@ -333,7 +364,7 @@ li{list-style: none;}
 
 .scroll {
     overflow-y: scroll;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 90px);
 }
 
 .scroll::-webkit-scrollbar {
@@ -352,6 +383,54 @@ li{list-style: none;}
     /* background-color: #a724ff; */
     transition-delay: 1s;
 }
+
+/* menu principal */
+
+.menu {
+    box-sizing: border-box;
+    padding: 60px 0px 20px 0px;
+    background-color: var(--menu);
+    display: inline-block;
+}
+
+.menu ul li {
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 25px 15px 25px;
+    position: relative;
+    display: flex;
+    color: var(--blanco2);
+    margin: 0;
+    border-left: 2px solid transparent;
+    align-items: center;
+}
+
+.menu ul li a .icon-menu {
+    text-align: center;
+    width: 45px;
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+.menu ul li .linea {
+    border-bottom: 1px solid var(--blanco2);
+}
+
+/* .menu ul li a svg {
+    margin-right: 30px;
+} */
+
+.menu ul li .router-link-active.router-link-exact-active {
+    background-color: var(--blancoT);
+    color: var( --blanco);
+    /* border-right: 3px solid var(--primary); */
+    border-radius: 30px;
+}
+
 
 /* forms */
 
@@ -466,7 +545,7 @@ li{list-style: none;}
     width: 100%;
 }
 
-input, optgroup, select, textarea {
+/* input, optgroup, select, textarea {
     border: none;
     font-family: sans-serif;
     font-size: 100%;
@@ -477,6 +556,20 @@ input, optgroup, select, textarea {
     padding: 5px 8px;
     color: var( --texto);
     width: 100%;
+} */
+
+input, optgroup, select, textarea {
+    border: none;
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    padding: 8px 10px;
+    color: var( --texto);
+    width: 100%;
+    border-radius: 20px;
 }
 
 input::placeholder{
@@ -507,6 +600,7 @@ select option{
     align-items: center;
     line-height: 25px;
     transition: .5s ease;
+    padding: 10px 0;
 }
   
 .check input {
@@ -520,7 +614,7 @@ select option{
 }
   
 input[type=checkbox]:checked ~ div {
-    background-color: var(--secondary);
+    background-color: var(--primary);
     border-radius: var( --radius);
     overflow: hidden;
     color: #fff;
@@ -532,21 +626,31 @@ input[type=checkbox]:checked ~ div {
 
 table.table {
     width: 100%;
+    border-radius: 35px;
+    overflow: hidden;
 }
 
-/* table.table tr{
-    
-} */
+table.table thead{
+    background-color: var(--colorBox3);
+}
+
+table.table thead th{
+    color: var(--blanco);
+}
 
 table.table tr th {
-    /* background-color: #ffa20038; */
-    border-bottom: 2px solid var(--lines);
+    /* border-bottom: 2px solid var(--lines); */
     text-transform: uppercase;
 }
 
-table.table tr th, table.table tr td {
+table.table thead tr th{
     box-sizing: border-box;
-    padding: 15px 20px;
+    padding: 20px 20px;
+}
+
+table.table tbody tr td {
+    box-sizing: border-box;
+    padding: 25px 20px;
 }
 
 table.table tr .table-icons {
@@ -564,7 +668,7 @@ table.table tr .table-icons span{
 }
 
 table.table tr .table-icons a{
-    color: var(--secondary);
+    color: var(--primary);
 }
 
 
@@ -621,7 +725,5 @@ table.table2 tr th, table.table2 tr td {
     transition: .3s;
 }
 
-
-/* modals */
 
 

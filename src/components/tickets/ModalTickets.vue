@@ -18,9 +18,11 @@
                                         De: 
                                         <strong>{{ dataUser.email }}</strong>
                                     </p>
-                                    <font-awesome-icon class="icon-message success" icon="comment" />
+                                    
+                                    <font-awesome-icon class="icon-message primary" icon="comment" />
+                                    
                                     <div class="info-usuario">
-                                        <div class="box">
+                                        <div class="box bg-warning">
                                             <h3>Informacion del Usuario</h3>
                                             <table>
                                                 <tr>

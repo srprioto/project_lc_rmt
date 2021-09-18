@@ -1,29 +1,53 @@
 <template>
     <div class="header">
         <div class="logo">
-            <router-link to="/home"><h2>Liceley CEDI</h2></router-link>
+            <router-link to="/dashboard">
+                <!-- <h2>LINCELEY</h2> -->
+                <img :src="logo" alt="">
+            </router-link>
         </div>
         <div class="menu-header">
             
             <div class="herramientas box-menu">
-                <span @click="fullscreen" class="expand">
-                    <font-awesome-icon icon="expand" class="pointer" />
-                </span>
+                <h2 class="titulo-pagina mar0">
+                    {{ tituloP }}
+                </h2>
             </div>
 
             <div class="otros box-menu">
-                
+                <div class="border-icon2 tamano-icon">
+                    <span @click="fullscreen" class="expand">
+                        <font-awesome-icon icon="expand" class="pointer" />
+                    </span>
+                </div>
             </div>
 
             <div class="menu-header-left box-menu">
                 <ul>
-                    <li class="pointer">item1</li>
-                    <li class="pointer">item2</li>
+                    <li class="pointer">
+                        <div class="border-icon tamano-icon">
+                            <font-awesome-icon icon="comment" />
+                        </div>
+                    </li>
+                    
+                    <li class="pointer">
+                        <!-- <router-link :to="{ name: 'login' }" > -->
+                            <div class="border-icon tamano-icon">
+                                <font-awesome-icon icon="user" />
+                            </div>
+                        <!-- </router-link> -->
+                    </li>
+
                     <li class="pointer">
                         <router-link :to="{ name: 'login' }" >
-                            Salir
+                            <div class="border-icon tamano-icon">
+                                <font-awesome-icon icon="door-open" />
+                            </div>
                         </router-link>
                     </li>
+                    
+                    
+
                 </ul>
             </div>
 
@@ -33,15 +57,37 @@
 
 <script>
     
-
     export default {
         name: 'Header',
+
+        data() {
+            return {
+                tituloP: ""
+            }
+        },
+
+        created() {
+            this.tituloPagina();
+        },
+
         methods: {
             fullscreen(){
                 alert("ok");
+            },
+            tituloPagina(){
+                this.tituloP = window.location.pathname.slice(1);
             }
         },
+
+        computed:{
+            logo(){
+                
+                return urlLocal() + "assets/image/imgs/logo-blanco.png"
+
+            }
+        }
     }
+
 </script>
 
 <style>
@@ -50,7 +96,7 @@
     background-color: var(--colorBox);
     display: grid;
     grid-template-columns: 18% 82%;
-    height: 70px;
+    height: 90px;
     box-shadow: var(--shadow);
 }
 
@@ -66,6 +112,10 @@
     color: var(--blanco)
 }
 
+.header .logo img {
+    width: 110px;
+}
+
 .header .menu-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -76,6 +126,12 @@
     display: flex;
     align-self: center;
     margin: 0;
+    justify-content: center;
+}
+
+.header .menu-header .titulo-pagina {
+    text-transform: uppercase;
+    padding: 0 30px;
 }
 
 .header .menu-header .herramientas{
@@ -90,9 +146,11 @@
     margin: 0;
 }
 
+
 .header .menu-header ul li{
     display: inline-block;
     margin: 0 5px;
+    vertical-align: middle;
 }
 
 </style>

@@ -67,7 +67,7 @@
 
                             <!-- enviamos id del dato que vamos a mostrar o editar como parametro -->
                             <span v-on:click="toggleModalDetails(item)" class="pointer icon-action">
-                                <font-awesome-icon icon="eye" class="secondary"/>
+                                <font-awesome-icon icon="eye" class="primary"/>
                             </span>
                             
                             <!-- elimina dato, recibe el id y nombre del dato que vamos a eliminar -->

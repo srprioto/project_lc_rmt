@@ -3,12 +3,12 @@
         <div class="box-layout">
 
             <!-- header -->
-            <Header></Header>
+            <Header />
 
             <div class="body">
 
                 <!-- menu -->
-                <Menu></Menu>
+                <Menu />
 
                 <div class="main scroll">
 
@@ -33,11 +33,20 @@
 
     export default {
         name: 'Layout',
+        props: [
+            
+        ],
+        
         components: {
             Header,
             Footer,
             Menu
         },
+
+        // created() {
+        //     console.log(window.location.pathname);
+        // },
+
     }
 
 </script>

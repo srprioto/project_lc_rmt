@@ -86,7 +86,7 @@ export default {
             if (!await this.v$.$validate()) return
 
 
-            this.$router.push({ name: 'home' })
+            this.$router.push({ name: 'select-rol' })
         }
     },
 

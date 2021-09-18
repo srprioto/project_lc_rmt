@@ -6,6 +6,12 @@ import Home from '@/pages/Home';
 // login
 import Login from '@/pages/Login';
 
+// seleccionar rol
+import SeleccionarRol from '@/pages/SeleccionarRol';
+
+// en construccion
+import EnConstruccion from '@/pages/EnConstruccion';
+
 // empresas
 import Empresas from '@/pages/Empresas';
 import MostrarEmpresa from '@/components/empresa/MostrarEmpresa';
@@ -51,8 +57,16 @@ export default createRouter({
             component: Login
         },  
 
+
+        {   // --- SELECCIONAR ROLES ---
+            path: "/seleccionar-rol",
+            name: "select-rol",
+            component: SeleccionarRol
+        },  
+
+
         {   // --- HOME ---
-            path: "/home",
+            path: "/dashboard",
             name: "home",
             component: Home
         },  // ---  ---
@@ -131,6 +145,13 @@ export default createRouter({
             path: "/vehiculos/:value:url/ok",
             name: "vehiculos-show",
             component: MostrarVehiculo
+        },
+
+
+        {   // --- ERROR ---
+            path: "/construccion",
+            name: "en-construccion",
+            component: EnConstruccion
         },
 
 

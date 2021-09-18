@@ -114,7 +114,7 @@ export default {
 }
 
 .background-modal .modal {
-    background-color: var(--blancoT2);
+    background-color: var(--colorBox3);
     text-align: center;
     box-sizing: border-box;
     padding: 30px 25px 40px 25px;
