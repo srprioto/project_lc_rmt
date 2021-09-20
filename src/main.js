@@ -6,6 +6,8 @@ import router from "@/router";
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import VueChartkick from 'vue-chartkick'
+import 'chartkick/chart.js'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -18,7 +20,7 @@ library.add({ ...icons })
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)
     .use(router)
-    // .use(useVuelidate)
+    .use(VueChartkick)
     .use(VueAxios, axios)
     .mount('#app')
 

@@ -1,49 +1,47 @@
 <template>
     <Layout>
 
-        <div class="box">
-            <h3>Links:</h3><br>
+        <div class="grid grid-4">
+            <div class="box grid-center">
+                <p class="mar0">
+                    Rutas api: 
+                    <a class="link" href="https://liceley.herokuapp.com/routes" target="_blank">
+                        Click aqui
+                    </a>
+                </p>
+            </div>
 
-            <p>Rutas api: <a class="link" href="https://liceley.herokuapp.com/routes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw" target="_blank">Click aqui</a></p>
+            <div class="box grid-center">
+                <p class="mar0">Perfil usuario: <a class="link" href="https://liceley.herokuapp.com/view/menu" target="_blank">Click aqui</a></p>
+            </div>
 
-            <p>Perfil usuario: <a class="link" href="https://liceley.herokuapp.com/view/menu" target="_blank">Click aqui</a></p>
+            <div class="box grid-center">
+                <p class="mar0">Roles: <a class="link" href="https://liceley.herokuapp.com/view/users" target="_blank">Click aqui</a></p>
+            </div>
 
-            <p>Roles: <a class="link" href="https://liceley.herokuapp.com/view/users?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw" target="_blank">Click aqui</a></p>
-
-            <p>Tickets: <a class="link" href="https://liceley.herokuapp.com/view/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw" target="_blank">Click aqui</a></p>
-
-        </div>
-
-        <!-- plantilla -->
-        <div class="box">
-            <h1>titulo titulo titulo titulo</h1>
-            <h2>titulo titulo titulo titulo</h2>
-            <h3>titulo titulo titulo titulo</h3>
-            <h4>titulo titulo titulo titulo</h4>
-            <h5>titulo titulo titulo titulo</h5>
-            <h6>titulo titulo titulo titulo</h6>
-
-            <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit.</strong> Hic natus totam quidem dicta laudantium accusantium minima commodi!</p>
-
-            <a href="">link link link</a>
-
-            <ul>
-                <li>texto 1</li>
-                <li>texto 1</li>
-                <li>texto 1</li>
-            </ul>
-
-            <span>texto texto</span>
-
-            <div class="box-buttons box-buttons5">
-                <div/>
-                <div class="button button1">boton1</div>
-                <div class="button button2">boton2</div>
-                <div class="button button3">boton3</div>
-                <div/>
+            <div class="box grid-center">
+                <p class="mar0">Tickets: <a class="link" href="https://liceley.herokuapp.com/view/dashboard" target="_blank">Click aqui</a></p>
             </div>
 
         </div>
+
+
+        <div class="grid grid-2">
+            <div class="box">
+                <VehiculosDisponibles />
+            </div>
+            <div class="box">
+                <EmpleadosRegistrados />
+            </div>
+        </div>
+
+
+        <div class="box">
+
+           <ReporteSemana />
+
+        </div>
+
 
         <!-- formulario para el link -->
         <div class="box">
@@ -143,6 +141,37 @@
 
         </div>
 
+        <!-- plantilla -->
+        <div class="box">
+            <h1>titulo titulo titulo titulo</h1>
+            <h2>titulo titulo titulo titulo</h2>
+            <h3>titulo titulo titulo titulo</h3>
+            <h4>titulo titulo titulo titulo</h4>
+            <h5>titulo titulo titulo titulo</h5>
+            <h6>titulo titulo titulo titulo</h6>
+
+            <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit.</strong> Hic natus totam quidem dicta laudantium accusantium minima commodi!</p>
+
+            <a href="">link link link</a>
+
+            <ul>
+                <li>texto 1</li>
+                <li>texto 1</li>
+                <li>texto 1</li>
+            </ul>
+
+            <span>texto texto</span>
+
+            <div class="box-buttons box-buttons5">
+                <div/>
+                <div class="button button1">boton1</div>
+                <div class="button button2">boton2</div>
+                <div class="button button3">boton3</div>
+                <div/>
+            </div>
+
+        </div>
+
 
     </Layout>
 </template>
@@ -153,10 +182,19 @@ import useVuelidate from '@vuelidate/core'
 import { required, numeric } from '@vuelidate/validators'
 import Layout from '@/components/Layout';
 
+// charts
+import EmpleadosRegistrados from '@/components/charts/EmpleadosRegistrados.vue'
+import VehiculosDisponibles from '@/components/charts/VehiculosDisponibles.vue'
+import ReporteSemana from '@/components/charts/ReporteSemana.vue'
+
+
 export default {
     name: 'Home',
     components: {
-        Layout
+        Layout,
+        EmpleadosRegistrados,
+        VehiculosDisponibles,
+        ReporteSemana
     },
     setup () {
         return { v$: useVuelidate() }
@@ -164,7 +202,8 @@ export default {
     data() {
         return {
             formData: { 
-                idOwner: ""
+                idOwner: "",
+                token: "?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw"
             }
         }
     },
