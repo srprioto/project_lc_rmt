@@ -1,7 +1,9 @@
 <template>
 
-    <h3>Envios semanales</h3>
-    <column-chart :data="data"></column-chart>
+    <div class="box">
+        <h3>Envios semanales</h3>
+        <column-chart :data="data"></column-chart>
+    </div>
 
 </template>
 

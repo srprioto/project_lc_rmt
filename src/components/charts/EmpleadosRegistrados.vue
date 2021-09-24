@@ -1,7 +1,9 @@
 <template>
 
-    <h3>Usuarios registrados</h3>
-    <line-chart :data="data"></line-chart>
+    <div class="box">
+        <h3>Usuarios registrados</h3>
+        <line-chart :data="data"></line-chart>
+    </div>
 
 </template>
 

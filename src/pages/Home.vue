@@ -25,23 +25,12 @@
 
         </div>
 
-
+        <!-- charts -->
         <div class="grid grid-2">
-            <div class="box">
-                <VehiculosDisponibles />
-            </div>
-            <div class="box">
-                <EmpleadosRegistrados />
-            </div>
+            <VehiculosDisponibles />
+            <EmpleadosRegistrados />
         </div>
-
-
-        <div class="box">
-
-           <ReporteSemana />
-
-        </div>
-
+        <ReporteSemana />
 
         <!-- formulario para el link -->
         <div class="box">

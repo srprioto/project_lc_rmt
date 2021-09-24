@@ -1,10 +1,10 @@
 <template>
-    <div class="box">
 
-        <h3>Lorem ipsum</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+    <div class="form pad0" v-if="!loading" >
 
-        <div v-if="!loading" class="form">
+        <div class="box">
+
+            <h3>Razon Social</h3>
 
             <div class="form-box form-box1">
                 <div>
@@ -51,7 +51,7 @@
                     <input type="text" v-model="dataForm.key">
                 </div>
 
-                 <div class="input">
+                <div class="input">
                     <label for="">
                         RFC
                         <h6 v-if="v$.dataForm.rfc.$error">Min 11 caracteres | Max 13 caracteres | Requerido</h6>
@@ -86,6 +86,12 @@
 
 
             </div>
+            
+        </div>
+
+        <div class="box">
+
+            <h3>Dominio fiscal</h3>
 
             <div class="box-buttons box-buttons3">
                 <div />
@@ -95,8 +101,11 @@
                 </button>
                 <div />
             </div>
-            
+
         </div>
+
+
+
     </div>
 
     <Loading v-if="loading"/>

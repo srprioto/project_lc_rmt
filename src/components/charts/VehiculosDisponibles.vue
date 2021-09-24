@@ -1,7 +1,9 @@
 <template>
 
-    <h3>Vehiculos disponibles</h3>
-    <pie-chart :data="data"></pie-chart>
+    <div class="box">
+        <h3>Vehiculos disponibles</h3>
+        <pie-chart :data="data"></pie-chart>
+    </div>
 
 </template>
 
