@@ -61,7 +61,7 @@
                     :tab="tab" 
                     :nameTab="nameTab"
                     :importar="true"
-                    :metodoUp="crearTicket"
+                    :metodoUp="enviarTicket"
                     :enviar="true"
                 />
 
@@ -301,14 +301,23 @@ export default {
             this.openSelectUser = !this.openSelectUser
         },
 
-        crearTicket(idContrato){
+        enviarTicket(idContrato){
+
+            let position = this.dataForm.positionId === 1 ? "R-Delivery-01" : "R-Employee-01"
 
             // this.postData(idContrato);
-            crearTicket(`{
-                idRef: contracts@${idContrato}, 
-                idUser: users@${this.dataForm.userId},
-                idPosicion: posicion@${this.dataForm.positionId}
-            }`, 'R-Cedi-02');
+            crearTicket(
+                `{ idContrato: ${idContrato}@contracts }`, 
+                position,
+                `1@business`
+            );
+
+            // crearTicket(`{
+            //     idRef: ${idContrato}@contracts, 
+            //     idUser: users@${this.dataForm.userId},
+            //     idPosicion: ${this.dataForm.positionId}@posicion
+            // }`, 'R-Cedi-02');
+            
 
             this.$router.push({ name: 'tickets' });
 

@@ -1,10 +1,11 @@
-const crearTicket = async (msg, type = "R-Cedi-01") => { 
+const crearTicket = async (msg, type = "R-Cedi-01", toref) => { 
 
     const url = dominio() + "tickets" + "?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjIxMDM4ODc3LCJleHAiOjE2MjEwNDAzMTd9.-GhclnJSW2tU-wosrwV6B2ZYAJgvHoYr8HIjnNicFHw";
 
     const data = {            
         description: msg,
-        type: type
+        type: type,
+        toRef: toref
     };
 
     const headers = {
