@@ -4,9 +4,7 @@
 
         <div class="box">
 
-            <h3>Razon Social</h3>
-
-            <div class="form-box form-box1">
+            <div class="form-box form-box1 mar0">
                 <div>
                     <label class="box-buttons box-buttons3" for="">
                         <div />
@@ -21,15 +19,21 @@
                         type="text" 
                         v-model="dataForm.owner"
                     >
-                    <h2 class="center codigoOwn" v-else>{{ idOwner }}</h2>
+                    <h2 class="center mar0" v-else>{{ idOwner }}</h2>
                 </div>
             </div>
+
+        </div>
+
+        <div class="box">
+
+            <h3>Razón social</h3>
 
             <div class="form-box form-box2">
 
                 <div class="input">
                     <label for="">
-                        Nombre
+                        Nombre de razón social
                         <h6 v-if="v$.dataForm.name.$error">Requerido</h6>    
                     </label>
                     <input type="text" v-model="dataForm.name">
@@ -64,7 +68,12 @@
                         Regimen fiscal
                         <h6 v-if="v$.dataForm.fiscalRegime.$error">Requerido</h6>
                     </label>
-                    <input type="text" v-model="dataForm.fiscalRegime">
+                    <!-- <input type="text" v-model="dataForm.fiscalRegime"> -->
+                    <select name="" id="" v-model="dataForm.fiscalRegime">
+
+                        <option value="" v-for="rf in regimenFiscal" :key="rf.rf">{{ rf.descripcion }}</option>
+                        
+                    </select>
                 </div>
 
                 <div class="input">
@@ -75,23 +84,130 @@
                     <input type="text" v-model="dataForm.turn">
                 </div>
 
-
-                <!-- <div class="input">
-                    <label for="">Estado</label>
-                    <select name="" id="" v-model="dataForm.status">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
-                </div> -->
-
-
             </div>
             
         </div>
 
         <div class="box">
 
-            <h3>Dominio fiscal</h3>
+            <h3 v-if="!daExped">Dominio fiscal</h3>
+            <h3 v-else>Datos de expedición</h3>
+
+            <div class="form-box form-box2 grid-row3">
+
+                <div class="input">
+                    <label for="">
+                        Calle
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Colonia
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Población
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Referencia
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <Switch v-on:estado="alternarDaExped" :texto="daExpedDesc" />
+                </div>
+
+                <div class="input" v-if="daExped">
+                    <label for="">
+                        Lugar de expedición
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+            </div>
+
+            <div class="form-box form-box4">
+
+                <div class="input">
+                    <label for="">
+                        Numero Ext
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Numero Int
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Entre calle
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Y calle
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        CP
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        País
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Estado
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+                <div class="input">
+                    <label for="">
+                        Municipio
+                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                    </label>
+                    <input type="text" v-model="dataForm.name">
+                </div>
+
+            </div>
 
             <div class="box-buttons box-buttons3">
                 <div />
@@ -103,8 +219,6 @@
             </div>
 
         </div>
-
-
 
     </div>
 
@@ -118,13 +232,16 @@
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength, numeric } from '@vuelidate/validators'
 import Loading from '@/components/Loading'
+import Switch from '@/components/mini/Switch';
+import regimenFiscal from '@/components/empresa/regimenFiscal.js'
 
 export default {
     name: "CrearEmpresa",
     props: ["prueba", "getData", "url", "tab", "nameTab", "idOwner", "clearOwner"],
 
     components:{
-        Loading
+        Loading,
+        Switch
     },
     setup () {
         return { v$: useVuelidate() }
@@ -143,7 +260,13 @@ export default {
                 rfc: null,
                 fiscalRegime: null,
                 owner: null
-            }
+            },
+
+            daExped: false,
+            daExpedDesc: 'Alternar',
+
+            regimenFiscal: regimenFiscal
+            
         }
     },
     validations () {
@@ -181,6 +304,10 @@ export default {
     },
 
     methods: {
+
+        alternarDaExped(){
+            this.daExped = !this.daExped
+        },
 
         async postData(){
             
@@ -257,9 +384,5 @@ export default {
 </script>
 
 <style>
-
-.codigoOwn{
-    margin: 0;
-}
 
 </style>
