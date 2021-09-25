@@ -21,7 +21,8 @@ import {
     faUsers,
     faTruckMoving,
     faRestroom,
-    faFileContract
+    faFileContract,
+    faReceipt
 
 
 
@@ -51,7 +52,8 @@ const icons = {
     faUsers,
     faTruckMoving,
     faRestroom,
-    faFileContract
+    faFileContract,
+    faReceipt
 
 
 
@@ -75,6 +77,6 @@ export default icons;
 {/* <font-awesome-icon icon="building" /> */}
 {/* <font-awesome-icon icon="users" /> */}
 
-
+{/* <font-awesome-icon icon="receipt" /> */}
 
 

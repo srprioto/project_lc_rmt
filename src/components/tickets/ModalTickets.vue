@@ -207,17 +207,7 @@ export default {
 
 <style>
 
-.background-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background-color: #0000004f;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .background-modal .modalTickets {
     background-color: var(--blancoT2);

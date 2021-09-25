@@ -35,6 +35,9 @@ import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
 import Vehiculos from '@/pages/Vehiculos';
 import MostrarVehiculo from '@/components/vehiculos/MostrarVehiculo';
 
+// facturas
+import Facturacion from '@/pages/Facturacion';
+import MostrarFactura from '@/components/facturacion/MostrarFactura';
 
 // sin terminar de configurar
 
@@ -101,13 +104,11 @@ export default createRouter({
         },
 
 
-
         {   // --- TIKETS ---
             path: "/tickets",
             name: "tickets",
             component: Tickets
         },
-
 
 
         {   // --- ROLES ---
@@ -148,7 +149,23 @@ export default createRouter({
         },
 
 
-        {   // --- ERROR ---
+        {   // --- FACTURACION ---
+            path: "/facturacion",
+            name: "facturacion",
+            component: Facturacion
+        },
+        {
+            path: "/facturacion/:value:url/ok",
+            name: "facturacion-show",
+            component: MostrarFactura
+        },
+
+
+
+
+
+
+        {   // --- construccion ---
             path: "/construccion",
             name: "en-construccion",
             component: EnConstruccion

@@ -81,7 +81,7 @@ export default {
                 }, headers 
             ).then( res => {
 
-                console.log(res);
+                // console.log(res);
                 this.loading = false;
                 this.getData();
                 this.toggleModal();
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style>
-.background-modal {
+/* .background-modal {
     position: absolute;
     top: 0;
     left: 0;
@@ -111,9 +111,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.background-modal .modal {
+/* .background-modal .modal {
     background-color: var(--colorBox3);
     text-align: center;
     box-sizing: border-box;
@@ -130,7 +130,7 @@ export default {
 .background-modal .modal .modal-footer {
     box-sizing: border-box;
     padding: 30px 0 0 0;
-}
+} */
 
 
 

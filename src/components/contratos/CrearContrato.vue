@@ -209,7 +209,7 @@ export default {
             )
             .then( res => {
 
-                console.log(res.data.contracts.id);
+                // console.log(res.data.contracts.id);
                 
                 if (this.metodoUp) {
                     this.metodoUp(res.data.contracts.id);

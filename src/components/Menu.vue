@@ -64,6 +64,15 @@
                 </router-link>
             </li>
 
+            <li>
+                <router-link :to="{ name: 'facturacion' }" >
+                    <div class="icon-menu">
+                        <font-awesome-icon icon="receipt" />
+                    </div>
+                    Facturación
+                </router-link>
+            </li>
+
             <!-- <li><div class="linea" /></li> -->
 
 
