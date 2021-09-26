@@ -75,7 +75,15 @@
                 alert("ok");
             },
             tituloPagina(){
-                this.tituloP = window.location.pathname.slice(1);
+                
+                let url = window.location.pathname.slice(1);
+
+                if (url.indexOf("/") !== -1) {
+                    this.tituloP = url.slice(0, url.indexOf("/"))
+                }else{
+                    this.tituloP = url
+                }
+
             }
         },
 

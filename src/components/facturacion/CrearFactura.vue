@@ -69,7 +69,7 @@
 
             <div class="box-buttons box-buttons3">
                 <div />
-                <button class="button button1" v-on:click="postData">
+                <button class="button button1" v-on:click="asdf">
                     Guardar
                     <font-awesome-icon icon="check" />
                 </button>
@@ -170,6 +170,10 @@ export default {
 
         popItem(i){
             this.dataForm.items.splice(i,1);;
+        },
+
+        asdf(){
+            alert("ok");
         },
 
         async postData(){
