@@ -44,7 +44,7 @@
                 :tab="handleTabClick" 
                 :nameTab="tabNames.tab1"
                 :dataUser="dataUser"
-                :loading="loading"
+                :loadingUsers="loading"
             />
         </div>
 

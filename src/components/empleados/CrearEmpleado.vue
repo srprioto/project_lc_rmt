@@ -21,7 +21,7 @@
                         <!-- <input type="text" v-model="buscar" @click="handlerSelectUser">
 
                         <div class="buscarUser" v-if="openSelectUser">
-                            <div v-if="!loading">   
+                            <div v-if="!loadingUsers">   
                                 <p
                                     v-for="user in filterUsers" 
                                     :key="user.id"
@@ -29,16 +29,16 @@
                                     >{{ user.email }}
                                 </p>
                             </div>
-                            <div class="center" v-if="loading">
+                            <div class="center" v-if="loadingUsers">
                                 <p>Espere...</p>
                             </div>
                         </div> -->
 
-                        <div v-if="loading">
+                        <div v-if="loadingUsers">
                             <input type="text" value="Espere..." readonly="readonly">
                         </div>
 
-                        <select name="" v-if="!loading" v-model="dataForm.userId">
+                        <select name="" v-if="!loadingUsers" v-model="dataForm.userId">
                             <option 
                                 v-for="user in filterUsers" 
                                 :key="user.id" 
@@ -212,7 +212,7 @@ import crearTicket from '@/components/tickets/crearTicket.js';
 
 export default {
     name: "CrearEmpleado",
-    props: ["getData", "url", "tab", "nameTab", "dataUser", "loading"],
+    props: ["getData", "url", "tab", "nameTab", "dataUser", "loadingUsers"],
 
     components:{
         Loading,
