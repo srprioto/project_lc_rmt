@@ -90,7 +90,7 @@
 
         <div class="box">
 
-            <h3 v-if="!daExped">Dominio fiscal</h3>
+            <h3 v-if="!daExped">Domicilio fiscal</h3>
             <h3 v-else>Datos de expedición</h3>
 
             <div class="form-box form-box2 grid-row3">

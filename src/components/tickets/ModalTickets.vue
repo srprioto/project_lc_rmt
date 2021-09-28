@@ -66,7 +66,7 @@
                                 <p>{{ dataItem.description }}</p>
                             </div>
 
-                            <div class="form-box form-box1">
+                            <!-- <div class="form-box form-box1">
                                 <div class="input">
                                     <label for="">Feedback</label>
                                     <input type="text" v-model="dataItem.feedback">
@@ -75,7 +75,7 @@
                                     <label for="">Nota</label>
                                     <input type="text" v-model="dataItem.notes">
                                 </div>
-                            </div>
+                            </div> -->
 
 
                             <!-- <div class="form-box form-box2">
@@ -102,18 +102,18 @@
 
                     </div>
                     <div class="modal-footer">
-                        <div class="box-buttons box-buttons4">
+                        <div class="box-buttons box-buttons5">
 
-                            <div/>
-                            <button @click="actualizarTicket(dataItem.id)" class="button button1">
+                            <div/><div/>
+                            <!-- <button @click="actualizarTicket(dataItem.id)" class="button button1">
                                 Ok
                                 <font-awesome-icon icon="check" />
-                            </button>
+                            </button> -->
                             <span class="button button3" v-on:click="toggleModalDetails">
                                 Cancelar
                                 <font-awesome-icon icon="ban" />
                             </span>
-                            <div/>
+                            <div/><div/>
 
                         </div>
                     </div>
