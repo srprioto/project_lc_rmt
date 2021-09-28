@@ -34,9 +34,11 @@
                             </div>
                         </div> -->
 
-                        
+                        <div v-if="loading">
+                            <input type="text" value="Espere..." readonly="readonly">
+                        </div>
 
-                        <select name="" id="" v-model="dataForm.userId">
+                        <select name="" v-if="!loading" v-model="dataForm.userId">
                             <option 
                                 v-for="user in filterUsers" 
                                 :key="user.id" 
