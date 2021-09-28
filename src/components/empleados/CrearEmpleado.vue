@@ -14,7 +14,11 @@
                             <h6 v-if="v$.dataForm.userId.$error">Requerido</h6>
                         </label>
                         
-                        <input type="text" v-model="buscar" @click="handlerSelectUser">
+
+
+
+
+                        <!-- <input type="text" v-model="buscar" @click="handlerSelectUser">
 
                         <div class="buscarUser" v-if="openSelectUser">
                             <div v-if="!loading">   
@@ -28,16 +32,18 @@
                             <div class="center" v-if="loading">
                                 <p>Espere...</p>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <!-- <select name="" id="" v-model="dataForm.userId">
+                        
+
+                        <select name="" id="" v-model="dataForm.userId">
                             <option 
                                 v-for="user in filterUsers" 
                                 :key="user.id" 
                                 :value="user.id"
                                 >{{ user.email }}
                             </option>
-                        </select> -->
+                        </select>
 
                     </div><br>
 
@@ -47,6 +53,7 @@
                             <h6 v-if="v$.dataForm.positionId.$error">Requerido</h6>
                         </label>
                         <select name="" id="" v-model="dataForm.positionId">
+                            
                             <option :value="2">Empleado</option>
                             <option :value="1">Repartidor</option>                            
                         </select>
