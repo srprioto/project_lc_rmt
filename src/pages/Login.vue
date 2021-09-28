@@ -7,7 +7,7 @@
             <div class="box">
 
                 <div class="box-logo">
-                    <h1>Liceley CEDI</h1>
+                    <img :src="logo" alt="">
                 </div>
 
                 <div class="box-login">
@@ -89,7 +89,13 @@ export default {
             this.$router.push({ name: 'select-rol' })
         }
     },
+    computed:{
+        logo(){
+            
+            return urlLocal() + "assets/image/imgs/logo-negro.png"
 
+        }
+    }
     
 }
 
@@ -116,6 +122,10 @@ export default {
     text-align: center;
 }
 
+.login .content-login .box-logo img {
+    width: 250px;
+}
+
 .login .content-login .box-login{
     text-align: center;
 }
@@ -123,6 +133,8 @@ export default {
 .login .content-login .box-login .input {
     margin-bottom: 30px;
 }
+
+
 
 
 </style>
