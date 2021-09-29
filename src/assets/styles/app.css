@@ -873,3 +873,61 @@ table.table2 tr th, table.table2 tr td {
     box-shadow: var(--shadow2);
     border-radius: 10px;
 }
+
+
+
+
+/* *** otros *** */
+
+*:not(.logo,.menu){
+    border-radius: 8px !important;
+}
+button{  
+    min-width: 2rem !important;
+    min-height: 2rem !important;
+}
+.button,.tabs .items{
+    font-size: .95rem;
+    padding:.5rem;
+    margin:0;
+    color:#eee;
+    background-color: var(--primary) !important;
+}
+.menu{
+    background-color: var(--primary) !important;
+}
+.icon-action{
+    background-color: #d9dcec;
+    padding:.25rem;
+    display: inline-block;
+    min-width: 2rem;
+    height: 2rem;
+    margin-bottom:5px !important;
+}
+.pointer:hover,
+.menu li:hover,
+.icon-action:hover,
+.tabs .items:hover
+{
+    box-shadow: 0px 0px 3px #333 ,
+    0px 0px 3px #fff !important;
+}
+.ordenar{
+    padding: 0px .5rem
+}
+.table-list td{
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 5px;
+    border-bottom: 1px #ddd solid;
+}
+.tabs .items h6{
+    display: none;
+}
+.tabs .items{
+    margin:0px .25rem
+}
+.items.tabs-item-active{
+    background-color: #d9dcec !important;
+    color: var(--primary);
+}
