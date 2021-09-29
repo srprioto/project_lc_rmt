@@ -321,7 +321,7 @@ export default {
 
             // this.postData(idContrato);
             crearTicket(
-                `{ idContrato: ${idContrato}@contracts }`, 
+                `${idContrato}@contracts`, 
                 position,
                 `1@business`
             );
