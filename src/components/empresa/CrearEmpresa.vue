@@ -71,7 +71,9 @@
                     <!-- <input type="text" v-model="dataForm.fiscalRegime"> -->
                     <select name="" id="" v-model="dataForm.fiscalRegime">
 
-                        <option :value="rf.rf" v-for="rf in regimenFiscal" :key="rf.rf">{{ rf.descripcion }}</option>
+                        <option :value="rf.c_RegimenFiscal" v-for="rf in regimenFiscal" :key="rf.c_RegimenFiscal">
+                            {{ rf.c_RegimenFiscal }} - {{ rf.descripcion }} - {{ rf.f_Inicio }}
+                        </option>
                         
                     </select>
                 </div>
