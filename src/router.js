@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router';
 const history = createWebHistory();
 
-import Home from '@/pages/Home';
+import Home from '@/cedi/pages/Home';
 
 // login
 import Login from '@/pages/Login';
@@ -13,31 +13,31 @@ import SeleccionarRol from '@/pages/SeleccionarRol';
 import EnConstruccion from '@/pages/EnConstruccion';
 
 // empresas
-import Empresas from '@/pages/Empresas';
-import MostrarEmpresa from '@/components/empresa/MostrarEmpresa';
+import Empresas from '@/cedi/pages/Empresas';
+import MostrarEmpresa from '@/cedi/components/empresa/MostrarEmpresa';
 
 // contratos
-import Contratos from '@/pages/Contratos';
-import MostrarContrato from '@/components/contratos/MostrarContrato';
+import Contratos from '@/cedi/pages/Contratos';
+import MostrarContrato from '@/cedi/components/contratos/MostrarContrato';
 
 // tikets
-import Tickets from '@/pages/Tickets'
+import Tickets from '@/cedi/pages/Tickets'
 
 // Roles
-import Roles from '@/pages/Roles';
-import MostrarRol from '@/components/roles/MostrarRol';
+import Roles from '@/cedi/pages/Roles';
+import MostrarRol from '@/cedi/components/roles/MostrarRol';
 
 // empleados
-import Empleados from '@/pages/Empleados';
-import MostrarEmpleado from '@/components/empleados/MostrarEmpleado';
+import Empleados from '@/cedi/pages/Empleados';
+import MostrarEmpleado from '@/cedi/components/empleados/MostrarEmpleado';
 
 // vehiculos
-import Vehiculos from '@/pages/Vehiculos';
-import MostrarVehiculo from '@/components/vehiculos/MostrarVehiculo';
+import Vehiculos from '@/cedi/pages/Vehiculos';
+import MostrarVehiculo from '@/cedi/components/vehiculos/MostrarVehiculo';
 
 // facturas
-import Facturacion from '@/pages/Facturacion';
-import MostrarFactura from '@/components/facturacion/MostrarFactura';
+import Facturacion from '@/cedi/pages/Facturacion';
+import MostrarFactura from '@/cedi/components/facturacion/MostrarFactura';
 
 // sin terminar de configurar
 
@@ -135,7 +135,7 @@ export default createRouter({
             component: MostrarEmpleado
         },
 
-
+        
         
         {   // --- VEHICULOS ---
             path: "/vehiculos",
@@ -147,6 +147,7 @@ export default createRouter({
             name: "vehiculos-show",
             component: MostrarVehiculo
         },
+
 
 
         {   // --- FACTURACION ---
