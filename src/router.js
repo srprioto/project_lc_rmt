@@ -49,6 +49,19 @@ import Error from '@/pages/Error';
 
 
 
+// USER
+
+import UserHome from '@/usuarios/pages/Home';
+
+import UserTickets from '@/usuarios/pages/Tickets';
+// import UserMostrarTicket from '@/cedi/usuarios/roles/MostrarTicket';
+
+import UserContratos from '@/usuarios/pages/Contratos';
+
+
+
+const token = "?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWQiOjUsInJvbGUiOjIsImlhdCI6MTYzMzIwOTgzMSwiZXhwIjoxNjMzMjExMjcxfQ.VwDtOQwWBkjqXYKogwNFdCVh845leV3ZUGr9Hz5R94g";
+
 
 export default createRouter({
     history,
@@ -67,57 +80,60 @@ export default createRouter({
             component: SeleccionarRol
         },  
 
+        // ***************
+        // **** CEDI ****
+        // ***************
 
         {   // --- HOME ---
-            path: "/dashboard",
+            path: "/cedi/dashboard",
             name: "home",
             component: Home
         },  // ---  ---
 
 
         {   // --- EMPRESAS ---
-            path: "/empresas",
+            path: "/cedi/empresas",
             name: "empresas",
             component: Empresas
         },
         {
-            path: "/empresas/:value:url/ok",
+            path: "/cedi/empresas/:value:url/ok",
             name: "empresas-show",
             component: MostrarEmpresa
         },
         {
-            path: "/empresas/:owner/crear",
+            path: "/cedi/empresas/:owner/crear",
             name: "crear-empresa",
             component: Empresas
         },
         
         
         {   // --- CONTRATOS ---
-            path: "/contratos",
+            path: "/cedi/contratos",
             name: "contratos",
             component: Contratos
         },
         {
-            path: "/contratos/:value:url/ok",
+            path: "/cedi/contratos/:value:url/ok",
             name: "contratos-show",
             component: MostrarContrato
         },
 
 
         {   // --- TIKETS ---
-            path: "/tickets",
+            path: "/cedi/tickets",
             name: "tickets",
             component: Tickets
         },
 
 
         {   // --- ROLES ---
-            path: "/roles",
+            path: "/cedi/roles",
             name: "roles",
             component: Roles
         },
         {
-            path: "/roles/:value:url/ok",
+            path: "/cedi/roles/:value:url/ok",
             name: "roles-show",
             component: MostrarRol
         },
@@ -125,12 +141,12 @@ export default createRouter({
 
 
         {   // --- EMPLEADOS ---
-            path: "/empleados",
+            path: "/cedi/empleados",
             name: "empleados",
             component: Empleados
         },
         {
-            path: "/empleados/:value:url/ok",
+            path: "/cedi/empleados/:value:url/ok",
             name: "empleados-show",
             component: MostrarEmpleado
         },
@@ -138,12 +154,12 @@ export default createRouter({
         
         
         {   // --- VEHICULOS ---
-            path: "/vehiculos",
+            path: "/cedi/vehiculos",
             name: "vehiculos",
             component: Vehiculos
         },
         {
-            path: "/vehiculos/:value:url/ok",
+            path: "/cedi/vehiculos/:value:url/ok",
             name: "vehiculos-show",
             component: MostrarVehiculo
         },
@@ -151,19 +167,57 @@ export default createRouter({
 
 
         {   // --- FACTURACION ---
-            path: "/facturacion",
+            path: "/cedi/facturacion",
             name: "facturacion",
             component: Facturacion
         },
         {
-            path: "/facturacion/:value:url/ok",
+            path: "/cedi/facturacion/:value:url/ok",
             name: "facturacion-show",
             component: MostrarFactura
         },
 
 
 
+        // ***************
+        // **** USER ****
+        // ***************
 
+        {   // --- HOME ---
+            path: "/user/dashboard",
+            name: "user-home",
+            component: UserHome
+        },  // ---  ---
+
+
+        {   // --- TICKETS ---
+            path: "/user/tickets",
+            name: "user-tickets",
+            component: UserTickets
+        },
+        // {
+        //     path: "/user/tickets/:value:url/ok",
+        //     name: "user-tickets-show",
+        //     component: MostrarVehiculo
+        // },
+
+
+        {   // --- CONTRATOS ---
+            path: "/user/contratos",
+            name: "user-contratos",
+            component: UserContratos
+        },
+        // {
+        //     path: "/cedi/contratos/:value:url/ok",
+        //     name: "user-contratos-show",
+        //     component: MostrarContrato
+        // },
+
+
+
+        // ***************
+        // **** OTROS ****
+        // ***************
 
 
         {   // --- construccion ---

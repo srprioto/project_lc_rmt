@@ -17,10 +17,10 @@
                             <div />
                             Usuario
                             <div class="middle">
-                                <h6 class="alert" v-if="v$.formLogin.user.$error">Requerido</h6>
+                                <h6 class="alert" v-if="v$.email.$error">Requerido</h6>
                             </div>
                         </label>
-                        <input type="text" v-model="formLogin.user">
+                        <input type="text" v-model="email">
                     </div>
 
                     <div class="input">
@@ -28,15 +28,15 @@
                             <div />
                             Contraseña
                             <div class="middle">
-                                <h6 class="alert" v-if="v$.formLogin.pass.$error">Requerido</h6>
+                                <h6 class="alert" v-if="v$.password.$error">Requerido</h6>
                             </div>
                         </label>
-                        <input type="password" v-model="formLogin.pass">
+                        <input type="password" v-model="password">
                     </div>
 
                     <div class="box-buttons box-buttons3">
                         <div/>
-                        <button @click="acceder" class="button button1">Acceder</button>
+                        <button @click="signin" class="button button1">Acceder</button>
                         <div/>
                     </div>
 
@@ -66,28 +66,95 @@ export default {
     },
     data() {
         return {
-            formLogin: { 
-                user: "renato",
-                pass: "renato"
-            }
+
+            valid: true,
+			error:'',
+			formName:'',
+            message:'',
+
+            email: 'renato@gmail.com',
+			password: '123456789',
+
+            // mxgick@gmail.com
+            // martin
+			
+			passwordRules: [
+			  v => !!v || 'Contraseña es requerido',
+			  v => (v && v.length >= 8) || 'Minimo 8 caracteres',
+			],
+			emailRules: [
+			  v => !!v || 'E-mail es requerido',
+			  v => /.+@.+\..+/.test(v) || 'E-mail es valido',
+			],
+
         }
     },
     validations () {
         return {
-            formLogin: {
-                user: { required },
-                pass: { required }
-            }
+            password: { required },
+            email: { required }
         }
+    },
+    created() {
+        // console.log(this.$router.push({ name: 'select-rol' }));
     },
     methods: {
         async acceder(){
 
             if (!await this.v$.$validate()) return
 
-
             this.$router.push({ name: 'select-rol' })
+
+        },
+
+        formNext(){
+            if(this.formName=='signin') this.signin()
+            else this.signup()
+        },
+
+        async signin() {
+
+            if (!await this.v$.$validate()) return
+
+            this.message = ''
+            this.error = ''
+
+            this.axios.put(dominio()+'users/signin' , {
+                email:this.email,
+                password:this.password
+            })
+            .then( res => {
+                console.log(res);
+                if( res.data.error ) this.error = res.data.error
+                else {
+                    location.href = urlLocal()+'seleccionar-rol?token='+res.data.success.token
+                    // localStorage.setItem('profiles' , JSON.stringify(res.data))
+                    localStorage.setItem('profiles' , res.data.success.profiles)
+                }
+            })
+            .catch(error => this.error = error.message)
+        },
+
+        signup() {
+            this.message = ''
+            this.error = ''
+            this.axios.post(dominio()+'users/signup' , {
+            email:this.email,
+            password:this.password
+            })
+            .then( res => {
+                if( res.data.error ) this.error = res.data.error
+                else this.message = res.data.success
+            })
+            .catch(error => this.error = error.message)
+        },
+
+        resetValidation () {
+            this.$refs.form.resetValidation()
         }
+
+
+
     },
     computed:{
         logo(){
@@ -95,7 +162,15 @@ export default {
             return urlLocal() + "assets/image/imgs/logo-negro.png"
 
         }
-    }
+    },
+    watch:{
+        error(){
+            this.message = ''
+        },
+        message(){
+            this.error = ''
+        },
+    },
     
 }
 

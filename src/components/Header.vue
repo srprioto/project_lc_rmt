@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="logo">
-            <router-link to="/dashboard">
+            <router-link to="/seleccionar-rol">
                 <!-- <h2>LINCELEY</h2> -->
                 <img :src="logo" alt="">
             </router-link>
@@ -76,7 +76,15 @@
             },
             tituloPagina(){
                 
-                let url = window.location.pathname.slice(1);
+                if (window.location.pathname == '/seleccionar-rol') {
+                    this.tituloP = "seleccionar rol"
+                    return
+                }
+
+                const ruta = window.location.pathname.slice(1)
+                const len = (ruta.slice(0, ruta.indexOf("/")).length + 2)
+                
+                const url = window.location.pathname.slice(len);
 
                 if (url.indexOf("/") !== -1) {
                     this.tituloP = url.slice(0, url.indexOf("/"))

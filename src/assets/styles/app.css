@@ -879,7 +879,7 @@ table.table2 tr th, table.table2 tr td {
 
 /* *** otros *** */
 
-*:not(.logo,.menu){
+/* *:not(.logo,.menu){
     border-radius: 8px !important;
 }
 button{  
@@ -930,4 +930,4 @@ button{
 .items.tabs-item-active{
     background-color: #d9dcec !important;
     color: var(--primary);
-}
+} */

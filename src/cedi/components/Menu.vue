@@ -1,5 +1,5 @@
 <template>
-    <div class="menu">
+
         <ul>
             <li>
                 <router-link :to="{ name: 'home' }" >
@@ -92,7 +92,7 @@
             </li> -->
 
         </ul>
-    </div>
+
 </template>
 
 <script>

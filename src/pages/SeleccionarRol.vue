@@ -6,25 +6,41 @@
         <div class="rolBotones">
 
             <div class="boxRolBotones">
-                <div @mouseover="cambiarImg('cedi')">
+
+                <div 
+                    @mouseover="cambiarImg('cedi')" 
+                    v-if="
+                        permAccess.includes('@profile') &&
+                        permAccess.includes('@profile')
+                    ">
+
                     <button @click="accederCEDI" class="">
                         <span>CEDI</span>
                         <font-awesome-icon icon="chevron-right" size="lg"/>
                     </button>
+
                 </div>
 
-                <div @mouseover="cambiarImg('usuario')">
-                    <button @click="construccion" class="">
+                <div 
+                    @mouseover="cambiarImg('usuario')" 
+                    v-if="permAccess.includes('@profile')">
+
+                    <button @click="accederUSER" class="">
                         <span>USUARIO</span>
                         <font-awesome-icon icon="chevron-right" size="lg"/>
                     </button>
+
                 </div>
 
-                <div @mouseover="cambiarImg('transporte')">
+                <div 
+                    @mouseover="cambiarImg('transporte')" 
+                    v-if="permAccess.includes('@profile')">
+
                     <button @click="construccion" class="">
                         <span>TRANSPORTE</span>
                         <font-awesome-icon icon="chevron-right" size="lg"/>
                     </button>
+
                 </div>
                 
             </div>
@@ -32,7 +48,10 @@
         </div>
 
         <div class="rolImg">
-            <img :src="'./assets/image/imgs/' + nombreImg" alt="">
+            <img v-show="nombreImg === 'cedi'" src="./assets/image/imgs/repartidor.svg" alt="">
+            <img v-show="nombreImg === 'usuario'" src="./assets/image/imgs/user.svg" alt="">
+            <img v-show="nombreImg === 'transporte'" src="./assets/image/imgs/transporte.svg" alt="">
+            <!-- <img :src="'./assets/image/imgs/' + nombreImg" alt=""> -->
         </div>
 
     </div>
@@ -51,35 +70,43 @@ export default {
     },
     data() {
         return {
-            nombreImg: 'repartidor.svg'
+            nombreImg: 'cedi',
+            permAccess: window.localStorage.getItem("profiles")
         }
+    },
+    created() {
+        
     },
     methods:{
         accederCEDI(){
+            // localStorage.setItem('menu', JSON.stringify('menuCedi'))
+            localStorage.setItem('menu', 'menuCedi')
             this.$router.push({ name: 'home' })
         },
 
-        construccion(){
-            this.$router.push({ name: 'en-construccion' })
+        accederUSER(){
+            localStorage.setItem('menu', 'menuUser')
+            this.$router.push({ name: 'user-home' })
         },
 
         cambiarImg(nImg){
 
             if (nImg === 'cedi') {
                 
-                this.nombreImg = 'repartidor.svg';
+                this.nombreImg = 'cedi';
 
             }else if(nImg === 'usuario'){
 
-                this.nombreImg = 'user.svg';
+                this.nombreImg = 'usuario';
 
             }else if(nImg === 'transporte'){
                 
-                this.nombreImg = 'transporte.svg';
+                this.nombreImg = 'transporte';
 
             }
 
-        }
+        },
+
 
     }
 

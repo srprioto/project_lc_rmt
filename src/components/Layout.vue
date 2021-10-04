@@ -8,10 +8,15 @@
             <div class="body">
 
                 <!-- menu -->
-                <Menu />
+                <div class="menu">
+                    <MenuCedi v-if="menuName === 'menuCedi'" />
+                    <MenuUser v-if="menuName === 'menuUser'" />
+                    <!-- v-if="menuName == 'menuCedi'" -->
+                </div>
+                
+                
 
                 <div class="main scroll">
-
                     <!-- cuerpo -->
                     <slot></slot>
                 </div>
@@ -29,18 +34,30 @@
 
     import Header from '@/components/Header'
     import Footer from '@/components/Footer'
-    import Menu from '@/components/Menu'
+    import MenuCedi from '@/cedi/components/Menu'
+    import MenuUser from '@/usuarios/components/Menu'
 
     export default {
         name: 'Layout',
         props: [
             
         ],
+        data() {
+            return {
+                menuName: window.localStorage.getItem('menu')
+            }
+        },
+        created() {
+            // console.log(JSON.parse(this.menuName));
+            // console.log(typeof(this.menuName));
+            // console.log(typeof('menuCedi'));
+        },
         
         components: {
             Header,
             Footer,
-            Menu
+            MenuCedi,
+            MenuUser
         },
 
         // created() {
