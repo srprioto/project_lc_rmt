@@ -127,7 +127,8 @@ export default {
                 console.log(res);
                 if( res.data.error ) this.error = res.data.error
                 else {
-                    location.href = urlLocal()+'seleccionar-rol?token='+res.data.success.token
+                    this.$router.push({ name: 'select-rol' })
+                    // location.href = urlLocal()+'seleccionar-rol?token='+res.data.success.token
                     // localStorage.setItem('profiles' , JSON.stringify(res.data))
                     localStorage.setItem('profiles' , res.data.success.profiles)
                 }
