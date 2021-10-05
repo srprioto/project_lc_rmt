@@ -19,7 +19,10 @@ const crearTicket = async (msg, type = "R-Cedi-01", toref) => {
     })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response))
+    .then(response => console.log(
+        'Success ', 
+        // response
+    ))
     // .finally( () => { })
 
 }

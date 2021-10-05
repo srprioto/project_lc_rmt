@@ -299,7 +299,6 @@ export default {
                     required 
                 },
 
-
             }
         }
     },
@@ -327,6 +326,12 @@ export default {
             this.loading = true;
             this.error = null;
 
+            crearTicket(
+                `1@business`, 
+                'R-Cedi-01',
+                `1@business`
+            );
+
             this.axios.post( 
                 this.url, 
                 {
@@ -346,12 +351,6 @@ export default {
             .then( res => {
 
                 // console.log(res.tickets.id);
-
-                crearTicket(
-                    `1@business`, 
-                    'R-Cedi-01',
-                    `1@business`
-                );
 
                 this.loading = false;
                 this.getData();

@@ -321,7 +321,7 @@ export default {
             crearTicket(
                 `${idContrato}@contracts`, 
                 position,
-                `1@employee`
+                `1@business`
             );
 
             // crearTicket(`{
