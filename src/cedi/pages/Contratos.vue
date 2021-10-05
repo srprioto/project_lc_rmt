@@ -34,7 +34,7 @@
 
         <!-- componentes de tabs -->
         <div class="" v-if="activeTabName === tabNames.tab1">
-            <ListaContratos :data="data" :loading="loading" :url="url" :getData="getData"/>
+            <ListaContratos :data="data" :loading="loading" :url="url" :url2="url2" :getData="getData"/>
         </div>
 
         <div class="" v-if="activeTabName === tabNames.tab2">
@@ -69,7 +69,8 @@
                     tab2: 'Crear contrato'
                 },
 
-                url: dominio() + "contracts",
+                url: dominio() + "contracts?limit=200",
+                url2: dominio() + "contracts",
                 data: {},
                 loading: true,
                 error: null,

@@ -218,8 +218,10 @@ export default {
                 this.loading = false;
                 this.getData();
 
-                // this.tab(this.nameTab);
-                // toastSuccess("Contrato registrado");
+                if (!this.importar) {
+                    this.tab(this.nameTab);
+                    toastSuccess("Contrato registrado");
+                }
 
             })
             .catch( error => {

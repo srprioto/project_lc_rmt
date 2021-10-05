@@ -14,10 +14,6 @@
                             <h6 v-if="v$.dataForm.userId.$error">Requerido</h6>
                         </label>
                         
-
-
-
-
                         <!-- <input type="text" v-model="buscar" @click="handlerSelectUser">
 
                         <div class="buscarUser" v-if="openSelectUser">
@@ -325,7 +321,7 @@ export default {
             crearTicket(
                 `${idContrato}@contracts`, 
                 position,
-                `1@business`
+                `1@employee`
             );
 
             // crearTicket(`{

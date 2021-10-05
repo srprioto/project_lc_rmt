@@ -26,11 +26,12 @@
         </div>
 
         <!-- charts -->
+        <ReporteSemana />
         <div class="grid grid-2">
             <VehiculosDisponibles />
             <EmpleadosRegistrados />
         </div>
-        <ReporteSemana />
+        
 
 
 

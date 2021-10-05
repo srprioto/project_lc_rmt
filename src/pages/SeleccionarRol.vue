@@ -23,7 +23,10 @@
 
                 <div 
                     @mouseover="cambiarImg('usuario')" 
-                    v-if="permAccess.includes('@profile')">
+                    v-if="
+                        permAccess.includes('@profile')&&
+                        permAccess.includes('@profile')
+                    ">
 
                     <button @click="accederUSER" class="">
                         <span>USUARIO</span>
@@ -34,7 +37,10 @@
 
                 <div 
                     @mouseover="cambiarImg('transporte')" 
-                    v-if="permAccess.includes('@profile')">
+                    v-if="
+                        permAccess.includes('@profile')&&
+                        permAccess.includes('@profile')
+                    ">
 
                     <button @click="construccion" class="">
                         <span>TRANSPORTE</span>

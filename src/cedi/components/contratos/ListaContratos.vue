@@ -93,7 +93,7 @@
     <Modal 
         :modal="modal" 
         :toggleModal="toggleModal"
-        :url="url"
+        :url="url2"
         :idBorrar="idBorrar" 
         :nombreBorrar="nameBorrar"
         :getData="getData"
@@ -108,7 +108,7 @@
 
     export default {
         name:"ListaContratos",
-        props: ["data", "loading", "url", "getData"],
+        props: ["data", "loading", "url", "getData", "url2"],
         components: {
             Loading, Modal
         },

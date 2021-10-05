@@ -10,7 +10,7 @@
     --colorBox2: #222fb9;
     --colorBox3: #FCB12F;
     --blancoT: #ffffff45;
-    --blancoT2: #ffffffe0;
+    --blancoT2: #8a7e7ee0;
 
     --menu: #222fb9;
     --colorModal: #28273fe0;
@@ -845,7 +845,7 @@ table.table2 tr th, table.table2 tr td {
 }
 
 .background-modal .modal {
-    background-color: var(--colorBox3);
+    background-color: var(--blanco2);
     text-align: center;
     box-sizing: border-box;
     padding: 30px 25px 40px 25px;
@@ -879,7 +879,7 @@ table.table2 tr th, table.table2 tr td {
 
 /* *** otros *** */
 
-/* *:not(.logo,.menu){
+*:not(.logo,.menu){
     border-radius: 8px !important;
 }
 button{  
@@ -930,4 +930,4 @@ button{
 .items.tabs-item-active{
     background-color: #d9dcec !important;
     color: var(--primary);
-} */
+}
