@@ -235,7 +235,7 @@ import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength, numeric } from '@vuelidate/validators'
 
 import regimenFiscal from '@/cedi/components/empresa/regimenFiscal.js'
-import crearTicket from '@/cedi/components/tickets/crearTicket.js';
+// import crearTicket from '@/cedi/components/tickets/crearTicket.js';
 
 import Loading from '@/components/Loading'
 import Switch from '@/components/mini/Switch';
@@ -326,11 +326,11 @@ export default {
             this.loading = true;
             this.error = null;
 
-            crearTicket(
-                `1@business`, 
-                'R-Cedi-01',
-                `1@business`
-            );
+            // crearTicket(
+            //     `1@business`, 
+            //     'R-Cedi-01',
+            //     `1@business`
+            // );
 
             this.axios.post( 
                 this.url, 
