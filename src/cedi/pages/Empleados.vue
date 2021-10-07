@@ -73,6 +73,7 @@
                 },
 
                 url: dominio() + "employee",
+                // url2: dominio() + `employee/get/${window.localStorage.getItem("profiles")}?by=business`,  
                 urlUsers: dominio() + "users",
                 loading: true,
                 error: null,

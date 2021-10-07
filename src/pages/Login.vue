@@ -72,7 +72,7 @@ export default {
 			formName:'',
             message:'',
 
-            email: 'renato@gmail.com',
+            email: 'learfen001@gmail.com',
 			password: '123456789',
 
             // mxgick@gmail.com
@@ -124,13 +124,20 @@ export default {
                 password:this.password
             })
             .then( res => {
-                console.log(res);
+                // console.log(res);
                 if( res.data.error ) this.error = res.data.error
                 else {
-                    this.$router.push({ name: 'select-rol' })
-                    // location.href = urlLocal()+'seleccionar-rol?token='+res.data.success.token
-                    // localStorage.setItem('profiles' , JSON.stringify(res.data))
+                    // console.log(this.$router.push({ name: 'select-rol' }));
+                    localStorage.setItem('token' , res.data.success.token)
                     localStorage.setItem('profiles' , res.data.success.profiles)
+                    // this.$router.push({ name: 'select-rol' })
+
+                    // this.$router.push({ path: '/seleccionar-rol?token=' + res.data.success.token })
+
+
+                    location.href = urlLocal()+'seleccionar-rol?token='+res.data.success.token
+                    // localStorage.setItem('profiles' , JSON.stringify(res.data))
+                    
                 }
             })
             .catch(error => this.error = error.message)
@@ -140,8 +147,8 @@ export default {
             this.message = ''
             this.error = ''
             this.axios.post(dominio()+'users/signup' , {
-            email:this.email,
-            password:this.password
+                email:this.email,
+                password:this.password
             })
             .then( res => {
                 if( res.data.error ) this.error = res.data.error

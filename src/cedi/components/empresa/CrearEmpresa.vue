@@ -8,6 +8,31 @@
                 <div>
                     <label class="box-buttons box-buttons3" for="">
                         <div />
+                        Propietario de empresa
+                        <!-- <h6 v-if="v$.dataForm.owner.$error" class="right">
+                            Necesita un valor numerico | Requerido
+                        </h6> -->
+                    </label>
+
+                    <div v-if="loadingUsers">
+                        <input type="text" value="Espere..." readonly="readonly">
+                    </div>
+
+                    <select name="" v-if="!loadingUsers" v-model="dataForm.owner">
+                        <option 
+                            v-for="user in dataUser" 
+                            :key="user.id" 
+                            :value="user.id"
+                            >{{ user.email }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- <div class="form-box form-box1 mar0">
+                <div>
+                    <label class="box-buttons box-buttons3" for="">
+                        <div />
                         Codigo del propietario
                         <h6 v-if="v$.dataForm.owner.$error" class="right">
                             Necesita un valor numerico | Requerido
@@ -21,7 +46,7 @@
                     >
                     <h2 class="center mar0" v-else>{{ idOwner }}</h2>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
@@ -80,7 +105,7 @@
 
                 <div class="input">
                     <label for="">
-                        Giro postal
+                        Codigo postal
                         <h6 v-if="v$.dataForm.turn.$error">Requerido</h6>
                     </label>
                     <input type="text" v-model="dataForm.turn">
@@ -100,33 +125,33 @@
                 <div class="input">
                     <label for="">
                         Calle
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Colonia
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Población
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Referencia
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
@@ -136,9 +161,9 @@
                 <div class="input" v-if="daExped">
                     <label for="">
                         Lugar de expedición
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
             </div>
@@ -148,65 +173,65 @@
                 <div class="input">
                     <label for="">
                         Numero Ext
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Numero Int
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Entre calle
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Y calle
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         CP
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         País
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Estado
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
                 <div class="input">
                     <label for="">
                         Municipio
-                        <!-- <h6 v-if="v$.dataForm.name.$error">Requerido</h6> -->
+                        <!-- <h6 v-if="v$.dataForm.name1.$error">Requerido</h6> -->
                     </label>
-                    <input type="text" v-model="dataForm.name">
+                    <input type="text" v-model="dataForm.name1">
                 </div>
 
             </div>
@@ -242,7 +267,7 @@ import Switch from '@/components/mini/Switch';
 
 export default {
     name: "CrearEmpresa",
-    props: ["prueba", "getData", "url", "tab", "nameTab", "idOwner", "clearOwner"],
+    props: ["prueba", "getData", "url", "tab", "nameTab", "idOwner", "clearOwner", "dataUser", "loadingUsers"],
 
     components:{
         Loading,
@@ -270,14 +295,18 @@ export default {
             daExped: false,
             daExpedDesc: 'Alternar',
 
-            regimenFiscal: regimenFiscal
+            regimenFiscal: regimenFiscal,
+
+            // buscar: "",
+            // openSelectUser: false,
+            // emailUser: null
             
         }
     },
     validations () {
         return {
             dataForm: {
-                owner: this.idOwner === null ? { required, numeric } : { },
+                // owner: this.idOwner === null ? { required, numeric } : { },
                 key: { 
                     required,
                 },
@@ -389,6 +418,26 @@ export default {
             })
             
 
+        },
+
+        computed:{
+            filterUsers(){
+                // comprivacion de orden
+                // const altOrder = this.sortOrder === 1 ? -1 : 1
+
+                // buscar dato
+                return this.dataUser.filter(a => (
+                    a.email.toLowerCase().includes(this.buscar.toLowerCase())
+                ))
+                // ordenar datos en base al id
+                // .sort((a, b) => {
+                //     if (parseInt(a.id) > parseInt(b.id)) {
+                //         return this.sortOrder
+                //     }
+                //     return altOrder;
+                // })
+
+            },
         }
 
     },

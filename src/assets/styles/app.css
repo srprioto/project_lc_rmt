@@ -866,7 +866,7 @@ table.table2 tr th, table.table2 tr td {
 /* modal 2 */
 
 .background-modal .modal2{
-    background-color: var(--blancoT2);
+    background-color: var(--blanco2);
     text-align: center;
     box-sizing: border-box;
     padding: 30px 25px 40px 25px;

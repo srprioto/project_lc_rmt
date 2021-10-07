@@ -75,7 +75,7 @@ export default createRouter({
 
 
         {   // --- SELECCIONAR ROLES ---
-            path: "/seleccionar-rol",
+            path: `/seleccionar-rol`,
             name: "select-rol",
             component: SeleccionarRol
         },  

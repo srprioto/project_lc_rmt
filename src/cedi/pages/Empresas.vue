@@ -44,7 +44,9 @@
                 :tab="handleTabClick" 
                 :nameTab="tabNames.tab1"
                 :idOwner="idOwner"
-                :clearOwner="clearOwner" 
+                :clearOwner="clearOwner"
+                :dataUser="dataUser"
+                :loadingUsers="loadingUsers"
             />
         </div>
 
@@ -67,7 +69,9 @@
         data() {
             return {
                 data: {},
+                dataUser: {},
                 loading: true,
+                loadingUsers: true,
                 error: null,
 
                 tabNames: {
@@ -81,6 +85,7 @@
                     'Crear empresa',
 
                 url: dominio() + "business",
+                urlUsers: dominio() + "users",
                 dataForms: { },
 
                 idOwner: this.$route.params.owner ? this.$route.params.owner : null
@@ -115,7 +120,35 @@
                     this.loading = false;
                     this.error = error
                 }
+
+                this.getUsers()
             },
+
+
+
+            async getUsers() {
+                
+                this.loadingUsers = true;
+
+                try {
+                    const resUser = await this.axios({
+                        method: 'get',
+                        url: this.urlUsers,
+                    });
+                    this.dataUser = await resUser.data.success;
+
+                    // console.log(resUser.data.success);
+
+                    // this.dataUser = data.success
+                    this.loadingUsers = false;
+
+                } catch (error) {
+                    this.loadingUsers = false;
+                    this.error = error
+                }
+
+            },
+
 
             clearOwner(){
                 this.idOwner = null;

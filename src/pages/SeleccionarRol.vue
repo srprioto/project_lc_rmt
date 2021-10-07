@@ -10,8 +10,20 @@
                 <div 
                     @mouseover="cambiarImg('cedi')" 
                     v-if="
-                        permAccess.includes('@profile') &&
-                        permAccess.includes('@profile')
+                        permAccess.includes('@business')
+                    ">
+
+                    <button @click="accederCEDI" class="">
+                        <span>LINCELEY</span>
+                        <font-awesome-icon icon="chevron-right" size="lg"/>
+                    </button>
+
+                </div>
+
+                <div 
+                    @mouseover="cambiarImg('cedi')" 
+                    v-if="
+                        permAccess.includes('@business')
                     ">
 
                     <button @click="accederCEDI" class="">
@@ -24,8 +36,8 @@
                 <div 
                     @mouseover="cambiarImg('usuario')" 
                     v-if="
-                        permAccess.includes('@profile')&&
-                        permAccess.includes('@profile')
+                        permAccess.includes('@business') ||
+                        permAccess.includes('@profile') 
                     ">
 
                     <button @click="accederUSER" class="">
@@ -38,8 +50,7 @@
                 <div 
                     @mouseover="cambiarImg('transporte')" 
                     v-if="
-                        permAccess.includes('@profile')&&
-                        permAccess.includes('@profile')
+                        permAccess.includes('@profile') 
                     ">
 
                     <button @click="construccion" class="">
@@ -81,7 +92,7 @@ export default {
         }
     },
     created() {
-        
+        console.log(window.localStorage.getItem("token"));
     },
     methods:{
         accederCEDI(){

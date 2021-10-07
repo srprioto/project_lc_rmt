@@ -42,9 +42,9 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nombre</th>
+                        <!-- <th>Nombre</th>
                         <th>Descripción</th>
-                        <th>Nro S.S.</th>
+                        <th>Nro S.S.</th> -->
                         <th>Posición</th>
                         <th>Ultima actualizacion</th>
                         <th class="table-icons">...</th>
@@ -56,9 +56,9 @@
                     <!-- <tr v-for="item in datosFiltrados" :key="item.key"> -->
                     <tr v-for="item in data" :key="item.key">
                         <td>{{ item.id }}</td>
-                        <td>{{ item.name }}</td>
+                        <!-- <td>{{ item.name }}</td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.socialSecurity }}</td>
+                        <td>{{ item.socialSecurity }}</td> -->
                         <td>{{ handlerPosition(item.positionId) }}</td>
                         <td>{{ item.updatedAt }}</td>
                         <td class="table-icons">
